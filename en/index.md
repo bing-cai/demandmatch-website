@@ -144,7 +144,7 @@ With a free fit check: you send us a few facts first (industry, revenue, ERP, si
 
 ### Who is behind DemandMatch?
 
-DemandMatch was founded in Berlin by Bing Cai (CEO, Staff Forward Deployed Engineer) and Richard von Waldow (Forward Deployed Engineer). Contact: hello@demandmatch.io.
+DemandMatch was founded in Berlin by Bing Cai (CEO, Staff Forward Deployed Engineer) and Richard von Waldow (GTM, Enterprise Partnerships). Contact: hello@demandmatch.io.
 
 ## Built for German companies. Works council and data protection planned in.
 
@@ -157,6 +157,6 @@ DemandMatch was founded in Berlin by Bing Cai (CEO, Staff Forward Deployed Engin
 
 ## Company
 
-Founded in Berlin by Bing Cai (CEO, Staff Forward Deployed Engineer, https://www.linkedin.com/in/bingcai/) and Richard von Waldow (Forward Deployed Engineer, https://www.linkedin.com/in/richard-von-waldow/).
+Founded in Berlin by Bing Cai (CEO, Staff Forward Deployed Engineer, https://www.linkedin.com/in/bingcai/) and Richard von Waldow (GTM, Enterprise Partnerships, https://www.linkedin.com/in/richard-von-waldow/).
 
 Contact: hello@demandmatch.io · https://demandmatch.io/en/

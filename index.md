@@ -144,7 +144,7 @@ Mit einem kostenlosen Fit-Check: Sie schicken uns vorab ein paar Eckdaten (Branc
 
 ### Wer steht hinter DemandMatch?
 
-DemandMatch wurde in Berlin von Bing Cai (CEO, Staff Forward Deployed Engineer) und Richard von Waldow (Forward Deployed Engineer) gegründet. Kontakt: hello@demandmatch.io.
+DemandMatch wurde in Berlin von Bing Cai (CEO, Staff Forward Deployed Engineer) und Richard von Waldow (GTM, Enterprise Partnerships) gegründet. Kontakt: hello@demandmatch.io.
 
 ## Gemacht für deutsche Unternehmen. Betriebsrat und Datenschutz im Plan.
 
@@ -157,6 +157,6 @@ DemandMatch wurde in Berlin von Bing Cai (CEO, Staff Forward Deployed Engineer) 
 
 ## Unternehmen
 
-Gegründet in Berlin von Bing Cai (CEO, Staff Forward Deployed Engineer, https://www.linkedin.com/in/bingcai/) und Richard von Waldow (Forward Deployed Engineer, https://www.linkedin.com/in/richard-von-waldow/).
+Gegründet in Berlin von Bing Cai (CEO, Staff Forward Deployed Engineer, https://www.linkedin.com/in/bingcai/) und Richard von Waldow (GTM, Enterprise Partnerships, https://www.linkedin.com/in/richard-von-waldow/).
 
 Kontakt: hello@demandmatch.io · https://demandmatch.io/
