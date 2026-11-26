@@ -29,3 +29,10 @@
 /* the header links: one line each; on narrower desktops they sit closer together */
 .nav a { white-space: nowrap; }
 @media (max-width: 1280px) { .nav { gap: 22px; } }
+
+/* the header link of the section in view (site.js): dark text and a short cobalt line under it, like the rail's dot */
+.nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 1.5px; border-radius: 2px; background: var(--cobalt);
+  transform: scaleX(0); transform-origin: left center; transition: transform 320ms var(--ease-out); }
+.nav a[aria-current="location"] { color: var(--ink); }
+.nav a[aria-current="location"]::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) { .nav a::after { transition: none; } }

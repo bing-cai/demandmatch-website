@@ -605,6 +605,23 @@
     mark();
   });
 
+  // ---------------------------------------------------------------- desktop: the header shows where you are (rail.css)
+  // A header link is current while its section crosses the middle of the screen; between them none is.
+  {
+    const links = qa('.nav a[href^="#"]').map(a => [a, document.getElementById(a.getAttribute('href').slice(1))]).filter(([, s]) => s);
+    if (links.length) {
+      let raf = 0;
+      const update = () => {
+        raf = 0;
+        const mid = innerHeight / 2;
+        links.forEach(([a, s]) => { const r = s.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+      };
+      addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+      addEventListener('resize', update);
+      update();
+    }
+  }
+
   // ---------------------------------------------------------------- desktop: the section rail (rail.css)
   const HEAD = 'h1.h1, h2.h2, h2.say'; // section headlines, not the headings inside product cards
   // One dot per section that has a headline; the headline's first line is the dot's label. The dot of the section that
