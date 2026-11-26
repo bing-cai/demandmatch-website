@@ -257,7 +257,7 @@
       s_end_cfo: "Für die Geschäftsführung: der Business Case",
       s_film_label: "Film: ein Vormittag im Vertrieb, erst von Hand, dann mit dem DemandMatch Autopilot", s_film_pause: "Film anhalten", s_film_play: "Film abspielen",
       menu_open: "Menü öffnen", menu_close: "Menü schließen", menu_label: "Menü",
-      roi_more: "Alle 13 Annahmen anpassen", roi_less: "Weniger Annahmen zeigen", s_show_all: "Alle {n} zeigen", rail_go: "Zu Karte {n}"
+      rail_label: "Abschnitte", roi_more: "Alle 13 Annahmen anpassen", roi_less: "Weniger Annahmen zeigen", s_show_all: "Alle {n} zeigen", rail_go: "Zu Karte {n}"
     },
     en: {
       title: 'DemandMatch · Your stock finds its customers',
@@ -508,7 +508,7 @@
       s_end_cfo: "For finance: the business case",
       s_film_label: "Film: a morning in sales, first by hand, then with the DemandMatch Autopilot", s_film_pause: "Pause the film", s_film_play: "Play the film",
       menu_open: "Open menu", menu_close: "Close menu", menu_label: "Menu",
-      roi_more: "Adjust all 13 assumptions", roi_less: "Show fewer assumptions", s_show_all: "Show all {n}", rail_go: "Go to card {n}"
+      rail_label: "Sections", roi_more: "Adjust all 13 assumptions", roi_less: "Show fewer assumptions", s_show_all: "Show all {n}", rail_go: "Go to card {n}"
     }
   };
 
@@ -604,6 +604,39 @@
     rail.addEventListener('scroll', () => requestAnimationFrame(mark), { passive: true });
     mark();
   });
+
+  // ---------------------------------------------------------------- desktop: the section rail (rail.css)
+  const HEAD = 'h1.h1, h2.h2, h2.say'; // section headlines, not the headings inside product cards
+  // One dot per section that has a headline; the headline's first line is the dot's label. The dot of the section that
+  // crosses the middle of the screen is the current one; the line fills down to it, and a bit further as you read on.
+  {
+    const secs = qa('main section').filter(s => s.parentElement.matches('main, .hero-gallery') && s.querySelector(HEAD));
+    if (secs.length > 2) {
+      const label = s => (s.querySelector(HEAD).innerText || '').split('\n')[0].trim();
+      const rail = Object.assign(document.createElement('nav'), { className: 'rail' });
+      rail.setAttribute('aria-label', T[lang].rail_label);
+      rail.innerHTML = secs.map((s, i) => `<a href="#${s.id || 'top'}"><span>${label(s).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))}</span></a>`).join('');
+      document.body.append(rail);
+      const dots = [...rail.children];
+      let raf = 0;
+      const update = () => {
+        raf = 0;
+        const mid = innerHeight / 2, tops = secs.map(s => s.getBoundingClientRect().top);
+        let i = 0; tops.forEach((t, k) => { if (t <= mid) i = k; });
+        // how far into section i we are, to fill the line part of the way to the next dot
+        const next = tops[i + 1] ?? (document.documentElement.scrollHeight - scrollY), span = next - tops[i];
+        const p = i < secs.length - 1 ? Math.max(0, Math.min(1, (mid - tops[i]) / (span || 1))) : 0;
+        dots.forEach((d, k) => { d.classList.toggle('now', k === i); d.classList.toggle('past', k < i); if (k === i) d.setAttribute('aria-current', 'location'); else d.removeAttribute('aria-current'); });
+        const a = dots[i].offsetTop + 6, b = dots[Math.min(i + 1, dots.length - 1)].offsetTop + 6;
+        rail.style.setProperty('--fill', `${a - dots[0].offsetTop + (b - a) * p}px`);
+        // it appears once the hero headline has moved up
+        rail.classList.toggle('on', scrollY > innerHeight * .35);
+      };
+      addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+      addEventListener('resize', update);
+      update();
+    }
+  }
 
   // The bar shows once the hero's buttons are above the screen, and steps aside where the page's own closing buttons
   // or the footer are in view, and while the menu is open.

@@ -1,0 +1,27 @@
+/* Desktop: a rail on the left edge with one dot per section (site.js). The line fills as you scroll; the dot of the
+   section in view is larger, with a soft halo; hovering a dot shows that section's headline; a click goes there.
+   Only on wide screens with a mouse, where it fits in the margin beside the content. */
+.rail { display: none; }
+@media (min-width: 1100px) and (hover: hover) and (pointer: fine) {
+  .rail { --gap: 30px; --fill: 0px; position: fixed; z-index: 30; top: 50%; left: max(12px, calc((100vw - var(--max)) / 2 - 8px)); display: flex; flex-direction: column; gap: calc(var(--gap) - 12px);
+    transform: translateY(-50%); opacity: 0; transition: opacity 400ms ease; }
+  .rail.on { opacity: 1; }
+  /* the line behind the dots, and its filled part */
+  .rail::before, .rail::after { content: ''; position: absolute; left: 11px; top: 12px; width: 2px; margin-left: -1px; border-radius: 2px; }
+  .rail::before { bottom: 12px; background: rgb(20 20 20 / .12); }
+  .rail::after { height: var(--fill); background: var(--cobalt); transition: height 260ms var(--ease-out); }
+  .rail a { position: relative; z-index: 1; display: grid; place-items: center; width: 24px; height: 12px; margin: 6px 0; }
+  .rail a::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 2px rgb(20 20 20 / .22);
+    transition: transform 300ms var(--ease-out), background-color 200ms ease, box-shadow 300ms var(--ease-out); }
+  .rail a.past::before { box-shadow: inset 0 0 0 2px var(--cobalt); }
+  .rail a.now::before { background: var(--cobalt); box-shadow: 0 0 0 6px rgb(44 87 201 / .16); transform: scale(1.5); }
+  .rail a:hover::before { box-shadow: inset 0 0 0 2px var(--cobalt), 0 0 0 5px rgb(44 87 201 / .1); }
+  .rail a.now:hover::before { box-shadow: 0 0 0 6px rgb(44 87 201 / .22); }
+  .rail a:focus-visible { outline: 2px solid var(--cobalt); outline-offset: 2px; border-radius: 99px; }
+  /* the headline as a label beside the dot */
+  .rail a span { position: absolute; left: 30px; top: 50%; padding: 6px 11px; border-radius: 9px; white-space: nowrap; pointer-events: none;
+    background: rgb(255 255 255 / .92); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 0 0 .5px rgb(0 0 0 / .08), 0 6px 18px -8px rgb(20 30 60 / .35);
+    font: 500 13px/1.2 var(--font); color: var(--ink); opacity: 0; transform: translate(-4px, -50%); transition: opacity 160ms ease, transform 220ms var(--ease-out); }
+  .rail a:hover span, .rail a:focus-visible span { opacity: 1; transform: translate(0, -50%); }
+}
+@media (prefers-reduced-motion: reduce) { .rail, .rail::after, .rail a::before, .rail a span { transition: none; } }

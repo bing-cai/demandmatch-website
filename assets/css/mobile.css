@@ -103,9 +103,8 @@
     background: rgb(255 255 255 / .7); box-shadow: var(--hair); color: var(--ink); font: 500 14.5px/1 var(--font); cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .s-more:active { transform: scale(.985); }
 
-  /* the business case: the result first; then three sliders, the other ten behind one button */
+  /* the business case: three sliders first (the other ten behind one button), then the result */
   .roi-sheet { display: flex; flex-direction: column; gap: 2px; }
-  .roi-side { order: -1; }
   .roi-in:not(.all) .roi-r:not([data-k="rev"]):not([data-k="gm"]):not([data-k="people"]) { display: none; }
   .roi-in:not(.all) .roi-g:not(:first-of-type) { display: none; }
   .roi-more { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 48px; margin-top: 28px; border: 0; border-radius: 14px;
