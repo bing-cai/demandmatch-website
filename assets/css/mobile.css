@@ -113,3 +113,20 @@
   .roi-more i { transition: transform 300ms var(--ease-out); }
   .roi-more[aria-expanded="true"] i { transform: rotate(180deg); }
 }
+
+/* ---------------------------------------------------------------- 4. less frame, more content on phones
+   The paintings stay, as a band above each piece of the product rather than a large field around a small card; the
+   statement lines are set smaller, so one reads in a glance instead of filling the screen. ("html" outranks sales.css,
+   which loads after this file.) */
+@media (max-width: 720px) {
+  html .card-art { min-height: 0; padding: 72px 12px 12px; place-items: end center; }
+  html :is(.card-c, .card-w) .card-art { padding-top: 72px; padding-bottom: 12px; }
+  html .roi-out { padding-top: 76px; }
+  html .ge.js .ge-stage, html .s-roles.js .s-role-stage { padding-top: 112px; }
+  html .s-board-stage { padding-top: 72px; }
+  html .s-stop-art { min-height: 0; padding: 56px 12px 12px; }
+  html .s-auto { padding-top: 96px; }
+  html .s-offer-wrap { padding-top: 72px; }
+  html .close-art { height: 220px; }
+  html .say { font-size: 28px; line-height: 1.12; letter-spacing: -.02em; }
+}
