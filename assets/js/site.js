@@ -254,7 +254,8 @@
       s_faq_h: "Fragen aus dem Vertrieb.",
       s_faq: [["Schickt DemandMatch E-Mails von selbst?", "Nein. DemandMatch bereitet Angebote und Antworten vor. Nach Ihrer Freigabe liegt der Entwurf in Outlook, und Sie schicken ihn selbst ab."], ["Ersetzt DemandMatch meinen Job?", "Nein. Es nimmt Ihnen das Suchen, Rechnen und Abtippen ab. Die Kunden, die Verhandlung und die Entscheidung bleiben bei Ihnen."], ["Was, wenn es eine Anfrage falsch versteht?", "Ist DemandMatch unsicher, rät es nicht. Die Anfrage landet unter „Braucht einen Blick“, mit dem Grund in Worten. Und jede Zahl im Entwurf wird gegen das Angebot geprüft, bevor Sie freigeben können."], ["Muss ich ein neues System lernen?", "Kaum. Sie arbeiten mit einer Liste für heute und senden aus Ihrem Outlook. SAP und CRM bleiben, wie sie sind. DemandMatch liest dort nur."], ["Gelten unsere Preisregeln?", "Ja. Die Preise kommen aus Ihren Regeln: Preisband, Staffel, Rahmenvertrag, dazu die Fracht zur Lieferadresse. Liegt die Marge darunter, entscheidet die Teamleitung oder das Produktmanagement."], ["Wie fangen wir an?", "Mit einem kostenlosen Fit-Check. Danach folgen eine Potenzialanalyse und ein Pilot von 30 Tagen auf Ihren echten Daten, für eine Produktfamilie und ein Team. In Woche 3 und 4 arbeitet Ihr Team damit."]],
       s_end_h: "Zeigen Sie es Ihrem Team.<br><span class=\"mute\">Demo anfragen oder gleich ausprobieren.</span>",
-      s_end_cfo: "Für die Geschäftsführung: der Business Case"
+      s_end_cfo: "Für die Geschäftsführung: der Business Case",
+      s_film_label: "Film ohne Ton, 33 Sekunden: ein Vormittag im Vertrieb mit DemandMatch", s_film_pause: "Film anhalten", s_film_play: "Film abspielen"
     },
     en: {
       title: 'DemandMatch · Your stock finds its customers',
@@ -502,7 +503,8 @@
       s_faq_h: "Questions from sales.",
       s_faq: [["Does DemandMatch send emails by itself?", "No. It prepares offers and replies. Once you approve, the draft sits in your Outlook and you send it yourself."], ["Does DemandMatch replace my job?", "No. It takes the searching, calculating and typing off your hands. The customers, the negotiation and the decision stay with you."], ["What if it misreads a request?", "When DemandMatch is unsure, it does not guess. The request goes to “Needs a look” with the reason in words. And every number in the draft is checked against the offer before you can approve it."], ["Do I have to learn a new system?", "Hardly. You work from one list for today and send from your own Outlook. SAP and the CRM stay as they are. DemandMatch only reads from them."], ["Do our pricing rules apply?", "Yes. Prices come from your rules: price band, scale, framework contract, plus freight to the delivery address. If the margin falls below, the team lead or the product manager decides."], ["How do we start?", "With a free fit check. Then a value assessment and a 30-day pilot on your real data, for one product family and one team. In weeks 3 and 4 your team works with it."]],
       s_end_h: "Show it to your team.<br><span class=\"mute\">Book a demo, or try it now.</span>",
-      s_end_cfo: "For finance: the business case"
+      s_end_cfo: "For finance: the business case",
+      s_film_label: "Silent film, 33 seconds: a sales morning with DemandMatch", s_film_pause: "Pause the film", s_film_play: "Play the film"
     }
   };
 

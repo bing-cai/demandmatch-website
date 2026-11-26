@@ -8,6 +8,23 @@
 (() => {
   const t = k => window.UI.t(k);
 
+  // ---------------------------------------------------------------- 0. the film: muted autoplay, loops; a pause button (it runs
+  // longer than five seconds); paused from the start for reduced motion, and only plays while it is on screen
+  const film = document.querySelector('[data-film]');
+  if (film) {
+    const btn = document.querySelector('[data-film-toggle]');
+    let wanted = !matchMedia('(prefers-reduced-motion: reduce)').matches, seen = true;
+    const sync = () => {
+      if (wanted && seen) film.play().catch(() => {}); else film.pause();
+      btn.innerHTML = `<i class="ph-light ph-${wanted ? 'pause' : 'play'}" aria-hidden="true"></i>`;
+      btn.setAttribute('aria-label', t(wanted ? 's_film_pause' : 's_film_play')); btn.title = btn.getAttribute('aria-label');
+    };
+    if (!wanted) film.removeAttribute('autoplay');
+    btn.addEventListener('click', () => { wanted = !wanted; sync(); });
+    new IntersectionObserver(([e]) => { seen = e.isIntersecting; sync(); }, { threshold: .15 }).observe(film);
+    sync();
+  }
+
   // ---------------------------------------------------------------- 1. the list for today
   const board = document.querySelector('[data-board]');
   if (board) {

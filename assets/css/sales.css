@@ -6,13 +6,30 @@
 .sales-page :is(#day, #split, #trust, #roles) { padding-top: var(--sec-y); padding-bottom: var(--sec-y); }
 
 /* ------------------------------------------------------------------ hero: the promise, then the list for today on the river */
-.hero-gallery > .s-board-sec { grid-area: 2 / 1; }
+.hero-gallery > .s-film-sec { grid-area: 2 / 1; }
+
+/* the film: a window onto a sales morning, on the same painting it was made from */
+.s-film { position: relative; max-width: 1120px; margin: clamp(40px, 6vw, 84px) auto clamp(90px, 10vw, 150px); aspect-ratio: 16 / 9; border-radius: 26px; overflow: hidden; isolation: isolate;
+  background: #dfe4f2; box-shadow: 0 0 0 .5px rgb(0 0 0 / .08), 0 4px 10px rgb(20 30 60 / .06), 0 50px 90px -40px rgb(20 30 60 / .45); }
+.s-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.s-film-b { position: absolute; right: 16px; bottom: 16px; display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+  background: rgb(255 255 255 / .86); -webkit-backdrop-filter: blur(16px) saturate(1.5); backdrop-filter: blur(16px) saturate(1.5); box-shadow: var(--lift); color: var(--ink); font-size: 18px;
+  -webkit-tap-highlight-color: transparent; transition: transform 140ms var(--ease-out), background-color 200ms ease; }
+.s-film-b:active { transform: scale(.94); }
+@media (hover: hover) and (pointer: fine) { .s-film-b:hover { background: #fff; } }
+@media (max-width: 700px) { .s-film { border-radius: 18px; } .s-film-b { right: 10px; bottom: 10px; width: 38px; height: 38px; } }
+
+/* the list for today, on its own painting, right after "And Friday is month end." */
+.s-board-sec { padding-bottom: var(--sec-y); }
+.s-board-stage { position: relative; padding: clamp(120px, 12vw, 190px) clamp(10px, 3vw, 48px) clamp(10px, 3vw, 48px); border-radius: 32px; overflow: hidden; isolation: isolate; background: #cdd5ea; }
+.s-board-art { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; object-position: 30% 55%; }
+@media (max-width: 700px) { .s-board-stage { border-radius: 22px; } }
 .s-hero .gallery-wallpaper img { object-position: 50% 42%; }
 .s-hero .h1 { max-width: none; font-size: clamp(42px, 5.6vw, 80px); line-height: 1; }
 .s-h1b { display: block; }
 .s-for { margin: 22px 0 0; font-size: 13.5px; color: var(--ink-3); }
 
-.s-board { max-width: 1080px; margin: clamp(48px, 7vw, 110px) auto clamp(90px, 10vw, 150px); padding: 10px; border-radius: 26px; font-variant-numeric: lining-nums tabular-nums; }
+.s-board { max-width: 1080px; margin: 0 auto; padding: 10px; border-radius: 26px; font-variant-numeric: lining-nums tabular-nums; }
 .s-board-h { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 18px 12px; }
 .s-board-h h2 { margin: 0; font: 500 22px/1.1 var(--serif); letter-spacing: -.02em; color: var(--ink); }
 .s-board-h em { padding: 6px 11px; border-radius: 99px; background: rgb(15 138 105 / .12); color: var(--viridian-ink); font: 500 12.5px/1 var(--font); font-style: normal; transition: background-color 300ms ease, color 300ms ease; }
@@ -22,8 +39,8 @@
 .s-rows { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
 .s-row { padding: 13px 14px 13px 18px; border-radius: 16px; background: rgb(255 255 255 / .92); box-shadow: var(--hair);
   opacity: 0; transform: translateY(10px); transition: opacity 700ms var(--ease-out), transform 800ms var(--ease-out), background-color 400ms ease;
-  transition-delay: calc(900ms + var(--i) * 90ms); }
-.ready .s-row { opacity: 1; transform: none; }
+  transition-delay: calc(450ms + var(--i) * 90ms); }
+.s-board.in .s-row { opacity: 1; transform: none; }
 .s-who { min-width: 0; }
 .s-who b { display: block; font-weight: 500; font-size: 14.5px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .s-who small { display: block; margin-top: 2px; font-size: 12.5px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

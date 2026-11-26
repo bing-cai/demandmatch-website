@@ -125,7 +125,7 @@
 <link rel="stylesheet" href="../assets/css/site.css?v=0dae5c35">
 <link rel="stylesheet" href="../assets/css/monet.css?v=62d258b9">
 <link rel="stylesheet" href="../assets/css/type.css?v=7a159ab8">
-<link rel="stylesheet" href="../assets/css/sales.css?v=4ded10ad">
+<link rel="stylesheet" href="../assets/css/sales.css?v=dd117d51">
 </head>
 <body class="sales-page">
 <a class="skip" href="#main" data-t="skip">Zum Inhalt</a>
@@ -150,7 +150,8 @@
 
 <main id="main">
 
-  <!-- HERO: the promise to sales in one line, and their day as the picture: the list for today, ready to approve (sales.js) -->
+  <!-- HERO: the promise to sales in one line, then the film: a sales morning in 33 seconds, muted, looping, pausable
+       (src/film/sales-film.html, recorded by tools/film/; sales.js pauses it for reduced motion and off screen) -->
   <div class="hero-gallery s-hero">
     <div class="gallery-wallpaper" aria-hidden="true"><img src="../assets/art/river-port-1536.webp" srcset="../assets/art/river-port-640.webp 640w, ../assets/art/river-port-1024.webp 1024w, ../assets/art/river-port-1536.webp 1536w" sizes="100vw" alt="" decoding="async" fetchpriority="high"></div>
     <section class="hero wrap">
@@ -162,19 +163,14 @@
       </div>
       <p class="s-for in-hero" style="--d:8" data-t="s_for">Für Vertriebsleitung, Account Executives und Key Account Manager.</p>
     </section>
-    <section class="s-board-sec wrap" aria-labelledby="s-board-h">
-      <div class="s-board glass in-hero" style="--d:9" data-board aria-label="Beispiel: die Liste für heute" role="group">
-        <div class="s-board-h"><h2 id="s-board-h">Heute zu erledigen</h2><em data-open>5 offen</em></div>
-        <div class="s-cols" aria-hidden="true"><span>Kunde</span><span>Art</span><span>Frist</span><span>Wert</span><span>Status</span><span></span></div>
-        <ol class="s-rows">
-          <li class="s-row prep" style="--i:0"><div class="s-who"><b>Novaform GmbH</b><small>3 t PP 7032E3</small></div><span class="s-type">Angebot</span><span class="s-due">Heute, 12:00</span><span class="s-val">4.140 €</span><span class="s-st"><i aria-hidden="true"></i>Antwort vorbereitet</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
-          <li class="s-row prep" style="--i:1"><div class="s-who"><b>Medplast</b><small>Staffel 1, 3 und 5 t PE-HD</small></div><span class="s-type">Staffel</span><span class="s-due">Heute, 15:00</span><span class="s-val">7.100 €</span><span class="s-st"><i aria-hidden="true"></i>Antwort vorbereitet</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
-          <li class="s-row prep" style="--i:2"><div class="s-who"><b>Hanse Closures</b><small>24 t HDPE Lebensmittel</small></div><span class="s-type">Angebot</span><span class="s-due">Morgen</span><span class="s-val">33.600 €</span><span class="s-st"><i aria-hidden="true"></i>Antwort vorbereitet</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
-          <li class="s-row follow" style="--i:3"><div class="s-who"><b>Harzer Kunststoff</b><small>20 t PP-Block</small></div><span class="s-type">Angebot</span><span class="s-due">Morgen</span><span class="s-val">26.200 €</span><span class="s-st"><i aria-hidden="true"></i>Nachfassen: Reservierung läuft ab</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
-          <li class="s-row prep" style="--i:4"><div class="s-who"><b>Weser Getränketechnik</b><small>Abruf 12 t HDPE</small></div><span class="s-type">Abruf</span><span class="s-due">Donnerstag</span><span class="s-val">16.800 €</span><span class="s-st"><i aria-hidden="true"></i>Antwort vorbereitet</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
-        </ol>
-        <p class="s-board-f">Nach Frist, dann nach Wert sortiert. Nach der Freigabe liegt der Entwurf in Outlook, Sie senden ihn selbst. Beispieldaten.</p>
-      </div>
+    <section class="s-film-sec wrap">
+      <figure class="s-film in-hero" style="--d:9">
+        <video class="s-video" autoplay muted loop playsinline preload="auto" poster="../assets/film/sales-de-poster.webp" data-film data-ta="s_film_label" aria-label="Film ohne Ton, 33 Sekunden: ein Vormittag im Vertrieb mit DemandMatch">
+          <source src="../assets/film/sales-de-960.mp4" type="video/mp4" media="(max-width: 700px)">
+          <source src="../assets/film/sales-de-1600.mp4" type="video/mp4">
+        </video>
+        <button class="s-film-b" type="button" data-film-toggle data-ta="s_film_pause" aria-label="Film anhalten"><i class="ph-light ph-pause" aria-hidden="true"></i></button>
+      </figure>
     </section>
   </div>
 
@@ -186,6 +182,25 @@
       <span class="ln" data-t="s_why3">Das Nachfassen rutscht. Die Ware altert im Lager.</span>
       <span class="ln ln-end" data-t="s_why4">Und Freitag ist Monatsende.</span>
     </h2>
+  </section>
+
+  <!-- TODAY: the answer to that Monday, the list for today, ready to approve (sales.js) -->
+  <section class="s-board-sec wrap" id="today" aria-labelledby="s-board-h">
+    <div class="s-board-stage">
+      <img class="s-board-art" src="../assets/art/unloading-1536.webp" srcset="../assets/art/unloading-640.webp 640w, ../assets/art/unloading-1024.webp 1024w, ../assets/art/unloading-1536.webp 1536w" sizes="100vw" alt="" loading="lazy" decoding="async">
+      <div class="s-board glass rv" data-board aria-label="Beispiel: die Liste für heute" role="group">
+        <div class="s-board-h"><h2 id="s-board-h">Heute zu erledigen</h2><em data-open>5 offen</em></div>
+        <div class="s-cols" aria-hidden="true"><span>Kunde</span><span>Art</span><span>Frist</span><span>Wert</span><span>Status</span><span></span></div>
+        <ol class="s-rows">
+          <li class="s-row prep" style="--i:0"><div class="s-who"><b>Novaform GmbH</b><small>3 t PP 7032E3</small></div><span class="s-type">Angebot</span><span class="s-due">Heute, 12:00</span><span class="s-val">4.140 €</span><span class="s-st"><i aria-hidden="true"></i>Antwort vorbereitet</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
+          <li class="s-row prep" style="--i:1"><div class="s-who"><b>Medplast</b><small>Staffel 1, 3 und 5 t PE-HD</small></div><span class="s-type">Staffel</span><span class="s-due">Heute, 15:00</span><span class="s-val">7.100 €</span><span class="s-st"><i aria-hidden="true"></i>Antwort vorbereitet</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
+          <li class="s-row prep" style="--i:2"><div class="s-who"><b>Hanse Closures</b><small>24 t HDPE Lebensmittel</small></div><span class="s-type">Angebot</span><span class="s-due">Morgen</span><span class="s-val">33.600 €</span><span class="s-st"><i aria-hidden="true"></i>Antwort vorbereitet</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
+          <li class="s-row follow" style="--i:3"><div class="s-who"><b>Harzer Kunststoff</b><small>20 t PP-Block</small></div><span class="s-type">Angebot</span><span class="s-due">Morgen</span><span class="s-val">26.200 €</span><span class="s-st"><i aria-hidden="true"></i>Nachfassen: Reservierung läuft ab</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
+          <li class="s-row prep" style="--i:4"><div class="s-who"><b>Weser Getränketechnik</b><small>Abruf 12 t HDPE</small></div><span class="s-type">Abruf</span><span class="s-due">Donnerstag</span><span class="s-val">16.800 €</span><span class="s-st"><i aria-hidden="true"></i>Antwort vorbereitet</span><button class="s-ok" type="button" data-ok><span>Freigeben</span></button></li>
+        </ol>
+        <p class="s-board-f">Nach Frist, dann nach Wert sortiert. Nach der Freigabe liegt der Entwurf in Outlook, Sie senden ihn selbst. Beispieldaten.</p>
+      </div>
+    </div>
   </section>
 
   <!-- THE DAY: five moments of a working day, each with the piece of the product it uses, on a time rail -->
@@ -304,13 +319,13 @@
 </footer>
 
 <script>window.SHARED_BASE = '../assets/';</script>
-<script src="../assets/js/site.js?v=b193d119"></script>
+<script src="../assets/js/site.js?v=b66b5384"></script>
 <script src="../assets/app/engine.js?v=8505b732"></script>
 <script src="../assets/app/sample.js?v=45050d6c"></script>
 <script src="../assets/app/gantt.js?v=104f4347"></script>
 <script src="../assets/app/ae.js?v=4dba1bf8"></script>
 <script src="../assets/app/app.js?v=376f35ef"></script>
 <script src="../assets/js/stage.js?v=49cb733a"></script>
-<script src="../assets/js/sales.js?v=3d1b0333"></script>
+<script src="../assets/js/sales.js?v=d734c057"></script>
 </body>
 </html>
