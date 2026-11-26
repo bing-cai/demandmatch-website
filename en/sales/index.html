@@ -125,7 +125,8 @@
 <link rel="stylesheet" href="../../assets/css/site.css?v=0dae5c35">
 <link rel="stylesheet" href="../../assets/css/monet.css?v=62d258b9">
 <link rel="stylesheet" href="../../assets/css/type.css?v=7a159ab8">
-<link rel="stylesheet" href="../../assets/css/sales.css?v=dd117d51">
+<link rel="stylesheet" href="../../assets/css/film.css?v=c23d0507">
+<link rel="stylesheet" href="../../assets/css/sales.css?v=5d5fd068">
 </head>
 <body class="sales-page">
 <a class="skip" href="#main" data-t="skip">Skip to content</a>
@@ -150,8 +151,8 @@
 
 <main id="main">
 
-  <!-- HERO: the promise to sales in one line, then the film: a sales morning in 33 seconds, muted, looping, pausable
-       (src/film/sales-film.html, recorded by tools/film/; sales.js pauses it for reduced motion and off screen) -->
+  <!-- HERO: the promise to sales in one line, then the laptop film: a morning by hand, then the Autopilot (film.js draws it,
+       loops, stops off screen; sales.js adds the pause button; reduced motion shows one still frame until play) -->
   <div class="hero-gallery s-hero">
     <div class="gallery-wallpaper" aria-hidden="true"><img src="../../assets/art/river-port-1536.webp" srcset="../../assets/art/river-port-640.webp 640w, ../../assets/art/river-port-1024.webp 1024w, ../../assets/art/river-port-1536.webp 1536w" sizes="100vw" alt="" decoding="async" fetchpriority="high"></div>
     <section class="hero wrap">
@@ -165,10 +166,7 @@
     </section>
     <section class="s-film-sec wrap">
       <figure class="s-film in-hero" style="--d:9">
-        <video class="s-video" autoplay muted loop playsinline preload="auto" poster="../../assets/film/sales-en-poster.webp" data-film data-ta="s_film_label" aria-label="Silent film, 33 seconds: a sales morning with DemandMatch">
-          <source src="../../assets/film/sales-en-960.mp4" type="video/mp4" media="(max-width: 700px)">
-          <source src="../../assets/film/sales-en-1600.mp4" type="video/mp4">
-        </video>
+        <div class="film" id="film" role="img" data-ta="s_film_label" aria-label="Film: a morning in sales, first by hand, then with the DemandMatch Autopilot"></div>
         <button class="s-film-b" type="button" data-film-toggle data-ta="s_film_pause" aria-label="Pause the film"><i class="ph-light ph-pause" aria-hidden="true"></i></button>
       </figure>
     </section>
@@ -319,13 +317,14 @@
 </footer>
 
 <script>window.SHARED_BASE = '../../assets/';</script>
-<script src="../../assets/js/site.js?v=b66b5384"></script>
+<script src="../../assets/js/site.js?v=5453df01"></script>
 <script src="../../assets/app/engine.js?v=8505b732"></script>
 <script src="../../assets/app/sample.js?v=45050d6c"></script>
 <script src="../../assets/app/gantt.js?v=104f4347"></script>
 <script src="../../assets/app/ae.js?v=4dba1bf8"></script>
 <script src="../../assets/app/app.js?v=376f35ef"></script>
 <script src="../../assets/js/stage.js?v=49cb733a"></script>
-<script src="../../assets/js/sales.js?v=d734c057"></script>
+<script src="../../assets/js/film.js?v=44a85510"></script>
+<script src="../../assets/js/sales.js?v=a69d5301"></script>
 </body>
 </html>

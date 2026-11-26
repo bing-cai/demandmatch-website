@@ -1,5 +1,6 @@
 /* The sales page: three small pieces of the product to touch.
-   1. The list for today (hero): Approve turns a row into "Draft in Outlook" and the open count goes down.
+   0. The laptop film (hero): a pause button for film.js.
+   1. The list for today: Approve turns a row into "Draft in Outlook" and the open count goes down.
    2. The offer screen (#trust): "Change a number in the draft" swaps the price in our reply for one the offer does not
       contain; the check fails and approval locks, as in the product. Pressed again, it is undone.
    3. The three roles (#roles): a tab viewer like the Germany one; hover (fine pointer, short intent delay) or click,
@@ -8,20 +9,18 @@
 (() => {
   const t = k => window.UI.t(k);
 
-  // ---------------------------------------------------------------- 0. the film: muted autoplay, loops; a pause button (it runs
-  // longer than five seconds); paused from the start for reduced motion, and only plays while it is on screen
-  const film = document.querySelector('[data-film]');
-  if (film) {
-    const btn = document.querySelector('[data-film-toggle]');
-    let wanted = !matchMedia('(prefers-reduced-motion: reduce)').matches, seen = true;
+  // ---------------------------------------------------------------- 0. the laptop film (film.js plays it by itself and stops it
+  // off screen): a pause button, since it runs longer than five seconds; with reduced motion it starts as a still frame
+  const film = document.getElementById('film');
+  const btn = document.querySelector('[data-film-toggle]');
+  if (film && btn && film.hold) {
+    let wanted = !matchMedia('(prefers-reduced-motion: reduce)').matches;
     const sync = () => {
-      if (wanted && seen) film.play().catch(() => {}); else film.pause();
+      film.hold(!wanted);
       btn.innerHTML = `<i class="ph-light ph-${wanted ? 'pause' : 'play'}" aria-hidden="true"></i>`;
       btn.setAttribute('aria-label', t(wanted ? 's_film_pause' : 's_film_play')); btn.title = btn.getAttribute('aria-label');
     };
-    if (!wanted) film.removeAttribute('autoplay');
     btn.addEventListener('click', () => { wanted = !wanted; sync(); });
-    new IntersectionObserver(([e]) => { seen = e.isIntersecting; sync(); }, { threshold: .15 }).observe(film);
     sync();
   }
 
