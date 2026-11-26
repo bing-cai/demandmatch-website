@@ -130,3 +130,22 @@
   html .close-art { height: 220px; }
   html .say { font-size: 28px; line-height: 1.12; letter-spacing: -.02em; }
 }
+
+/* ---------------------------------------------------------------- 5. checked at 320 to 430px: room for the thumb, nothing cut off */
+@media (max-width: 720px) {
+  /* small links grow to a comfortable tap height (about 40 to 44px) without changing how they look */
+  html .foot-c { gap: 0; }
+  html .foot-c a { display: flex; align-items: center; min-height: 40px; }
+  html .foot-base .lang button { min-width: 44px; height: 40px; }
+  html .roi-act { gap: 0 22px; }
+  html .roi-act button { min-height: 44px; }
+  html .roi-how summary { min-height: 44px; }
+  html .s-cfo { min-height: 44px; margin-top: 16px; }
+  /* "For sales teams: your day with DemandMatch" is longer than a small phone is wide: it wraps inside the button */
+  html .sy-try .sy-sales { max-width: 100%; height: auto; min-height: 48px; padding-block: 10px; white-space: normal; text-align: left; }
+}
+/* the smallest phones (iPhone SE, 320px): the action bar fits "Produkt ausprobieren" */
+@media (max-width: 360px) {
+  .m-cta { left: 8px; right: 8px; gap: 5px; padding: 5px; }
+  .m-cta .btn { padding-inline: 6px; font-size: 14px; }
+}
