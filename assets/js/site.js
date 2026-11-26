@@ -517,6 +517,7 @@
   // read the text without running scripts. The page's lang decides; old ?lang= links go to the right page.
   let lang = T[root.lang] ? root.lang : 'de';
   const asked = new URLSearchParams(location.search).get('lang');
+  if (T[asked]) { try { sessionStorage.setItem('dm-lang', asked); } catch {} } // a language link counts for this visit (the script in <head>)
   if (T[asked] && asked !== lang && root.dataset[asked]) { location.replace(root.dataset[asked] + location.hash); }
   const listeners = [];
   window.UI = { get lang() { return lang; }, onLang(fn) { listeners.push(fn); }, t: k => T[lang][k] };
@@ -538,6 +539,8 @@
   }
   apply();
   qa('.lang button').forEach(b => b.addEventListener('click', () => {
+    // the choice is remembered, so the next visit opens in this language whatever the browser says (the script in <head>)
+    try { localStorage.setItem('dm-lang', b.dataset.lang); sessionStorage.setItem('dm-lang', b.dataset.lang); } catch {}
     if (b.dataset.lang === lang) return;
     const to = root.dataset[b.dataset.lang];
     if (to) { location.href = to + location.hash; return; }
