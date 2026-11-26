@@ -39,6 +39,9 @@
       b.innerHTML = `<i class="ph-light ph-check" aria-hidden="true"></i><span>${t('s_ok_done')}</span>`;
       count();
     });
+    // phones show the first three rows (mobile.css); the button shows the rest and goes away
+    const more = board.querySelector('[data-more]');
+    more?.addEventListener('click', () => { board.classList.add('all'); more.remove(); board.querySelector('.s-row:nth-child(4) [data-ok]')?.focus(); });
   }
 
   // ---------------------------------------------------------------- 2. the checker

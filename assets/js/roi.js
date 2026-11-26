@@ -95,6 +95,7 @@
         </div>
         <div class="roi-mini" aria-hidden="true"><span></span><span></span></div>
         ${group(1, t('roi_g1'))}${group(2, t('roi_g2'))}${group(3, t('roi_g3'))}
+        <button class="roi-more" type="button" aria-expanded="false" data-roi-more><span>${esc(t('roi_more'))}</span><i class="ph-light ph-caret-down" aria-hidden="true"></i></button>
       </div>
       <div class="roi-side"><aside class="roi-out">
         <img class="roi-art" src="${window.SHARED_BASE || 'assets/'}art/roi-silos-1536.webp" alt="" loading="lazy" decoding="async">
@@ -207,6 +208,14 @@
     u.searchParams.set('roi', [...KEYS.map(k => S[k]), S.cap ? 1 : 0].join('_'));
     return u.href;
   }
+  // phones: three sliders show first (revenue, margin, people); the button opens all thirteen (mobile.css)
+  const more = q('[data-roi-more]');
+  more.addEventListener('click', () => {
+    const all = more.getAttribute('aria-expanded') !== 'true';
+    q('.roi-in').classList.toggle('all', all); more.setAttribute('aria-expanded', String(all));
+    more.querySelector('span').textContent = t(all ? 'roi_less' : 'roi_more');
+    if (!all) q('.roi-in').scrollIntoView({ block: 'start' });
+  });
   const lb = q('[data-roi-link]');
   lb.addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(link()); } catch (e) { history.replaceState(null, '', link()); }

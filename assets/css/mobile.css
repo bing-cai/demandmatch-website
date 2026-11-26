@@ -70,3 +70,46 @@
 @media (prefers-reduced-motion: reduce) {
   .menu, .menu-l a, .menu-ic i, .m-cta { transition: opacity 160ms ease; transform: none; }
 }
+
+/* ---------------------------------------------------------------- 3. a shorter page on phones */
+.roi-more, .s-more, .rail-dots { display: none; }
+@media (max-width: 720px) {
+  /* swipe rails: the pricing steps and the roles, one card at a time, the next one peeking in from the right */
+  [data-rail] { display: flex !important; gap: 10px; margin-inline: calc(-1 * var(--gut)); padding: 4px var(--gut) 6px; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: var(--gut); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  [data-rail]::-webkit-scrollbar { display: none; }
+  [data-rail] > * { flex: 0 0 84%; scroll-snap-align: start; }
+  [data-rail]:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 8px; }
+  .rail-dots { display: flex; justify-content: center; gap: 2px; margin-top: 10px; }
+  .rail-dots button { display: grid; place-items: center; width: 22px; height: 22px; padding: 0; border: 0; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .rail-dots i { width: 6px; height: 6px; border-radius: 99px; background: rgb(20 20 20 / .2); transition: width 320ms var(--ease-out), background-color 200ms ease; }
+  .rail-dots .on i { width: 18px; background: var(--ink); }
+
+  /* the roles: the painting as a band on top, the three role cards as a rail under it */
+  html .s-roles.js .s-role-stage { padding: 180px 0 14px; }
+  html .s-roles.js .s-role-ps { margin: 0; padding-inline: 12px; scroll-padding-inline: 12px; }
+  html .s-roles.js .s-role-ps > .s-role-p { flex-basis: 86%; }
+  .s-roles .rail-dots { margin-top: 12px; }
+  /* "Built for German companies": the same, six cards */
+  html .ge.js .ge-stage { padding: 180px 0 14px; }
+  html .ge.js .ge-ps { margin: 0; padding-inline: 12px; scroll-padding-inline: 12px; }
+  html .ge.js .ge-ps > .ge-p { flex-basis: 86%; }
+  /* the pricing steps: a grid item may not grow to the width of its rail */
+  .pl-grp { min-width: 0; }
+
+  /* the list for today: three rows, then "Show all 5" */
+  html .s-board:not(.all) .s-row:nth-child(n+4) { display: none; }
+  .s-more { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 46px; margin-top: 6px; border: 0; border-radius: 14px;
+    background: rgb(255 255 255 / .7); box-shadow: var(--hair); color: var(--ink); font: 500 14.5px/1 var(--font); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .s-more:active { transform: scale(.985); }
+
+  /* the business case: the result first; then three sliders, the other ten behind one button */
+  .roi-sheet { display: flex; flex-direction: column; gap: 2px; }
+  .roi-side { order: -1; }
+  .roi-in:not(.all) .roi-r:not([data-k="rev"]):not([data-k="gm"]):not([data-k="people"]) { display: none; }
+  .roi-in:not(.all) .roi-g:not(:first-of-type) { display: none; }
+  .roi-more { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 48px; margin-top: 28px; border: 0; border-radius: 14px;
+    background: var(--paper); box-shadow: var(--hair); color: var(--ink); font: 500 15px/1 var(--font); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .roi-more i { transition: transform 300ms var(--ease-out); }
+  .roi-more[aria-expanded="true"] i { transform: rotate(180deg); }
+}

@@ -256,7 +256,8 @@
       s_end_h: "Zeigen Sie es Ihrem Team.<br><span class=\"mute\">Demo anfragen oder gleich ausprobieren.</span>",
       s_end_cfo: "Für die Geschäftsführung: der Business Case",
       s_film_label: "Film: ein Vormittag im Vertrieb, erst von Hand, dann mit dem DemandMatch Autopilot", s_film_pause: "Film anhalten", s_film_play: "Film abspielen",
-      menu_open: "Menü öffnen", menu_close: "Menü schließen", menu_label: "Menü"
+      menu_open: "Menü öffnen", menu_close: "Menü schließen", menu_label: "Menü",
+      roi_more: "Alle 13 Annahmen anpassen", roi_less: "Weniger Annahmen zeigen", s_show_all: "Alle {n} zeigen", rail_go: "Zu Karte {n}"
     },
     en: {
       title: 'DemandMatch · Your stock finds its customers',
@@ -506,7 +507,8 @@
       s_end_h: "Show it to your team.<br><span class=\"mute\">Book a demo, or try it now.</span>",
       s_end_cfo: "For finance: the business case",
       s_film_label: "Film: a morning in sales, first by hand, then with the DemandMatch Autopilot", s_film_pause: "Pause the film", s_film_play: "Play the film",
-      menu_open: "Open menu", menu_close: "Close menu", menu_label: "Menu"
+      menu_open: "Open menu", menu_close: "Close menu", menu_label: "Menu",
+      roi_more: "Adjust all 13 assumptions", roi_less: "Show fewer assumptions", s_show_all: "Show all {n}", rail_go: "Go to card {n}"
     }
   };
 
@@ -585,6 +587,24 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuB.getAttribute('aria-expanded') === 'true') { setMenu(false); menuB.focus(); } });
     matchMedia('(min-width: 1001px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
   }
+  // Swipe rails (mobile.css, phones): a row of cards that snaps one card at a time, with small dots underneath that show
+  // where you are and take you to a card. Arrow keys scroll the row once it has focus.
+  qa('[data-rail]').forEach(rail => {
+    const cards = [...rail.children]; if (cards.length < 2) return;
+    const dots = Object.assign(document.createElement('div'), { className: 'rail-dots' });
+    dots.innerHTML = cards.map((_, i) => `<button type="button" tabindex="-1" aria-label="${T[lang].rail_go.replace('{n}', i + 1)}"><i></i></button>`).join('');
+    dots.setAttribute('aria-hidden', 'true');
+    rail.after(dots);
+    const phoneMQ = matchMedia('(max-width: 720px)'), focusable = () => (phoneMQ.matches ? rail.setAttribute('tabindex', '0') : rail.removeAttribute('tabindex'));
+    focusable(); phoneMQ.addEventListener('change', focusable);
+    const btns = [...dots.children];
+    const at = () => { const x = rail.scrollLeft, w = cards[1].offsetLeft - cards[0].offsetLeft || 1; return Math.max(0, Math.min(cards.length - 1, Math.round(x / w))); };
+    const mark = () => { const i = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4 ? cards.length - 1 : at(); btns.forEach((b, k) => b.classList.toggle('on', k === i)); };
+    btns.forEach((b, i) => b.addEventListener('click', () => rail.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' })));
+    rail.addEventListener('scroll', () => requestAnimationFrame(mark), { passive: true });
+    mark();
+  });
+
   // The bar shows once the hero's buttons are above the screen, and steps aside where the page's own closing buttons
   // or the footer are in view, and while the menu is open.
   if (bar) {
