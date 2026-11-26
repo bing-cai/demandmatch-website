@@ -255,7 +255,8 @@
       s_faq: [["Schickt DemandMatch E-Mails von selbst?", "Nein. DemandMatch bereitet Angebote und Antworten vor. Nach Ihrer Freigabe liegt der Entwurf in Outlook, und Sie schicken ihn selbst ab."], ["Ersetzt DemandMatch meinen Job?", "Nein. Es nimmt Ihnen das Suchen, Rechnen und Abtippen ab. Die Kunden, die Verhandlung und die Entscheidung bleiben bei Ihnen."], ["Was, wenn es eine Anfrage falsch versteht?", "Ist DemandMatch unsicher, rät es nicht. Die Anfrage landet unter „Braucht einen Blick“, mit dem Grund in Worten. Und jede Zahl im Entwurf wird gegen das Angebot geprüft, bevor Sie freigeben können."], ["Muss ich ein neues System lernen?", "Kaum. Sie arbeiten mit einer Liste für heute und senden aus Ihrem Outlook. SAP und CRM bleiben, wie sie sind. DemandMatch liest dort nur."], ["Gelten unsere Preisregeln?", "Ja. Die Preise kommen aus Ihren Regeln: Preisband, Staffel, Rahmenvertrag, dazu die Fracht zur Lieferadresse. Liegt die Marge darunter, entscheidet die Teamleitung oder das Produktmanagement."], ["Wie fangen wir an?", "Mit einem kostenlosen Fit-Check. Danach folgen eine Potenzialanalyse und ein Pilot von 30 Tagen auf Ihren echten Daten, für eine Produktfamilie und ein Team. In Woche 3 und 4 arbeitet Ihr Team damit."]],
       s_end_h: "Zeigen Sie es Ihrem Team.<br><span class=\"mute\">Demo anfragen oder gleich ausprobieren.</span>",
       s_end_cfo: "Für die Geschäftsführung: der Business Case",
-      s_film_label: "Film: ein Vormittag im Vertrieb, erst von Hand, dann mit dem DemandMatch Autopilot", s_film_pause: "Film anhalten", s_film_play: "Film abspielen"
+      s_film_label: "Film: ein Vormittag im Vertrieb, erst von Hand, dann mit dem DemandMatch Autopilot", s_film_pause: "Film anhalten", s_film_play: "Film abspielen",
+      menu_open: "Menü öffnen", menu_close: "Menü schließen", menu_label: "Menü"
     },
     en: {
       title: 'DemandMatch · Your stock finds its customers',
@@ -504,7 +505,8 @@
       s_faq: [["Does DemandMatch send emails by itself?", "No. It prepares offers and replies. Once you approve, the draft sits in your Outlook and you send it yourself."], ["Does DemandMatch replace my job?", "No. It takes the searching, calculating and typing off your hands. The customers, the negotiation and the decision stay with you."], ["What if it misreads a request?", "When DemandMatch is unsure, it does not guess. The request goes to “Needs a look” with the reason in words. And every number in the draft is checked against the offer before you can approve it."], ["Do I have to learn a new system?", "Hardly. You work from one list for today and send from your own Outlook. SAP and the CRM stay as they are. DemandMatch only reads from them."], ["Do our pricing rules apply?", "Yes. Prices come from your rules: price band, scale, framework contract, plus freight to the delivery address. If the margin falls below, the team lead or the product manager decides."], ["How do we start?", "With a free fit check. Then a value assessment and a 30-day pilot on your real data, for one product family and one team. In weeks 3 and 4 your team works with it."]],
       s_end_h: "Show it to your team.<br><span class=\"mute\">Book a demo, or try it now.</span>",
       s_end_cfo: "For finance: the business case",
-      s_film_label: "Film: a morning in sales, first by hand, then with the DemandMatch Autopilot", s_film_pause: "Pause the film", s_film_play: "Play the film"
+      s_film_label: "Film: a morning in sales, first by hand, then with the DemandMatch Autopilot", s_film_pause: "Pause the film", s_film_play: "Play the film",
+      menu_open: "Open menu", menu_close: "Close menu", menu_label: "Menu"
     }
   };
 
@@ -552,6 +554,50 @@
   const sentinel = Object.assign(document.createElement('div'), { className: 'sentinel' });
   document.body.prepend(sentinel); // 1px at the very top of the page
   new IntersectionObserver(([e]) => top.classList.toggle('scrolled', !e.isIntersecting)).observe(sentinel);
+
+  // ---------------------------------------------------------------- phones: the menu and the action bar (mobile.css)
+  // The menu opens a sheet under the header. While it is open the page behind it is locked and inert, so the focus
+  // stays in the header and the sheet; Escape, a link, an action or a wider window close it.
+  const menu = document.querySelector('[data-menu]'), menuB = document.querySelector('[data-menu-b]');
+  const bar = document.querySelector('[data-mcta]');
+  let syncBar = () => {};
+  if (menu && menuB) {
+    const behind = () => [document.getElementById('main'), document.querySelector('.foot'), document.querySelector('.skip')].filter(Boolean);
+    let hideT;
+    const setMenu = open => {
+      if (open === (menuB.getAttribute('aria-expanded') === 'true')) return;
+      clearTimeout(hideT);
+      menuB.setAttribute('aria-expanded', String(open));
+      menuB.setAttribute('aria-label', T[lang][open ? 'menu_close' : 'menu_open']); menuB.title = menuB.getAttribute('aria-label');
+      top.classList.toggle('menu-on', open); root.classList.toggle('menu-open', open);
+      behind().forEach(el => { el.inert = open; });
+      if (open) {
+        menu.hidden = false;
+        requestAnimationFrame(() => requestAnimationFrame(() => menu.classList.add('open')));
+      } else {
+        menu.classList.remove('open');
+        hideT = setTimeout(() => { menu.hidden = true; }, 260);
+      }
+      syncBar();
+    };
+    menuB.addEventListener('click', () => setMenu(menuB.getAttribute('aria-expanded') !== 'true'));
+    menu.addEventListener('click', e => { if (e.target.closest('a, [data-open-app]')) setMenu(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuB.getAttribute('aria-expanded') === 'true') { setMenu(false); menuB.focus(); } });
+    matchMedia('(min-width: 1001px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+  }
+  // The bar shows once the hero's buttons are above the screen, and steps aside where the page's own closing buttons
+  // or the footer are in view, and while the menu is open.
+  if (bar) {
+    const heroCta = document.querySelector('.hero .cta-row');
+    let past = false; const ends = new Set();
+    syncBar = () => {
+      const on = past && !ends.size && !root.classList.contains('menu-open');
+      bar.classList.toggle('on', on); bar.inert = !on;
+    };
+    if (heroCta) new IntersectionObserver(([e]) => { past = !e.isIntersecting && e.boundingClientRect.top < 0; syncBar(); }).observe(heroCta);
+    const endIO = new IntersectionObserver(es => { es.forEach(e => (e.isIntersecting ? ends.add(e.target) : ends.delete(e.target))); syncBar(); });
+    qa('.close .cta-row, .foot').forEach(el => endIO.observe(el));
+  }
 
   // ---------------------------------------------------------------- entrance (hero) and reveals (everything else)
   requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('ready')));

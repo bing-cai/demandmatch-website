@@ -18,7 +18,8 @@
 @media (hover: hover) and (pointer: fine) { .s-film-b:hover { background: #fff; } }
 .s-film .film { clip-path: none; transition: none; } /* the main page's scroll reveal for .film does not apply here */
 .s-film .fm-stage { border-radius: 0; }
-@media (max-width: 700px) { .s-film { border-radius: 16px; } .s-film-b { right: 10px; bottom: 10px; width: 38px; height: 38px; } }
+/* phones: a square stage; film.js sees the taller stage and frames the scene with its phone camera */
+@media (max-width: 700px) { .s-film .fm-stage { aspect-ratio: 1 / 1; } .s-film { border-radius: 16px; } .s-film-b { right: 10px; bottom: 10px; width: 38px; height: 38px; } }
 
 /* the list for today, on its own painting, right after "And Friday is month end." */
 .s-board-sec { padding-bottom: var(--sec-y); }

@@ -171,6 +171,7 @@
     at.win = el.wins.map(w => [w.offsetLeft + w.offsetWidth / 2, w.offsetTop + w.offsetHeight / 2]);
     at.dock = [640, 800 - 30 - (host.querySelector('.fm-dock')?.offsetHeight || 86) / 2];
     at.sw = pos(el.swTg, world);
+    at.pill = el.swTg.closest('.fm-pill')?.offsetWidth;
     const [tx, ty] = pos(el.apTg, el.acam), [sx] = pos(el.st[0], el.acam);
     at.ap = [tx, ty];
     at.shots = {
@@ -245,6 +246,7 @@
       { const a = seg(t, T.doneA, T.doneA + .7, E.out); set(el.tDone, `translate(-50%, ${lerp(46, 0, a)}px) scale(${lerp(.96, 1, a)})`, seg(t, T.doneA, T.doneA + .4, E.lin)); }
     }
     // the cursor and the click ring, one place for both scenes
+    if (phone) phoneCam(); else el.world.style.transform = '';
     el.ripple.style.opacity = 0;
     if (t >= T.swCurIn && t < T.toApp + .4) {
       const z = lerp(.97, 1.06, seg(t, T.toSw + .3, T.toApp + .4, E.out)), tx = 960 + (at.sw[0] + 24 - 960) * z, ty = 450 + (at.sw[1] + 14 - 450) * z, m = seg(t, T.swCurA, T.swCurB, E.io);
@@ -256,6 +258,22 @@
       ripple(T.apClick, ax + 18, ay + 6);
     } else cursor(false);
   }
+  // ------------------------------------------------------------------ the phone camera
+  // On a tall stage (phones: square, set in sales.css) the wide world would be tiny. Instead the world is shown larger and
+  // a second camera frames what matters at each moment: the lid, the windows piling up, the banners, the switch, the
+  // app's own close-ups, and the whole app for the finish. Keys: [time, focus x, focus y, zoom as a share of fit-height,
+  // or 'lap' / 'pill' / 'app' for fitting that width]. Between keys it eases.
+  const PHONE = [[0, 960, 560, 'lap'], [3.2, 960, 560, 'lap'], [5.2, 960, 450, 1], [6.0, 780, 400, 1], [6.9, 780, 400, 1], [7.7, 1200, 330, 1], [8.5, 1200, 330, 1],
+    [9.2, 960, 470, 'lap'], [9.3, 960, 450, 'pill'], [11.8, 960, 450, 'pill'], [12.2, 960, 450, .62], [18.0, 960, 450, .62], [19.2, 960, 450, 'app'], [22.6, 960, 450, 'app']];
+  function phoneCam() {
+    const W = el.stage.clientWidth, H = el.stage.clientHeight, kH = H / 900;
+    const kOf = z => (z === 'lap' ? W / 1340 : z === 'pill' ? Math.min(kH * 1.1, W / ((at.pill || 900) * 1.06 + 160)) : z === 'app' ? W / 1560 : kH * z);
+    let i = PHONE.findIndex(k => k[0] > t); if (i < 1) i = i === 0 ? 1 : PHONE.length - 1;
+    const a = PHONE[i - 1], b = PHONE[i], p = E.io(clamp((t - a[0]) / (b[0] - a[0] || 1)));
+    const k = Math.exp(lerp(Math.log(kOf(a[3])), Math.log(kOf(b[3])), p)), fx = lerp(a[1], b[1], p), fy = lerp(a[2], b[2], p);
+    el.world.style.transform = `translate(${W / 2 - fx * k}px, ${H / 2 - fy * k}px) scale(${k})`;
+  }
+
   // the cursor tip at (x, y); it presses briefly at the click
   function cursor(show, x = 0, y = 0, op = 1, click = 0) {
     const c = el.cursor; if (!c) return;
@@ -277,7 +295,13 @@
   }
   function start() { if (raf || held || (reduced && !host.played)) return; last = performance.now(); raf = requestAnimationFrame(tick); }
   function stop() { cancelAnimationFrame(raf); raf = 0; }
-  function fit() { if (el.stage) el.stage.style.setProperty('--k', el.stage.clientWidth / 1920); }
+  let phone = false;
+  function fit() {
+    if (!el.stage) return;
+    el.stage.style.setProperty('--k', el.stage.clientWidth / 1920);
+    phone = el.stage.clientHeight / el.stage.clientWidth > .6; // a stage taller than the world's 1920 × 900
+    if (!raf && at.shots) frame(reduced && !host.played ? 21 : t); // redraw a paused film at its new size
+  }
 
   new ResizeObserver(fit).observe(host);
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible && !document.hidden ? start() : stop(); }, { threshold: .2 }).observe(host);

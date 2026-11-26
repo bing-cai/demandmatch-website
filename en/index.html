@@ -438,6 +438,7 @@
 <link rel="stylesheet" href="../assets/css/site.css?v=0dae5c35">
 <link rel="stylesheet" href="../assets/css/monet.css?v=62d258b9">
 <link rel="stylesheet" href="../assets/css/type.css?v=7a159ab8">
+<link rel="stylesheet" href="../assets/css/mobile.css?v=64a853a7">
 </head>
 <body>
 <a class="skip" href="#main" data-t="skip">Skip to content</a>
@@ -454,7 +455,26 @@
     </nav>
     <div class="top-r">
       <div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" aria-pressed="true">EN</button></div>
-      <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20demo" class="btn btn-ink btn-sm" data-mail><span data-t="cta">Book a demo</span></a>
+      <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20demo" class="btn btn-ink btn-sm top-cta" data-mail><span data-t="cta">Book a demo</span></a>
+      <button class="menu-b" type="button" aria-expanded="false" aria-controls="menu" data-menu-b data-ta="menu_open" aria-label="Open menu"><span class="menu-ic" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+  </div>
+  <!-- the phone menu (mobile.css, site.js): the page's sections, the language and the two actions -->
+  <div class="menu" id="menu" data-menu hidden>
+    <nav class="menu-l" data-ta="menu_label" aria-label="Menu">
+      <a href="#value"><span data-t="nav_value">Value</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+      <a href="#systems"><span data-t="nav_how">How it works</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+      <a href="#roi"><span data-t="nav_roi">Business case</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+      <a href="#pilot"><span data-t="nav_pilot">Pilot</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+      <a href="#faq"><span data-t="nav_faq">FAQ</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+      <a href="../en/sales/"><span data-t="s_nav">For sales teams</span><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i></a>
+    </nav>
+    <div class="menu-f">
+      <div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" aria-pressed="true">EN</button></div>
+      <div class="menu-act">
+        <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20demo" class="btn btn-ink" data-mail><span data-t="cta">Book a demo</span></a>
+        <button class="btn btn-soft" type="button" data-open-app><span data-t="cta_try">Try the product</span><span class="btn-ic" aria-hidden="true"><i class="ph-light ph-cursor-click"></i></span></button>
+      </div>
     </div>
   </div>
 </header>
@@ -723,8 +743,14 @@
   <div class="wrap foot-base"><span>© 2026 DemandMatch</span><span data-t="foot_note">All data in the demo is sample data.</span><div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de" aria-pressed="false">DE</button><button type="button" data-lang="en" aria-pressed="true">EN</button></div></div>
 </footer>
 
+<!-- phones: the two actions stay within thumb reach once the hero's buttons have scrolled away (mobile.css, site.js) -->
+<div class="m-cta" data-mcta inert>
+  <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20demo" class="btn btn-ink" data-mail><span data-t="cta">Book a demo</span></a>
+  <button class="btn btn-soft" type="button" data-open-app><span data-t="cta_try">Try the product</span><span class="btn-ic" aria-hidden="true"><i class="ph-light ph-cursor-click"></i></span></button>
+</div>
+
 <script>window.SHARED_BASE = '../assets/';</script>
-<script src="../assets/js/site.js?v=5453df01"></script>
+<script src="../assets/js/site.js?v=df5eaf1c"></script>
 <script src="../assets/app/engine.js?v=8505b732"></script>
 <script src="../assets/app/sample.js?v=45050d6c"></script>
 <script src="../assets/app/gantt.js?v=104f4347"></script>

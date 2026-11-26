@@ -125,8 +125,9 @@
 <link rel="stylesheet" href="../assets/css/site.css?v=0dae5c35">
 <link rel="stylesheet" href="../assets/css/monet.css?v=62d258b9">
 <link rel="stylesheet" href="../assets/css/type.css?v=7a159ab8">
+<link rel="stylesheet" href="../assets/css/mobile.css?v=64a853a7">
 <link rel="stylesheet" href="../assets/css/film.css?v=c23d0507">
-<link rel="stylesheet" href="../assets/css/sales.css?v=5d5fd068">
+<link rel="stylesheet" href="../assets/css/sales.css?v=7006b183">
 </head>
 <body class="sales-page">
 <a class="skip" href="#main" data-t="skip">Zum Inhalt</a>
@@ -144,7 +145,24 @@
     </nav>
     <div class="top-r">
       <div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de" aria-pressed="true">DE</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
-      <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20Demo%20f%C3%BCr%20den%20Vertrieb" class="btn btn-ink btn-sm" data-mail><span data-t="cta">Demo anfragen</span></a>
+      <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20Demo%20f%C3%BCr%20den%20Vertrieb" class="btn btn-ink btn-sm top-cta" data-mail><span data-t="cta">Demo anfragen</span></a>
+      <button class="menu-b" type="button" aria-expanded="false" aria-controls="menu" data-menu-b data-ta="menu_open" aria-label="Menü öffnen"><span class="menu-ic" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+  </div>
+  <!-- the phone menu (mobile.css, site.js): the page's sections, the language and the two actions -->
+  <div class="menu" id="menu" data-menu hidden>
+    <nav class="menu-l" data-ta="menu_label" aria-label="Menü">
+      <a href="#day"><span data-t="s_nav_day">Ihr Tag</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+      <a href="#roles"><span data-t="s_nav_roles">Ihre Rolle</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+      <a href="#faq"><span data-t="s_nav_faq">Fragen</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
+      <a href="../#roi"><span data-t="s_end_cfo">Für die Geschäftsführung: der Business Case</span><i class="ph-light ph-arrow-up-right" aria-hidden="true"></i></a>
+    </nav>
+    <div class="menu-f">
+      <div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de" aria-pressed="true">DE</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      <div class="menu-act">
+        <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20Demo%20f%C3%BCr%20den%20Vertrieb" class="btn btn-ink" data-mail><span data-t="cta">Demo anfragen</span></a>
+        <button class="btn btn-soft" type="button" data-open-app><span data-t="cta_try">Produkt ausprobieren</span><span class="btn-ic" aria-hidden="true"><i class="ph-light ph-cursor-click"></i></span></button>
+      </div>
     </div>
   </div>
 </header>
@@ -316,15 +334,21 @@
   <div class="wrap foot-base"><span>© 2026 DemandMatch</span><span data-t="foot_note">Alle Daten in der Demo sind Beispieldaten.</span><div class="lang" role="group" aria-label="Sprache / Language"><button type="button" data-lang="de" aria-pressed="true">DE</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div></div>
 </footer>
 
+<!-- phones: the two actions stay within thumb reach once the hero's buttons have scrolled away (mobile.css, site.js) -->
+<div class="m-cta" data-mcta inert>
+  <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20Demo%20f%C3%BCr%20den%20Vertrieb" class="btn btn-ink" data-mail><span data-t="cta">Demo anfragen</span></a>
+  <button class="btn btn-soft" type="button" data-open-app><span data-t="cta_try">Produkt ausprobieren</span><span class="btn-ic" aria-hidden="true"><i class="ph-light ph-cursor-click"></i></span></button>
+</div>
+
 <script>window.SHARED_BASE = '../assets/';</script>
-<script src="../assets/js/site.js?v=5453df01"></script>
+<script src="../assets/js/site.js?v=df5eaf1c"></script>
 <script src="../assets/app/engine.js?v=8505b732"></script>
 <script src="../assets/app/sample.js?v=45050d6c"></script>
 <script src="../assets/app/gantt.js?v=104f4347"></script>
 <script src="../assets/app/ae.js?v=4dba1bf8"></script>
 <script src="../assets/app/app.js?v=376f35ef"></script>
 <script src="../assets/js/stage.js?v=49cb733a"></script>
-<script src="../assets/js/film.js?v=44a85510"></script>
+<script src="../assets/js/film.js?v=743669fb"></script>
 <script src="../assets/js/sales.js?v=a69d5301"></script>
 </body>
 </html>

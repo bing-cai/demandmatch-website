@@ -1,0 +1,72 @@
+/* Phones and small tablets: the page is laid out for the thumb, not just narrowed.
+   1. The menu (below 1000px, where the header links go): a button in the header opens a full sheet under it with the
+      page's sections as large rows, the language and the two actions. site.js opens and closes it, locks the page
+      behind it and keeps the focus inside.
+   2. The action bar (phones): once the hero's buttons have scrolled away, "Book a demo" and "Try the product" float at
+      the bottom, within thumb reach; it steps aside for the menu and where the page's own closing buttons show. */
+
+.menu-b, .m-cta { display: none; }
+
+@media (max-width: 1000px) {
+  /* ---------------------------------------------------------------- 1. the menu */
+  .menu-b { display: grid; place-items: center; width: 44px; height: 44px; margin-right: -10px; padding: 0; border: 0; border-radius: 12px; background: none; color: var(--ink); cursor: pointer;
+    -webkit-tap-highlight-color: transparent; transition: background-color 200ms ease; }
+  .menu-b:active { background: rgb(20 20 20 / .05); }
+  .menu-b:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+  /* two lines that turn into a cross */
+  .menu-ic { position: relative; width: 20px; height: 12px; }
+  .menu-ic i { position: absolute; left: 0; right: 0; height: 1.5px; border-radius: 2px; background: currentColor; transition: transform 380ms var(--ease-out), top 380ms var(--ease-out); }
+  .menu-ic i:first-child { top: 2.5px; }
+  .menu-ic i:last-child { top: 8px; }
+  .menu-b[aria-expanded="true"] .menu-ic i { top: 5.25px; }
+  .menu-b[aria-expanded="true"] .menu-ic i:first-child { transform: rotate(45deg); }
+  .menu-b[aria-expanded="true"] .menu-ic i:last-child { transform: rotate(-45deg); }
+
+  /* the header goes solid while the sheet is open, so the two read as one surface */
+  .top.menu-on { background: var(--paper); border-bottom-color: var(--line); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  html.menu-open { overflow: hidden; }
+
+  .menu { position: absolute; top: 100%; left: 0; right: 0; height: calc(100dvh - 64px); display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain;
+    padding: 6px var(--gut) max(20px, env(safe-area-inset-bottom)); background: var(--paper);
+    opacity: 0; transform: translateY(-8px); transition: opacity 240ms var(--ease-out), transform 420ms var(--ease-out); }
+  .menu[hidden] { display: none; }
+  .menu.open { opacity: 1; transform: none; }
+
+  .menu-l { display: flex; flex-direction: column; }
+  .menu-l a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; border-bottom: 1px solid var(--line);
+    font-weight: 600; font-size: clamp(24px, 6.6vw, 30px); line-height: 1.1; letter-spacing: -.022em; color: var(--ink); -webkit-tap-highlight-color: transparent;
+    opacity: 0; transform: translateY(10px); transition: opacity 360ms var(--ease-out), transform 520ms var(--ease-out), color 160ms ease; transition-delay: calc(var(--i, 0) * 35ms + 40ms); }
+  .menu-l a:nth-child(2) { --i: 1; } .menu-l a:nth-child(3) { --i: 2; } .menu-l a:nth-child(4) { --i: 3; } .menu-l a:nth-child(5) { --i: 4; } .menu-l a:nth-child(6) { --i: 5; }
+  .menu.open .menu-l a { opacity: 1; transform: none; }
+  .menu-l a:active { color: var(--ink-2); }
+  .menu-l a i { flex: none; font-size: 20px; color: var(--ink-3); }
+  .menu-l a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 6px; }
+
+  .menu-f { display: flex; flex-direction: column; gap: 16px; margin-top: auto; padding-top: 32px; }
+  /* the language as a small segmented control, larger to tap than the header's */
+  .top .menu .lang { display: inline-flex; align-self: flex-start; gap: 2px; padding: 3px; border-radius: 12px; background: var(--paper-2); }
+  .menu .lang button { min-width: 52px; height: 36px; padding: 0 12px; border-radius: 9px; font-size: 13px; }
+  .menu .lang button[aria-pressed="true"] { background: var(--paper); color: var(--ink); box-shadow: 0 0 0 .5px rgb(0 0 0 / .08), 0 1px 3px rgb(20 30 60 / .1); }
+  .menu-act { display: grid; gap: 10px; }
+  .menu-act .btn { width: 100%; height: 52px; justify-content: center; font-size: 16px; }
+}
+
+@media (max-width: 720px) {
+  /* the header keeps the logo and the menu; the actions move to the menu and the bar */
+  .top-cta { display: none; }
+
+  /* ---------------------------------------------------------------- 2. the action bar */
+  .m-cta { position: fixed; left: 10px; right: 10px; bottom: max(10px, env(safe-area-inset-bottom)); z-index: 35; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 6px; border-radius: 24px;
+    background: rgb(255 255 255 / .8); -webkit-backdrop-filter: blur(20px) saturate(1.5); backdrop-filter: blur(20px) saturate(1.5);
+    box-shadow: 0 0 0 .5px rgb(0 0 0 / .08), 0 12px 32px -12px rgb(20 30 60 / .4);
+    opacity: 0; transform: translateY(calc(100% + 24px)); transition: transform 460ms var(--ease-out), opacity 240ms ease; }
+  .m-cta.on { opacity: 1; transform: none; }
+  .m-cta .btn { height: 48px; justify-content: center; padding-inline: 10px; font-size: 15px; white-space: nowrap; }
+  .m-cta .btn-ic { display: none; }
+  /* room at the end of the page, so the bar never covers the last lines */
+  .foot { padding-bottom: 84px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu, .menu-l a, .menu-ic i, .m-cta { transition: opacity 160ms ease; transform: none; }
+}
