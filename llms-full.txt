@@ -164,6 +164,137 @@ Contact: hello@demandmatch.io · https://demandmatch.io/en/
 
 ---
 
+# DemandMatch: Beat your quota sooner. The busywork runs on autopilot.
+
+> For heads of sales, account executives and key account managers in B2B distribution: DemandMatch reads every request, finds the material, warehouse and price and prepares the offer. You approve and sell.
+
+DemandMatch reads every request, finds the material, warehouse and price, and prepares the offer. You read it, approve it, and spend your time with customers instead of SAP, Excel and price lists.
+For heads of sales, account executives and key account managers.
+
+Page: https://demandmatch.io/en/sales/ · Main page: https://demandmatch.io/en/ · Contact: hello@demandmatch.io
+
+## To do today
+
+- Novaform GmbH: 3 t PP 7032E3 (Offer), Today, 12:00, €4,140. Answer prepared.
+- Medplast: Scale for 1, 3 and 5 t PE-HD (Scale), Today, 15:00, €7,100. Answer prepared.
+- Hanse Closures: 24 t HDPE food grade (Offer), Tomorrow, €33,600. Answer prepared.
+- Harzer Kunststoff: 20 t PP block (Offer), Tomorrow, €26,200. Follow up: hold runs out.
+- Weser Getränketechnik: Call-off 12 t HDPE (Call-off), Thursday, €16,800. Answer prepared.
+
+Sorted by deadline, then value. Once approved, the draft sits in Outlook and you send it yourself. Sample data.
+
+## Today
+
+Monday, 8 am: forty requests in the inbox.
+Each one means SAP, Excel, the price list, the freight table.
+Follow-ups slip. Stock ages in the warehouse.
+And Friday is month end.
+
+## A day with DemandMatch. Less typing, more selling.
+
+### 07:30 Your list is ready.
+
+Before you open your laptop, DemandMatch has read every request, recognised the customer and the material, checked stock and inbound and prepared an answer. Your list for today, sorted by deadline and value.
+
+### 08:15 Read. Approve. Next.
+
+The customer’s email on the left, the offer and your reply in the middle, margin, warehouse and the checks on the right. Every number is checked. Once you approve, the draft sits in Outlook and you send it.
+
+### 10:00 Stock finds its customers.
+
+Push offers lists lots that have sat long, expire soon or are free on an inbound order, with the customers who buy exactly that: who orders again when, and how much. Tick them, let the offers be prepared, approve them in one pass.
+
+### 13:30 Nothing slips.
+
+When a hold is about to run out, the follow-up moves to the top of your list with a draft ready. Anything unclear goes to “Needs a look” with the reason in words, instead of a wrong calculation.
+
+### 15:00 Out to see customers.
+
+The afternoon belongs to the conversations that win orders: visits, negotiations, new accounts. The busywork is done.
+
+## The autopilot does the routine. The customer stays yours.
+
+### On autopilot
+
+- Reading requests from email, attachments and the CRM
+- Recognising the customer, delivery address and grade
+- Checking stock and inbound, holding the material
+- Price from band, scale or framework contract, with freight
+- Writing the reply, in German or English, with the right salutation
+- Checking every number against the offer
+- Reminding you to follow up
+
+### Stays with you
+
+- The relationship with the customer
+- The approval: nothing goes out without you
+- Clicking send, in your own Outlook
+- Negotiation, complaints, the phone call
+- Winning new accounts
+
+## No wrong price. Not to your best customer.
+
+- **AI writes words, not numbers.** Prices, quantities, warehouses and weeks come from code and your rules. The AI only writes the text around them.
+- **Approve is locked while anything is off.** If the draft holds a number that is not in the offer, or a promise the offer does not make, it cannot be approved. The reason is shown next to it.
+- **Margin below the band? Your team lead decides.** Below the band, approval goes to the team lead; below the floor, to the product manager. You see at once who needs to approve.
+
+## What’s in it for you. Role by role.
+
+### Head of sales: Your team makes the number without you chasing every request.
+
+- No request is left waiting: each one sits on a list with its deadline and value.
+- Your pricing rules hold for everyone: bands, scales, the floor, approval levels.
+- Scarce material is shared by call-offs, margin and arrival, as a proposal the product manager approves.
+- New people get up to speed faster: which grade is equivalent and who orders when is in the system.
+- Every step is logged. One switch stops everything.
+
+### Account executive: More offers out. Fewer evenings in Excel.
+
+- Every morning a finished list: prepared answers and follow-ups, by deadline and value.
+- Price-only requests come back with the scale ready.
+- If something is missing, DemandMatch says what, “No delivery date given”, instead of guessing.
+- You stay in Outlook: the draft lands there, you send it.
+
+### Key account manager: Your key accounts, never forgotten.
+
+- You see when an account should order again, and when an order is overdue.
+- Call-offs come at the framework contract price, no looking it up.
+- When material runs short, your accounts’ call-offs count in the allocation proposal.
+- If an account is locked to its grade, DemandMatch will not offer it an equivalent.
+
+## Questions from sales.
+
+### Does DemandMatch send emails by itself?
+
+No. It prepares offers and replies. Once you approve, the draft sits in your Outlook and you send it yourself.
+
+### Does DemandMatch replace my job?
+
+No. It takes the searching, calculating and typing off your hands. The customers, the negotiation and the decision stay with you.
+
+### What if it misreads a request?
+
+When DemandMatch is unsure, it does not guess. The request goes to “Needs a look” with the reason in words. And every number in the draft is checked against the offer before you can approve it.
+
+### Do I have to learn a new system?
+
+Hardly. You work from one list for today and send from your own Outlook. SAP and the CRM stay as they are. DemandMatch only reads from them.
+
+### Do our pricing rules apply?
+
+Yes. Prices come from your rules: price band, scale, framework contract, plus freight to the delivery address. If the margin falls below, the team lead or the product manager decides.
+
+### How do we start?
+
+With a free fit check. Then a value assessment and a 30-day pilot on your real data, for one product family and one team. In weeks 3 and 4 your team works with it.
+
+For finance: the business case: https://demandmatch.io/en/#roi
+
+Contact: hello@demandmatch.io
+
+
+---
+
 # DemandMatch: Jede Tonne Bestand findet ihren Kunden.
 
 > DemandMatch gleicht Ihren Bestand automatisch mit dem Bedarf Ihrer Kunden ab. Software für Distributoren von Chemie, Kunststoffen und Industriebedarf ab 1 Mrd. € Umsatz: mehr Umsatz, bessere Marge, Ihr Vertrieb gibt nur noch frei.
@@ -326,3 +457,134 @@ DemandMatch wurde in Berlin von Bing Cai (CEO, Staff Forward Deployed Engineer) 
 Gegründet in Berlin von Bing Cai (CEO, Staff Forward Deployed Engineer, https://www.linkedin.com/in/bingcai/) und Richard von Waldow (Forward Deployed Engineer, https://www.linkedin.com/in/richard-von-waldow/).
 
 Kontakt: hello@demandmatch.io · https://demandmatch.io/
+
+
+---
+
+# DemandMatch: Das Monatsziel früher knacken. Die Routine läuft auf Autopilot.
+
+> Für Vertriebsleitung, Account Executives und Key Account Manager im B2B-Handel: DemandMatch liest jede Anfrage, findet Material, Lager und Preis und bereitet das Angebot vor. Sie geben frei und verkaufen.
+
+DemandMatch liest jede Anfrage, findet Material, Lager und Preis und bereitet das Angebot vor. Sie lesen, geben frei und verbringen Ihre Zeit mit Kunden statt mit SAP, Excel und Preislisten.
+Für Vertriebsleitung, Account Executives und Key Account Manager.
+
+Seite: https://demandmatch.io/vertrieb/ · Hauptseite: https://demandmatch.io/ · Kontakt: hello@demandmatch.io
+
+## Heute zu erledigen
+
+- Novaform GmbH: 3 t PP 7032E3 (Angebot), Heute, 12:00, 4.140 €. Antwort vorbereitet.
+- Medplast: Staffel 1, 3 und 5 t PE-HD (Staffel), Heute, 15:00, 7.100 €. Antwort vorbereitet.
+- Hanse Closures: 24 t HDPE Lebensmittel (Angebot), Morgen, 33.600 €. Antwort vorbereitet.
+- Harzer Kunststoff: 20 t PP-Block (Angebot), Morgen, 26.200 €. Nachfassen: Reservierung läuft ab.
+- Weser Getränketechnik: Abruf 12 t HDPE (Abruf), Donnerstag, 16.800 €. Antwort vorbereitet.
+
+Nach Frist, dann nach Wert sortiert. Nach der Freigabe liegt der Entwurf in Outlook, Sie senden ihn selbst. Beispieldaten.
+
+## Heute
+
+Montag, 8 Uhr: 40 Anfragen im Postfach.
+Jede heißt SAP, Excel, Preisliste, Frachttabelle.
+Das Nachfassen rutscht. Die Ware altert im Lager.
+Und Freitag ist Monatsende.
+
+## Ein Tag mit DemandMatch. Weniger tippen, mehr verkaufen.
+
+### 07:30 Die Liste steht.
+
+Bevor Sie den Laptop aufklappen, hat DemandMatch jede Anfrage gelesen, Kunde und Material erkannt, Bestand und Zulauf geprüft und eine Antwort vorbereitet. Ihre Liste für heute, nach Frist und Wert sortiert.
+
+### 08:15 Lesen. Freigeben. Weiter.
+
+Links die Mail des Kunden, in der Mitte das Angebot und Ihre Antwort, rechts Marge, Lager und die Prüfung. Jede Zahl ist geprüft. Nach der Freigabe liegt der Entwurf in Outlook, und Sie schicken ihn ab.
+
+### 10:00 Ware findet ihre Kunden.
+
+Unter Push-Angebote stehen Partien, die lange liegen, bald ablaufen oder im Zulauf frei sind, mit den Kunden, die genau das kaufen: wer wann wieder bestellt und in welcher Menge. Haken setzen, Angebote vorbereiten lassen, in einem Durchgang freigeben.
+
+### 13:30 Nichts rutscht durch.
+
+Läuft eine Reservierung ab, steht das Nachfassen oben auf Ihrer Liste, mit fertigem Entwurf. Was unklar ist, landet unter „Braucht einen Blick“, mit dem Grund in Worten, statt dass falsch gerechnet wird.
+
+### 15:00 Raus zum Kunden.
+
+Der Nachmittag gehört den Gesprächen, die Aufträge bringen: Besuche, Verhandlungen, neue Kunden. Die Fleißarbeit ist erledigt.
+
+## Die Routine macht der Autopilot. Der Kunde bleibt bei Ihnen.
+
+### Läuft auf Autopilot
+
+- Anfragen lesen, aus E-Mail, Anhang und CRM
+- Kunde, Lieferadresse und Type erkennen
+- Bestand und Zulauf prüfen, die Ware reservieren
+- Preis aus Band, Staffel oder Rahmenvertrag, mit Fracht
+- Die Antwort schreiben, auf Deutsch oder Englisch, mit der richtigen Anrede
+- Jede Zahl gegen das Angebot prüfen
+- Ans Nachfassen erinnern
+
+### Bleibt bei Ihnen
+
+- Die Beziehung zum Kunden
+- Die Freigabe: ohne Sie geht nichts raus
+- Der Klick auf Senden, in Ihrem Outlook
+- Verhandlung, Reklamation, das Telefonat
+- Neue Kunden gewinnen
+
+## Kein falscher Preis. Nicht beim wichtigsten Kunden.
+
+- **Die KI schreibt Worte, keine Zahlen.** Preise, Mengen, Lager und Wochen rechnet der Code aus Ihren Regeln. Die KI formuliert nur den Text drumherum.
+- **Freigabe gesperrt, solange etwas nicht stimmt.** Steht im Entwurf eine Zahl, die nicht im Angebot steht, oder ein Versprechen, das es nicht gibt, lässt er sich nicht freigeben. Der Grund steht daneben.
+- **Marge unter dem Band? Dann entscheidet die Teamleitung.** Unter dem Band geht die Freigabe an die Teamleitung, unter der Untergrenze an das Produktmanagement. Sie sehen sofort, wer freigeben muss.
+
+## Was Sie davon haben. Je nach Rolle.
+
+### Vertriebsleitung: Das Team trifft die Zahl, ohne dass Sie jeder Anfrage hinterherlaufen.
+
+- Keine Anfrage bleibt liegen: Jede steht mit Frist und Wert auf einer Liste.
+- Ihre Preisregeln gelten für alle: Band, Staffel, Untergrenze, Freigabestufen.
+- Knappe Ware wird nach Abrufen, Marge und Ankunft verteilt, als Vorschlag, den das Produktmanagement freigibt.
+- Neue im Team finden sich schneller zurecht: Welche Type gleichwertig ist und wer wann bestellt, steht im System.
+- Jeder Schritt wird protokolliert. Ein Schalter hält alles an.
+
+### Account Executive: Mehr Angebote raus. Weniger Abende in Excel.
+
+- Jeden Morgen eine fertige Liste: vorbereitete Antworten und Nachfassen, nach Frist und Wert.
+- Reine Preisanfragen kommen mit fertiger Staffel zurück.
+- Fehlt etwas, sagt DemandMatch, was: „Kein Liefertermin genannt“, statt zu raten.
+- Sie bleiben in Outlook: Der Entwurf liegt dort, Sie senden.
+
+### Key Account Manager: Ihre Schlüsselkunden, nie vergessen.
+
+- Sie sehen, wann ein Kunde wieder bestellen müsste und wann eine Bestellung überfällig ist.
+- Abrufe aus dem Rahmenvertrag kommen zum Vertragspreis, ohne Nachschlagen.
+- Wird Ware knapp, zählen die Abrufe Ihrer Kunden im Verteilvorschlag mit.
+- Ist ein Kunde auf seine Type festgelegt, bietet DemandMatch ihm keine gleichwertige an.
+
+## Fragen aus dem Vertrieb.
+
+### Schickt DemandMatch E-Mails von selbst?
+
+Nein. DemandMatch bereitet Angebote und Antworten vor. Nach Ihrer Freigabe liegt der Entwurf in Outlook, und Sie schicken ihn selbst ab.
+
+### Ersetzt DemandMatch meinen Job?
+
+Nein. Es nimmt Ihnen das Suchen, Rechnen und Abtippen ab. Die Kunden, die Verhandlung und die Entscheidung bleiben bei Ihnen.
+
+### Was, wenn es eine Anfrage falsch versteht?
+
+Ist DemandMatch unsicher, rät es nicht. Die Anfrage landet unter „Braucht einen Blick“, mit dem Grund in Worten. Und jede Zahl im Entwurf wird gegen das Angebot geprüft, bevor Sie freigeben können.
+
+### Muss ich ein neues System lernen?
+
+Kaum. Sie arbeiten mit einer Liste für heute und senden aus Ihrem Outlook. SAP und CRM bleiben, wie sie sind. DemandMatch liest dort nur.
+
+### Gelten unsere Preisregeln?
+
+Ja. Die Preise kommen aus Ihren Regeln: Preisband, Staffel, Rahmenvertrag, dazu die Fracht zur Lieferadresse. Liegt die Marge darunter, entscheidet die Teamleitung oder das Produktmanagement.
+
+### Wie fangen wir an?
+
+Mit einem kostenlosen Fit-Check. Danach folgen eine Potenzialanalyse und ein Pilot von 30 Tagen auf Ihren echten Daten, für eine Produktfamilie und ein Team. In Woche 3 und 4 arbeitet Ihr Team damit.
+
+Für die Geschäftsführung: der Business Case: https://demandmatch.io/#roi
+
+Kontakt: hello@demandmatch.io

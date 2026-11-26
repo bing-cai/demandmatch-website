@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://demandmatch.io/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://demandmatch.io/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://demandmatch.io/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://demandmatch.io/"/>
   </url>
   <url>
     <loc>https://demandmatch.io/en/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://demandmatch.io/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://demandmatch.io/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://demandmatch.io/"/>
+  </url>
+  <url>
+    <loc>https://demandmatch.io/vertrieb/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://demandmatch.io/vertrieb/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://demandmatch.io/en/sales/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demandmatch.io/vertrieb/"/>
+  </url>
+  <url>
+    <loc>https://demandmatch.io/en/sales/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://demandmatch.io/vertrieb/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://demandmatch.io/en/sales/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demandmatch.io/vertrieb/"/>
   </url>
 </urlset>

@@ -175,7 +175,10 @@
 @media (prefers-reduced-motion: reduce) { .sy-art { transition: none; transform: none; } .sy-ping { animation: none; opacity: 1; } .is-on .sy-wires .f { animation: none; opacity: 0; } }
 
 /* under the stage: one ink pill that opens the real product (stage.js) */
-.sy-try { display: flex; justify-content: center; margin-top: clamp(28px, 3.4vw, 44px); }
+.sy-try { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin-top: clamp(28px, 3.4vw, 44px); }
+/* the way to the sales page (heads of sales, AEs, key account managers), next to "Click to try it" */
+.sy-try .sy-sales { height: 48px; background: #fff; box-shadow: var(--hair); }
+@media (hover: hover) and (pointer: fine) { .sy-try .sy-sales:hover { background: #fff; box-shadow: 0 0 0 .5px rgb(0 0 0 / .14), 0 10px 24px -14px rgb(20 30 60 / .35); } .sy-sales:hover .btn-ic { transform: translateX(3px); } }
 .sy-try-b { display: inline-flex; align-items: center; gap: 9px; height: 48px; padding: 0 22px 0 18px; border: 0; border-radius: 999px; background: var(--ink); color: #fff;
   font: 500 15px/1 var(--font); cursor: pointer; box-shadow: 0 18px 36px -14px rgb(0 0 0 / .45); transition: transform 200ms var(--ease-out); }
 .sy-try-b .ph-light { font-size: 19px; }

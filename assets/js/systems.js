@@ -144,7 +144,8 @@
           ${big.map(k => `<span class="sy-ic">${art(k)}</span>`).join('')}<span class="sy-ic sy-folder">${small.map(s => `<span>${s}</span>`).join('')}</span></div>`).join('')}</div>
         <div class="sy-lap"><div class="sy-lid"><div class="sy-screen"><span class="sy-notch"></span><div class="sy-fit"><div class="sy-canvas">${desktop()}${app()}</div></div></div></div><div class="sy-deck"><span></span></div></div>
       </div>
-      <div class="sy-try rv"><button class="sy-try-b" type="button" data-open-app><i class="ph-light ph-cursor-click" aria-hidden="true"></i><span>${window.UI.t('try')}</span></button></div>
+      <div class="sy-try rv"><button class="sy-try-b" type="button" data-open-app><i class="ph-light ph-cursor-click" aria-hidden="true"></i><span>${window.UI.t('try')}</span></button>
+        <a class="btn btn-soft sy-sales" href="${window.UI.t('s_link')}"><span>${window.UI.t('s_try_sales')}</span><span class="btn-ic" aria-hidden="true"><i class="ph-light ph-arrow-right"></i></span></a></div>
     </div>`;
     host.querySelectorAll('.rv').forEach(el => (reduced || host.dataset.seen ? el.classList.add('in') : io.observe(el)));
     set(on); fit(); requestAnimationFrame(wires);
