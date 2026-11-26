@@ -585,7 +585,7 @@
     menuB.addEventListener('click', () => setMenu(menuB.getAttribute('aria-expanded') !== 'true'));
     menu.addEventListener('click', e => { if (e.target.closest('a, [data-open-app]')) setMenu(false); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuB.getAttribute('aria-expanded') === 'true') { setMenu(false); menuB.focus(); } });
-    matchMedia('(min-width: 1001px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+    matchMedia('(min-width: 1100px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
   }
   // Swipe rails (mobile.css, phones): a row of cards that snaps one card at a time, with small dots underneath that show
   // where you are and take you to a card. Arrow keys scroll the row once it has focus.

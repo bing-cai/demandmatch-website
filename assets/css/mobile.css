@@ -1,5 +1,5 @@
 /* Phones and small tablets: the page is laid out for the thumb, not just narrowed.
-   1. The menu (below 1000px, where the header links go): a button in the header opens a full sheet under it with the
+   1. The menu (below 1100px, where the header links go): a button in the header opens a full sheet under it with the
       page's sections as large rows, the language and the two actions. site.js opens and closes it, locks the page
       behind it and keeps the focus inside.
    2. The action bar (phones): once the hero's buttons have scrolled away, "Book a demo" and "Try the product" float at
@@ -7,8 +7,10 @@
 
 .menu-b, .m-cta { display: none; }
 
-@media (max-width: 1000px) {
-  /* ---------------------------------------------------------------- 1. the menu */
+@media (max-width: 1099px) {
+  /* ---------------------------------------------------------------- 1. the menu (the header links need 1100px in German) */
+  .nav { display: none; }
+  .top-r { margin-left: auto; }
   .menu-b { display: grid; place-items: center; width: 44px; height: 44px; margin-right: -10px; padding: 0; border: 0; border-radius: 12px; background: none; color: var(--ink); cursor: pointer;
     -webkit-tap-highlight-color: transparent; transition: background-color 200ms ease; }
   .menu-b:active { background: rgb(20 20 20 / .05); }
