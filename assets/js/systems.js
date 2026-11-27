@@ -172,7 +172,7 @@
       return `M${x} ${y}H${sx - r}Q${sx} ${y} ${sx} ${y + sg * r}V${my - sg * r}Q${sx} ${my} ${sx + r} ${my}H${lx}`;
     });
     svg.setAttribute('viewBox', `0 0 ${S.width} ${S.height}`);
-    svg.innerHTML = paths.map(d => `<path class="w" d="${d}"/>`).join('') + paths.map((d, i) => `<path class="g" pathLength="100" style="--i:${i}" d="${d}"/><path class="f" pathLength="100" style="--i:${i}" d="${d}"/>`).join('');
+    svg.innerHTML = paths.map(d => `<path class="w" d="${d}"/>`).join('') + paths.map((d, i) => `<path class="g" pathLength="100" style="--i:${i}" d="${d}"/><path class="f" pathLength="100" style="--i:${i}; --c:${['#1d3461', '#2c5a3f', '#8b1e2d'][i % 3]}" d="${d}"/><path class="f f2" pathLength="100" style="--i:${i + 1.5}; --c:${['#1d3461', '#2c5a3f', '#8b1e2d'][i % 3]}" d="${d}"/>`).join('');
   }
   // the stage well in view: turn on once, after a beat; out of view entirely: back to off, unseen
   function watch(e) {

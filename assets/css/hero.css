@@ -1,0 +1,180 @@
+/* The hero with the ship (main page only, loaded after everything else).
+   One idea, readable at a glance: one of the containers on this ship is your stock, and the customers for it are
+   being found. The ship sails in from the left under the headline. Then:
+   1. the front container is detected: four navy corner marks close in on it, a light flashes over it once, and a dark
+      chip "Your stock" drops onto it;
+   2. lines leave the container, one by one, each in the colour of its customer (navy, racing green, Bordeaux, the
+      painting's own colours), and small containers travel along them;
+   3. on the right each customer is found as its line arrives: a colour tile with its number, its status, and the
+      count at the top goes up. The two left out stay small and pale under them.
+   surplus.js positions the frame on the painted container (data-box) and draws the lines. */
+
+.sail { --navy: #1d3461; --bordeaux: #8b1e2d; --racing: #2c5a3f; }
+
+/* ---------------------------------------------------------------- the painting */
+.sail > .gallery-wallpaper { grid-area: 2 / 1; align-self: center; width: min(63%, 1120px); height: auto; aspect-ratio: 1752 / 897;
+  --sail-fade: linear-gradient(180deg, #000 78%, transparent);
+  -webkit-mask-image: var(--sail-fade); mask-image: var(--sail-fade); }
+.sail .gallery-wallpaper img { object-fit: cover; object-position: 0 50%; opacity: 0; transform: translateX(-9%);
+  transition: opacity 900ms ease, transform 2400ms cubic-bezier(.16, 1, .3, 1); }
+.ready .sail .gallery-wallpaper img { opacity: 1; transform: none; }
+.sail > .hero { padding-bottom: clamp(16px, 2vw, 32px); }
+
+/* ---------------------------------------------------------------- the board */
+.sail .sp-stage-sec { margin-top: 0; }
+.sail .sp-board { margin-left: 0; min-height: calc(min(63vw, 1120px) / 1.953); padding: 24px max(20px, calc((100% - 1240px) / 2)) 24px 0; align-content: center;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 380px); grid-template-areas: "list list" "foot foot"; row-gap: 12px; }
+.sail .sp-list { grid-column: 2; grid-row: 1; }
+.sail .sp-foot { grid-column: 2; grid-row: 2; }
+
+/* ---------------------------------------------------------------- 1. your stock: the container, framed */
+html .sail .sp-lot { position: absolute; left: 0; top: 0; grid-area: auto; width: 0; height: 0; padding: 0; border-radius: 0; overflow: visible;
+  background: none; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; pointer-events: none; z-index: 2; opacity: 0; transition: opacity 300ms ease; }
+html .sail .sp-board.anchored .sp-lot { opacity: 1; }
+html .sail .sp-lot::after { content: none; }
+/* the outline: a firm ink line with a white edge (so it reads on the dark paint too), and printer's crop marks
+   continuing its edges past each corner */
+.sail .sp-lot::before { content: ''; position: absolute; inset: -7px; border: 2px solid var(--ink); border-radius: 2px;
+  box-shadow: 0 0 0 2px rgb(255 255 255 / .85), inset 0 0 0 2px rgb(255 255 255 / .85);
+  opacity: 0; transform: scale(1.12); transition: opacity 400ms ease, transform 900ms cubic-bezier(.16, 1, .3, 1); }
+html .sail .sp-lot::after { content: ''; position: absolute; inset: -22px; --m: var(--ink); --a: 11px; --o: 14px; --w: 1.5px;
+  background:
+    linear-gradient(var(--m), var(--m)) left 0 top var(--o) / var(--a) var(--w), linear-gradient(var(--m), var(--m)) left var(--o) top 0 / var(--w) var(--a),
+    linear-gradient(var(--m), var(--m)) right 0 top var(--o) / var(--a) var(--w), linear-gradient(var(--m), var(--m)) right var(--o) top 0 / var(--w) var(--a),
+    linear-gradient(var(--m), var(--m)) left 0 bottom var(--o) / var(--a) var(--w), linear-gradient(var(--m), var(--m)) left var(--o) bottom 0 / var(--w) var(--a),
+    linear-gradient(var(--m), var(--m)) right 0 bottom var(--o) / var(--a) var(--w), linear-gradient(var(--m), var(--m)) right var(--o) bottom 0 / var(--w) var(--a);
+  background-repeat: no-repeat; opacity: 0; transition: opacity 500ms ease 250ms; }
+.sail .sp-board.play .sp-lot::before { opacity: 1; transform: none; }
+.sail .sp-board.play .sp-lot::after { opacity: 1; }
+/* a light flashes over it once, when it is found */
+.sail .sp-board.play .sp-lot { animation: found 1100ms ease-out 350ms both; }
+@keyframes found { from { box-shadow: inset 0 0 0 999px rgb(255 255 255 / 0); } 40% { box-shadow: inset 0 0 0 999px rgb(255 255 255 / .3); } to { box-shadow: inset 0 0 0 999px rgb(255 255 255 / 0); } }
+/* the label: a square freight label on a short stem, not a pill. What it is, large; its state in Bordeaux capitals */
+.sail .sp-label { position: absolute; left: -7px; bottom: calc(100% + 22px); display: grid; gap: 6px; margin: 0; padding: 11px 16px 12px 14px;
+  border: 2px solid var(--ink); border-radius: 2px; background: #fff; box-shadow: 4px 4px 0 var(--ink); white-space: nowrap;
+  opacity: 0; transform: translateY(-10px); transition: opacity 350ms ease 650ms, transform 650ms cubic-bezier(.34, 1.4, .64, 1) 650ms; }
+.sail .sp-label::before { content: ''; position: absolute; left: 22px; top: calc(100% + 2px); width: 2px; height: 20px; background: var(--ink); }
+.sail .sp-label b { font: 600 21px/1 var(--font); letter-spacing: -.025em; color: var(--ink); }
+.sail .sp-label span { display: inline-flex; align-items: center; gap: 7px; font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--bordeaux); }
+.sail .sp-label span::before { content: ''; width: 8px; height: 8px; background: var(--bordeaux); }
+.sail .sp-board.play .sp-label { opacity: 1; transform: none; }
+
+/* where the lines leave the container */
+.sail .sp-flow .src-ring { fill: none; stroke: var(--navy); stroke-width: 1.2; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.sail .sp-board.play .src-ring { animation: ping 2600ms ease-out 1s infinite; }
+@keyframes ping { 0% { opacity: .7; transform: scale(1); } 100% { opacity: 0; transform: scale(3.2); } }
+
+/* ---------------------------------------------------------------- 2. the lines and the travelling containers */
+.sail .sp-flow .ln { stroke-width: 1.6; transition: stroke-dashoffset 1000ms var(--ease-io); transition-delay: calc(550ms + var(--i) * 170ms); }
+.sail .sp-flow .ln.no { stroke: rgb(20 20 20 / .14) !important; stroke-width: 1; }
+.sail .sp-flow .pel.box { stroke: none; offset-rotate: auto; animation-duration: 3400ms; }
+
+/* ---------------------------------------------------------------- 3. the customers, found */
+.sail .sp-list { padding: 8px; }
+.sail .sp-found { display: flex; align-items: center; gap: 14px; padding: 12px 12px 16px; border-bottom: 1px solid var(--line); margin-bottom: 6px; }
+.sail .sp-found b { display: inline-block; font: 500 46px/.8 var(--font); letter-spacing: -.05em; color: var(--ink); font-variant-numeric: tabular-nums; min-width: .62em; }
+.sail .sp-found b.tick { animation: tick 520ms cubic-bezier(.34, 1.56, .64, 1); }
+@keyframes tick { from { transform: translateY(6px) scale(.85); opacity: .4; } to { transform: none; opacity: 1; } }
+.sail .sp-found span { max-width: 22ch; font-size: 13.5px; line-height: 1.35; color: var(--ink-2); }
+
+html .sail .sp-row { grid-template-columns: 34px 1fr auto; gap: 14px; padding: 10px; }
+html .sail .sp-row + .sp-row { box-shadow: none; }
+/* the colour tile with the customer's number; the line arrives at its left edge */
+html .sail .sp-pin { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: color-mix(in srgb, var(--c) 9%, #fff);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 28%, transparent); color: var(--c); font: 500 15px/1 var(--font);
+  transition: background-color 400ms ease, color 400ms ease; transition-delay: calc(1150ms + var(--i) * 170ms); }
+html .sail .sp-pin::after { content: attr(data-n); }
+html .sail .sp-board.play .sp-row:not(.no) .sp-pin { background: var(--c); color: #fff; box-shadow: none; animation: land 900ms ease-out both; animation-delay: calc(1150ms + var(--i) * 170ms); }
+@keyframes land { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 45%, transparent); } 70% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--c) 0%, transparent); } 100% { box-shadow: none; } }
+.sail .sp-who b { font-size: 14.5px; }
+.sail .sp-who p { margin-top: 3px; }
+html .sail .sp-row:not(.no) em { background: color-mix(in srgb, var(--c) 10%, #fff); color: var(--c); }
+.sail .sp-out em { opacity: 0; transform: scale(.7); transition: opacity 360ms ease, transform 520ms cubic-bezier(.34, 1.56, .64, 1); transition-delay: calc(1250ms + var(--i) * 170ms); }
+.sail .sp-board.play .sp-out em { opacity: 1; transform: none; }
+.sail .sp-row { transition-delay: calc(1100ms + var(--i) * 170ms); }
+/* the two left out: small and pale */
+html .sail .sp-row.no { padding-block: 5px; }
+html .sail .sp-board.play .sp-row.no { opacity: .5; }
+html .sail .sp-row.no .sp-pin { width: 22px; height: 22px; justify-self: center; border-radius: 6px; font-size: 11px; }
+.sail .sp-row.no .sp-who b { font-size: 13px; }
+.sail .sp-row.no .sp-who p { font-size: 12px; margin-top: 1px; }
+.sail .sp-row.no em { padding: 2px 8px; font-size: 11px; }
+
+/* ---------------------------------------------------------------- tablets and phones: the ship on top, the board under it */
+@media (max-width: 1000px) {
+  .sail > .gallery-wallpaper { grid-area: 2 / 1; align-self: start; width: 100%; }
+  .sail .sp-board { min-height: 0; padding: calc(100vw / 1.953 + 8px) 14px 14px; grid-template-columns: 1fr; grid-template-areas: "list" "foot"; }
+  .sail .sp-list, .sail .sp-foot { grid-column: 1; grid-row: auto; }
+  .sail .sp-label { padding: 8px 12px 9px 11px; gap: 5px; bottom: calc(100% + 16px); box-shadow: 3px 3px 0 var(--ink); }
+  .sail .sp-label::before { height: 14px; left: 16px; }
+  .sail .sp-label b { font-size: 16px; }
+  .sail .sp-label span { font-size: 11px; letter-spacing: .06em; }
+  html .sail .sp-lot::after { inset: -16px; --a: 7px; --o: 10px; }
+  .sail .sp-lot::before { inset: -5px; }
+  html .sail .sp-row { grid-template-columns: 34px 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sail .gallery-wallpaper img { transform: none; transition: opacity 300ms ease; }
+  .sail .sp-lot::before, .sail .sp-label { transform: none; transition: opacity 200ms ease; }
+  .sail .sp-out em { opacity: 1; transform: none; transition: none; }
+  html .sail .sp-board.play .sp-row:not(.no) .sp-pin, .sail .sp-board.play .sp-lot, .sail .sp-board.play .src-ring, .sail .sp-found b.tick { animation: none; }
+}
+
+/* ================================================================ the freight-label language, across the whole hero
+   Everything in the hero speaks like the "Your stock" label: square white cards with an ink edge and a hard printed
+   shadow, statuses in coloured mono capitals behind a small square, square number tiles, dashed rules like a
+   manifest, crop marks on the customer card, and buttons that press down into their shadow. No glass, no pills. */
+.sail { --edge: 2px solid var(--ink); --print: 5px 5px 0 var(--ink); }
+
+/* ---------------------------------------------------------------- the buttons under the headline */
+html .sail .hero .btn, html .sail .sp-foot .btn { border-radius: 2px; transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease; }
+html .sail .hero .btn-ink { background: var(--ink); box-shadow: 4px 4px 0 var(--bordeaux); border: var(--edge); }
+html .sail .hero .btn-soft, html .sail .sp-foot .btn-soft { background: #fff; border: var(--edge); box-shadow: 4px 4px 0 var(--ink); padding-right: 18px; }
+html .sail .sp-foot .btn-soft { box-shadow: 3px 3px 0 var(--ink); }
+@media (hover: hover) and (pointer: fine) {
+  html .sail .hero .btn-ink:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--bordeaux); }
+  html .sail :is(.hero, .sp-foot) .btn-soft:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); background: #fff; }
+}
+html .sail .hero .btn-ink:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--bordeaux); }
+html .sail :is(.hero, .sp-foot) .btn-soft:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+
+/* ---------------------------------------------------------------- the customer card: a manifest */
+html .sail .sp-list.glass, html .sail .sp-foot.glass { background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; border: var(--edge); border-radius: 2px; box-shadow: var(--print); }
+html .sail .sp-list { padding: 6px 8px; overflow: visible; }
+/* crop marks on the card's corners */
+html .sail .sp-list::after { content: ''; position: absolute; inset: -20px; pointer-events: none; --m: var(--ink); --a: 10px; --o: 12px; --w: 1.5px;
+  background:
+    linear-gradient(var(--m), var(--m)) left 0 top var(--o) / var(--a) var(--w), linear-gradient(var(--m), var(--m)) left var(--o) top 0 / var(--w) var(--a),
+    linear-gradient(var(--m), var(--m)) right 0 top var(--o) / var(--a) var(--w), linear-gradient(var(--m), var(--m)) right var(--o) top 0 / var(--w) var(--a),
+    linear-gradient(var(--m), var(--m)) left 0 bottom var(--o) / var(--a) var(--w), linear-gradient(var(--m), var(--m)) left var(--o) bottom 0 / var(--w) var(--a);
+  background-repeat: no-repeat; }
+/* the count: a large figure and its label in mono capitals */
+html .sail .sp-found { gap: 16px; padding: 14px 10px 16px; border-bottom: 2px solid var(--ink); margin-bottom: 4px; }
+html .sail .sp-found b { font: 600 52px/.78 var(--font); letter-spacing: -.06em; }
+html .sail .sp-found span { max-width: 24ch; font: 500 11px/1.45 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+/* rows ruled like a manifest */
+html .sail .sp-row { border-radius: 0; padding: 12px 8px; }
+html .sail .sp-row + .sp-row { border-top: 1px dashed rgb(20 26 46 / .28); }
+/* square number tiles in mono */
+html .sail .sp-pin { border-radius: 2px; font: 500 14px/1 var(--mono); }
+html .sail .sp-row.no .sp-pin { border-radius: 2px; font-size: 11px; }
+/* the status: coloured mono capitals behind a small square, like "NOT SOLD YET" */
+html .sail .sp-out em, html .sail .sp-row:not(.no) em { display: inline-flex; align-items: center; gap: 6px; padding: 0; border-radius: 0; background: none;
+  font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+html .sail .sp-out em::before { content: ''; width: 7px; height: 7px; background: var(--c); }
+html .sail .sp-row.no em { padding: 0; color: var(--ink-3); }
+
+/* ---------------------------------------------------------------- the summary under it */
+html .sail .sp-foot { border-radius: 2px; padding: 16px 18px; }
+html .sail .sp-foot p { color: var(--ink-2); }
+
+@media (max-width: 1000px) {
+  html .sail .sp-list::after { inset: -14px; --a: 7px; --o: 9px; }
+  html .sail .sp-out { margin-top: 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html .sail :is(.hero, .sp-foot) .btn { transition: none; }
+}
+/* room between the manifest and the summary, so the crop marks stand free */
+html .sail .sp-board { row-gap: 34px; }

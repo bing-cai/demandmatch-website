@@ -61,17 +61,17 @@
       sp_eyebrow: 'Andersherum',
       sp_h: 'Ihr Bestand findet<br><span class="mute">seine Kunden von selbst.</span>',
       sp_sub: 'Ware im Zulauf, die noch niemand gekauft hat. Überbestand, der seit Wochen liegt. DemandMatch sieht, welche Kunden genau das brauchen, und bereitet jedem eine persönliche Nachricht vor.',
-      sp_lot_k: 'Noch nicht verkauft', sp_lot_h: 'HDPE Lebensmittel', sp_lot_1: 'Zulauf KW 49 und Lager Hamburg', sp_lot_2: 'Sonderpreis −40 €/t bis Monatsende', sp_lot_3: 'Freigegeben vom Produktmanagement',
+      sp_lot_k: 'Noch nicht verkauft', sp_lot_h: 'Ihr Produkt', sp_lot_t: 'Ihr Bestand', sp_lot_1: 'Zulauf KW 49 und Lager Hamburg', sp_lot_2: 'Sonderpreis −40 €/t bis Monatsende', sp_lot_3: 'Freigegeben vom Produktmanagement',
       sp_list_label: 'Kunden, die zu diesem Bestand passen',
       sp_rows: [
-        ['Hanse Closures GmbH', 'fit', 'Kauft alle 3 Wochen HDPE für Verschlüsse. Nächster Abruf in etwa 9 Tagen.', 'SAP-Historie', '24 t'],
-        ['Weser Getränketechnik GmbH', 'fit', 'Hatte HMA 016 im Frühjahr im Einsatz. Dieselbe Type.', 'SAP-Historie', '12 t'],
-        ['Sauerland Haushaltswaren GmbH', 'maybe', 'Sagte am Telefon, HDPE sei einen Versuch wert.', 'Anruf', '4 t'],
-        ['Emsland Rohrsysteme GmbH', 'no', 'Braucht PE100-Rohrtypen. Kein Ersatz.', 'SAP', ''],
-        ['Folienwerk Nordheide GmbH', 'no', 'Folie in LLDPE. Diese Type passt nicht.', 'SAP', '']
+        ['Kunde 1', 'fit', 'Kauft dieses Produkt regelmäßig. Die nächste Bestellung steht bald an.', '', ''],
+        ['Kunde 2', 'fit', 'Hat dasselbe Produkt schon bestellt.', '', ''],
+        ['Kunde 3', 'maybe', 'Hat am Telefon danach gefragt.', '', ''],
+        ['Kunde 4', 'no', 'Braucht eine andere Spezifikation.', '', ''],
+        ['Kunde 5', 'no', 'Dieses Produkt passt nicht.', '', '']
       ],
       sp_fit: 'Passt', sp_maybe: 'Vielleicht', sp_no: 'Ausgelassen',
-      sp_sum_a: '40 t an 3 Kunden, 2 bewusst ausgelassen.', sp_sum_b: 'Drei persönliche E-Mails warten auf Freigabe.', sp_open: 'Im Produkt ansehen',
+      sp_sum_a: 'Ihr Bestand an 3 Kunden, 2 bewusst ausgelassen.', sp_sum_b: 'Drei persönliche E-Mails warten auf Freigabe.', sp_open: 'Im Produkt ansehen',
       ge_h: 'Gemacht für deutsche Unternehmen.<br><span class="mute">Betriebsrat und Datenschutz im Plan.</span>',
       ge_items: [
         ['users-three', 'Betriebsrat', 'Software, die zeigt, was einzelne Mitarbeitende tun, braucht in Deutschland die Zustimmung des Betriebsrats. Sie bekommen von uns ein Informationspaket: welche Daten DemandMatch nutzt, wer was sieht und wofür. Wir planen dafür 4 bis 8 Wochen ein, parallel zur Potenzialanalyse.'],
@@ -313,17 +313,17 @@
       sp_eyebrow: 'The other way round',
       sp_h: 'Your stock finds<br><span class="mute">its customers by itself.</span>',
       sp_sub: 'Inbound goods nobody has bought yet. Surplus that has sat for weeks. DemandMatch sees which customers need exactly that, and prepares a personal message for each of them.',
-      sp_lot_k: 'Not sold yet', sp_lot_h: 'HDPE food grade', sp_lot_1: 'Inbound week 49 and Hamburg stock', sp_lot_2: 'Special price −€40/t until month end', sp_lot_3: 'Released by product management',
+      sp_lot_k: 'Not sold yet', sp_lot_h: 'Your product', sp_lot_t: 'Your stock', sp_lot_1: 'Inbound week 49 and Hamburg stock', sp_lot_2: 'Special price −€40/t until month end', sp_lot_3: 'Released by product management',
       sp_list_label: 'Customers who fit this stock',
       sp_rows: [
-        ['Hanse Closures GmbH', 'fit', 'Buys HDPE for closures every 3 weeks. Next call-off in about 9 days.', 'SAP history', '24 t'],
-        ['Weser Getränketechnik GmbH', 'fit', 'Ran HMA 016 in spring. The same grade.', 'SAP history', '12 t'],
-        ['Sauerland Haushaltswaren GmbH', 'maybe', 'Said on the phone that HDPE is worth a trial.', 'Call', '4 t'],
-        ['Emsland Rohrsysteme GmbH', 'no', 'Needs PE100 pipe grades. Not a substitute.', 'SAP', ''],
-        ['Folienwerk Nordheide GmbH', 'no', 'Film in LLDPE. This grade does not fit.', 'SAP', '']
+        ['Customer 1', 'fit', 'Buys this product regularly. The next order is due soon.', '', ''],
+        ['Customer 2', 'fit', 'Ordered the same product before.', '', ''],
+        ['Customer 3', 'maybe', 'Asked about it on the phone.', '', ''],
+        ['Customer 4', 'no', 'Needs a different specification.', '', ''],
+        ['Customer 5', 'no', 'This product does not fit.', '', '']
       ],
       sp_fit: 'Fits', sp_maybe: 'Maybe', sp_no: 'Left out',
-      sp_sum_a: '40 t to 3 customers, 2 left out on purpose.', sp_sum_b: 'Three personal emails wait for approval.', sp_open: 'See it in the product',
+      sp_sum_a: 'Your stock to 3 customers, 2 left out on purpose.', sp_sum_b: 'Three personal emails wait for approval.', sp_open: 'See it in the product',
       ge_h: 'Built for German companies.<br><span class="mute">Works council and data protection planned in.</span>',
       ge_items: [
         ['users-three', 'Works council', 'In Germany, software that shows what individual employees do needs the works council\'s agreement. We give you an information pack: which data DemandMatch uses, who sees what, and why. We plan 4 to 8 weeks for it, alongside the value assessment.'],

@@ -119,7 +119,7 @@
     "@id": "https://demandmatch.io/#product"
    },
    "primaryImageOfPage": "https://demandmatch.io/assets/art/unloading.jpg",
-   "dateModified": "2026-11-26"
+   "dateModified": "2026-11-27"
   },
   {
    "@type": "SoftwareApplication",
@@ -442,6 +442,9 @@
 <link rel="stylesheet" href="../assets/css/mobile.css?v=af463383">
 <link rel="stylesheet" href="../assets/css/rail.css?v=1ff495a7">
 <link rel="stylesheet" href="../assets/css/craft.css?v=c14d84da">
+<link rel="stylesheet" href="../assets/css/art.css?v=976cb29a">
+<link rel="stylesheet" href="../assets/css/hero.css?v=c006f9c7">
+<link rel="stylesheet" href="../assets/css/freight.css?v=d7cd9bba">
 </head>
 <body>
 <a class="skip" href="#main" data-t="skip">Skip to content</a>
@@ -489,9 +492,9 @@
 <main id="main">
 
   <!-- HERO: the value in one line, who it is for, and the matching itself as the picture: one lot of stock finding its customers (surplus.js) -->
-  <div class="hero-gallery">
+  <div class="hero-gallery sail">
   <!-- the painting, full-bleed behind the headline and the board, dissolving into the paper above and below -->
-  <div class="gallery-wallpaper" aria-hidden="true"><img src="../assets/art/unloading-1536.webp" srcset="../assets/art/unloading-640.webp 640w, ../assets/art/unloading-1024.webp 1024w, ../assets/art/unloading-1536.webp 1536w" sizes="100vw" alt="" decoding="async" fetchpriority="high"></div>
+  <div class="gallery-wallpaper" aria-hidden="true"><img src="../assets/art/hero-ship-1752.webp" srcset="../assets/art/hero-ship-640.webp 640w, ../assets/art/hero-ship-1024.webp 1024w, ../assets/art/hero-ship-1752.webp 1752w" sizes="(max-width: 1000px) 100vw, 63vw" alt="" decoding="async" fetchpriority="high" data-art="1752 897 1043 600 905 648" data-box="768 552 1043 648"></div>
   <section class="hero wrap">
     <h1 class="h1" data-split="h1">Every tonne of stock finds its customer.</h1>
     <p class="lead in-hero" style="--d:5" data-t="lead">DemandMatch matches your inventory with your customers' demand, automatically. Your sales team sells more, at better margin, and only approves.</p>
@@ -505,18 +508,12 @@
       <div class="sp-stage hero-stage">
         <div class="sp-board" id="sp-board">
           <div class="sp-lot">
-            <p class="sp-k" data-t="sp_lot_k">Not sold yet</p>
-            <h2 data-t="sp_lot_h">HDPE food grade</h2>
-            <p class="sp-grade">HMA 016 · Marlex 9006</p>
-            <p class="sp-t"><b>40</b><span>t</span></p>
-            <ul class="sp-meta">
-              <li data-t="sp_lot_1">Inbound week 49 and Hamburg stock</li>
-            </ul>
+            <p class="sp-label"><b data-t="sp_lot_t">Your stock</b><span data-t="sp_lot_k">Not sold yet</span></p>
           </div>
           <svg class="sp-flow" aria-hidden="true"></svg>
-          <ol class="sp-list glass" data-ta="sp_list_label" aria-label="Customers who fit this stock"><li class="sp-row fit" style="--i:0"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Hanse Closures GmbH</b><p>Buys HDPE for closures every 3 weeks. Next call-off in about 9 days.</p><small>SAP history</small></div><div class="sp-out"><b>24 t</b><em>Fits</em></div></li><li class="sp-row fit" style="--i:1"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Weser Getränketechnik GmbH</b><p>Ran HMA 016 in spring. The same grade.</p><small>SAP history</small></div><div class="sp-out"><b>12 t</b><em>Fits</em></div></li><li class="sp-row maybe" style="--i:2"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Sauerland Haushaltswaren GmbH</b><p>Said on the phone that HDPE is worth a trial.</p><small>Call</small></div><div class="sp-out"><b>4 t</b><em>Maybe</em></div></li><li class="sp-row no" style="--i:3"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Emsland Rohrsysteme GmbH</b><p>Needs PE100 pipe grades. Not a substitute.</p><small>SAP</small></div><div class="sp-out"><em>Left out</em></div></li><li class="sp-row no" style="--i:4"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Folienwerk Nordheide GmbH</b><p>Film in LLDPE. This grade does not fit.</p><small>SAP</small></div><div class="sp-out"><em>Left out</em></div></li></ol>
+          <ol class="sp-list glass" data-ta="sp_list_label" aria-label="Customers who fit this stock"><li class="sp-row fit" style="--i:0"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Customer 1</b><p>Buys this product regularly. The next order is due soon.</p><small></small></div><div class="sp-out"><em>Fits</em></div></li><li class="sp-row fit" style="--i:1"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Customer 2</b><p>Ordered the same product before.</p><small></small></div><div class="sp-out"><em>Fits</em></div></li><li class="sp-row maybe" style="--i:2"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Customer 3</b><p>Asked about it on the phone.</p><small></small></div><div class="sp-out"><em>Maybe</em></div></li><li class="sp-row no" style="--i:3"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Customer 4</b><p>Needs a different specification.</p><small></small></div><div class="sp-out"><em>Left out</em></div></li><li class="sp-row no" style="--i:4"><span class="sp-pin" aria-hidden="true"></span><div class="sp-who"><b>Customer 5</b><p>This product does not fit.</p><small></small></div><div class="sp-out"><em>Left out</em></div></li></ol>
           <div class="sp-foot glass">
-            <p><b data-t="sp_sum_a">40 t to 3 customers, 2 left out on purpose.</b> <span data-t="sp_sum_b">Three personal emails wait for approval.</span></p>
+            <p><b data-t="sp_sum_a">Your stock to 3 customers, 2 left out on purpose.</b> <span data-t="sp_sum_b">Three personal emails wait for approval.</span></p>
             <a class="btn btn-soft btn-sm" href="#systems" data-open-push><span data-t="sp_open">See it in the product</span><span class="btn-ic" aria-hidden="true"><i class="ph-light ph-arrow-up-right"></i></span></a>
           </div>
         </div>
@@ -757,15 +754,15 @@
 </div>
 
 <script>window.SHARED_BASE = '../assets/';</script>
-<script src="../assets/js/site.js?v=c8b1dfc2"></script>
+<script src="../assets/js/site.js?v=0129c407"></script>
 <script src="../assets/app/engine.js?v=8505b732"></script>
 <script src="../assets/app/sample.js?v=45050d6c"></script>
 <script src="../assets/app/gantt.js?v=104f4347"></script>
 <script src="../assets/app/ae.js?v=4dba1bf8"></script>
 <script src="../assets/app/app.js?v=376f35ef"></script>
-<script src="../assets/js/systems.js?v=dc7879ad"></script>
+<script src="../assets/js/systems.js?v=baf94d65"></script>
 <script src="../assets/js/stage.js?v=49cb733a"></script>
-<script src="../assets/js/surplus.js?v=d3a7bdc5"></script>
+<script src="../assets/js/surplus.js?v=a40938bd"></script>
 <script src="../assets/js/pricing.js?v=b378a930"></script><!-- the price config the business case uses -->
 <script src="../assets/js/roi.js?v=007591b5"></script>
 <script src="../assets/js/monet.js?v=a0bc6b14"></script>

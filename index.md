@@ -40,15 +40,15 @@ Lesen, abgleichen, Angebot schreiben: das läuft von selbst, auf Ihren bestehend
 
 ## Beispiel: Ware findet ihre Kunden
 
-HDPE Lebensmittel (Noch nicht verkauft). Zulauf KW 49 und Lager Hamburg.
+Ihr Produkt (Noch nicht verkauft). Zulauf KW 49 und Lager Hamburg.
 
-- Hanse Closures GmbH: Passt, 24 t. Kauft alle 3 Wochen HDPE für Verschlüsse. Nächster Abruf in etwa 9 Tagen. (SAP-Historie)
-- Weser Getränketechnik GmbH: Passt, 12 t. Hatte HMA 016 im Frühjahr im Einsatz. Dieselbe Type. (SAP-Historie)
-- Sauerland Haushaltswaren GmbH: Vielleicht, 4 t. Sagte am Telefon, HDPE sei einen Versuch wert. (Anruf)
-- Emsland Rohrsysteme GmbH: Ausgelassen. Braucht PE100-Rohrtypen. Kein Ersatz. (SAP)
-- Folienwerk Nordheide GmbH: Ausgelassen. Folie in LLDPE. Diese Type passt nicht. (SAP)
+- Kunde 1: Passt. Kauft dieses Produkt regelmäßig. Die nächste Bestellung steht bald an. ()
+- Kunde 2: Passt. Hat dasselbe Produkt schon bestellt. ()
+- Kunde 3: Vielleicht. Hat am Telefon danach gefragt. ()
+- Kunde 4: Ausgelassen. Braucht eine andere Spezifikation. ()
+- Kunde 5: Ausgelassen. Dieses Produkt passt nicht. ()
 
-40 t an 3 Kunden, 2 bewusst ausgelassen. Drei persönliche E-Mails warten auf Freigabe.
+Ihr Bestand an 3 Kunden, 2 bewusst ausgelassen. Drei persönliche E-Mails warten auf Freigabe.
 
 Alle Daten im Beispiel sind Beispieldaten.
 

@@ -1,0 +1,179 @@
+/* The freight-label language, across both pages (loaded last; "html" outranks the files before it).
+   It began with the "Your stock / NOT SOLD YET" tag in the hero: a square white label with an ink edge and a hard
+   printed shadow, its state in coloured mono capitals behind a small square. Everything that is a surface follows it:
+   1. colours: the paintings' navy, Bordeaux and racing green replace cobalt, rose and viridian everywhere;
+   2. buttons: square, ink-edged, a printed shadow they press into (dark ones on a Bordeaux shadow);
+   3. stages that hold a painting: square, ink edge, printed shadow; the product pieces on them: white labels;
+   4. statuses and tags: mono capitals, square corners;
+   5. lists and questions: ruled like a manifest (dashed), the section rail as square marks.
+   The text is unchanged. */
+
+/* ---------------------------------------------------------------- 1. colours from the paintings (html:root outranks monet.css's :root) */
+html:root {
+  --navy: #1d3461; --bordeaux: #8b1e2d; --racing: #2c5a3f;
+  --cobalt: #1d3461; --cobalt-ink: #16284b;
+  --viridian: #2c5a3f; --viridian-ink: #234a33;
+  --rose: #8b1e2d; --rose-ink: #741826;
+  --cadmium: #b0503c; --cadmium-ink: #8a3b2b;
+  --violet: #4a5a78; --violet-ink: #3a4862;
+  --gold: #a9863f;
+  --edge: 2px solid var(--ink);
+  --print: 6px 6px 0 var(--ink);
+  --print-s: 4px 4px 0 var(--ink);
+}
+::selection { background: rgb(139 30 45 / .18); }
+
+/* the tints that were written as fixed numbers */
+html .pl-grp { --c-soft: rgb(29 52 97 / .09); }
+html .pl-grp + .pl-grp { --c-soft: rgb(44 90 63 / .1); }
+html :is(.mrow em.ok, .b-ink.done, .s-ok.done, .s-approve.done, .s-board-h em) { background: rgb(44 90 63 / .1); color: var(--racing); }
+html .s-push-h em { background: rgb(139 30 45 / .09); color: var(--bordeaux); }
+html .s-of-rep mark { background: rgb(29 52 97 / .09); color: var(--navy); border-radius: 1px; }
+html .s-chk { background: rgb(44 90 63 / .08); color: var(--racing); border-radius: 2px; }
+html .s-offer-wrap.broken :is(.s-of-rep mark, .s-chk) { background: rgb(139 30 45 / .1); color: var(--bordeaux); }
+html .roi-r input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 .5px rgb(0 0 0 / .12), 0 0 0 4px rgb(29 52 97 / .3); }
+
+/* ---------------------------------------------------------------- 2. buttons */
+html .btn { border-radius: 2px; transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease; }
+html .btn-ink { background: var(--ink); color: #fff; border: var(--edge); box-shadow: 4px 4px 0 var(--bordeaux); }
+html .btn-soft { background: #fff; color: var(--ink); border: var(--edge); box-shadow: var(--print-s); padding-right: 18px; }
+html .btn-sm { box-shadow: 3px 3px 0 var(--ink); }
+html .btn-ink.btn-sm { box-shadow: 3px 3px 0 var(--bordeaux); }
+@media (hover: hover) and (pointer: fine) {
+  html .btn-ink:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--bordeaux); background: var(--ink); }
+  html .btn-soft:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); background: #fff; }
+}
+html .btn-ink:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--bordeaux); }
+html .btn-soft:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+/* the phone action bar: a label strip, not glass */
+html .m-cta { border-radius: 2px; background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; border: var(--edge); box-shadow: var(--print-s); }
+html .m-cta .btn { box-shadow: none; }
+html .m-cta .btn-soft { border-color: var(--ink); }
+/* the language switch and the menu */
+html .menu .lang, html .menu .lang button { border-radius: 2px; }
+html .menu .lang button[aria-pressed="true"] { box-shadow: 0 0 0 1.5px var(--ink); }
+/* smaller buttons inside the pieces of product, the calculator and the lists */
+html :is(.ask-b button, .s-ok, .s-approve, .s-break, .sy-try-b, .roi-more, .s-more, .roi-seg, .roi-seg button, .s-cfo) { border-radius: 2px; }
+html :is(.roi-more, .s-more) { background: #fff; box-shadow: none; border: var(--edge); }
+
+/* ---------------------------------------------------------------- 3. stages that hold a painting, and the labels on them */
+html :is(.card, .stage, .sy-stage, .ge-stage, .s-role-stage, .s-board-stage, .s-stop-art, .s-split, .s-offer-wrap, .s-film, .roi-in, .roi-out, .pl-st li) {
+  border-radius: 2px; border: var(--edge); box-shadow: var(--print); }
+html .card-core, html .card-art { border-radius: 0; }
+/* the stages inside cards and the film need no second frame */
+html .card :is(.card-art, .card-core) { border: 0; box-shadow: none; }
+/* the pieces of product standing on the paintings: white labels with an ink edge */
+html :is(.ui, .ask, .win, .s-board, .s-offer, .s-list, .roi-memo, .sy-app, .sp-list, .sp-foot, .s-counts > div, .s-role-ui div, .s-fake, .ge-p, .s-role-p, .sy-switch, .sy-label, .sy-try-b, .roi-seg, .s-film) {
+  border-radius: 2px; }
+html :is(.ui, .ask, .s-board, .s-offer, .roi-memo, .s-list, .ge-p, .s-role-p, .sy-switch) {
+  background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; border: 1.5px solid var(--ink); box-shadow: var(--print-s); }
+html .win { border-radius: 4px; }
+/* pricing: the phase bars square, the step cards white labels on the band */
+html .pl-ph { border-radius: 2px; box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--c) 55%, transparent); }
+html .pl-st li { background: #fff; }
+
+/* ---------------------------------------------------------------- 4. statuses and tags: mono capitals, square */
+html :is(.ui em, .mrow em, .s-type, .s-board-h em, .s-push-h em, .sy-badge, .chips span, .fm-tt em, .sp-out em, .s-ok.done) {
+  border-radius: 1px; font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; font-style: normal; }
+html .sp-lot .sp-k { border-radius: 1px; }
+
+/* ---------------------------------------------------------------- 5. lists, questions and the section rail */
+html .faq-l { border-top: var(--edge); }
+html .faq-i { border-bottom: 1px dashed rgb(20 26 46 / .3); }
+html .faq-i:last-child { border-bottom: var(--edge); }
+html .s-row + .s-row { border-top: 1px dashed rgb(20 26 46 / .22); }
+html .s-row { border-radius: 0; }
+@media (min-width: 1100px) {
+  html .rail a::before { border-radius: 1px; }
+  html .rail a.now::before { box-shadow: 2px 2px 0 var(--bordeaux); transform: scale(1.3); }
+  html .rail a:hover::before { box-shadow: inset 0 0 0 2px var(--navy); }
+  html .rail a.now:hover::before { box-shadow: 2px 2px 0 var(--bordeaux); }
+  html .rail a:focus-visible { border-radius: 2px; }
+}
+/* the header: a ruled line under it */
+html .top { border-bottom-color: rgb(20 26 46 / .16); }
+
+@media (prefers-reduced-motion: reduce) { html .btn { transition: none; } }
+/* the business case bars: square segments */
+html .roi-bar i { border-radius: 1px; }
+/* phones: a lighter print, so the cards do not crowd the screen edge */
+@media (max-width: 720px) { html:root { --print: 4px 4px 0 var(--ink); --print-s: 3px 3px 0 var(--ink); } }
+
+/* ---------------------------------------------------------------- the film's switch scene (sales page)
+   The glass pill was white on a misty painting; on the white knife painting it vanished. It becomes a freight label:
+   white, ink text and logo, an ink edge and a printed shadow (in the film's 1920px world, so the numbers are doubled). */
+html .fm-pill { background: #fff; color: var(--ink); border: 5px solid var(--ink); border-radius: 6px; box-shadow: 16px 16px 0 var(--ink); }
+html .fm-pill b { text-shadow: none; font-weight: 500; }
+html .fm-pill .fm-mask { background: var(--ink); }
+html .fm-pill .fm-tg.big { background: #d5d9df; box-shadow: inset 0 0 0 3px var(--ink); }
+html .fm-pill .fm-tg > b { background: var(--racing); }
+html .fm-pill .fm-tg.big > i { box-shadow: 0 0 0 3px var(--ink); }
+/* the film's two messages ("Autopilot activated", "Every request handled"): ink on white, the same label */
+html .fm-toast { color: var(--ink); background: #fff; border: 5px solid var(--ink); border-radius: 6px; box-shadow: 14px 14px 0 var(--ink); -webkit-backdrop-filter: none; backdrop-filter: none; }
+html .fm-toast b { text-shadow: none; font-weight: 500; }
+
+/* ---------------------------------------------------------------- "Three systems. One list." (#systems)
+   The three kinds of systems as freight labels: white, ink edge, printed shadow, each with an ink tab on its top
+   edge naming it in mono capitals behind a square of its colour (communication navy, work racing green, record
+   Bordeaux). Ink wires run to the laptop; with the autopilot on, small containers in each system's colour travel
+   along them into the one list. The stage is the painting on white, no grey veil. */
+html .sy-stage { background: #fff; }
+html .sy-stage::after { content: none; }
+html .sy-group:nth-child(1) { --c: var(--navy); } html .sy-group:nth-child(2) { --c: var(--racing); } html .sy-group:nth-child(3) { --c: var(--bordeaux); }
+html .sy-group { background: #fff; border: var(--edge); border-radius: 2px; box-shadow: var(--print); padding-top: clamp(1rem, 1.8vw, 1.6rem); }
+html .sy-label { left: -2px; top: -2px; transform: translateY(-100%); display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 6px 10px;
+  border-radius: 2px 2px 0 0; background: var(--c); color: #fff; box-shadow: none;
+  font: 500 clamp(11px, .85vw, 12px)/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+html .sy-label::before { content: ''; flex: none; width: 8px; height: 8px; background: #fff; }
+/* the app icons: flat, a hairline instead of a soft shadow; on hover they lift onto a printed shadow */
+html .sy-ic { border-radius: 10px; box-shadow: 0 0 0 1px rgb(20 26 46 / .14); transition: transform 160ms ease, box-shadow 160ms ease; }
+@media (hover: hover) and (pointer: fine) { html .sy-ic:hover { transform: translate(-2px, -2px); box-shadow: 0 0 0 1.5px var(--ink), 3px 3px 0 var(--ink); } }
+html .sy-folder { background: #f3f2ee; }
+html .sy-folder > span { border-radius: 4px; box-shadow: 0 0 0 .5px rgb(20 26 46 / .2); }
+/* the wires: ink, dashed while off, solid once on; the travelling containers in each system's colour */
+html .sy-wires .w { stroke: rgb(20 26 46 / .4); stroke-width: 2; stroke-dasharray: 5 7; stroke-linecap: butt; transition: stroke 600ms ease; }
+html .is-on .sy-wires .w { stroke: var(--ink); stroke-dasharray: none; }
+html .sy-wires .g { display: none; }
+html .sy-wires .f { stroke: var(--c); stroke-width: 9; stroke-linecap: butt; stroke-dasharray: 2.2 97.8; }
+/* the "Click to try it" button: the dark freight button */
+html .sy-try-b { border-radius: 2px; border: var(--edge); box-shadow: 4px 4px 0 var(--bordeaux); transition: transform 160ms ease, box-shadow 160ms ease; }
+@media (hover: hover) and (pointer: fine) { html .sy-try-b:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--bordeaux); } }
+html .sy-try-b:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--bordeaux); }
+@media (max-width: 900px) {
+  html .sy-groups { gap: .9rem; margin-top: 1.6rem; }
+  html .sy-group { padding: 1rem .5rem .5rem; box-shadow: var(--print-s); }
+  /* phones: the German names are long; the tab sets them in the text face, as one or two lines */
+  html .sy-label { max-width: calc(100% + 4px); white-space: normal; overflow-wrap: anywhere; hyphens: auto; line-height: 1.2; padding: 5px 7px 4px;
+    font: 500 11px/1.2 var(--font); letter-spacing: 0; text-transform: none; }
+  html .sy-label::before { display: none; }
+}
+
+/* ---------------------------------------------------------------- "Every step, every price": a bill of lading
+   Each phase is one freight label with a coloured tab (getting started navy, running racing green); its steps are
+   columns ruled by dashed lines, not separate cards. Each column: the large numeral, the duration as a small stamp
+   set a little askew (it straightens on hover), the step's own "Step n" in coloured capitals, what happens, and the
+   price under a firm ink rule. Phones keep one card per step on the swipe rail, under the same tab. */
+html .pl-grp .pl-ph { display: inline-flex; align-items: center; width: auto; height: auto; gap: 9px; margin: 0; padding: 8px 14px 7px 12px;
+  border-radius: 2px 2px 0 0; background: var(--c); color: #fff; box-shadow: none; -webkit-mask-image: none; mask-image: none;
+  font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+html .pl-grp .pl-ph::before { content: ''; flex: none; width: 8px; height: 8px; border-radius: 0; background: #fff; }
+/* the step label, the duration stamp, the price rule (all widths) */
+html .pl-k { position: static; width: auto; height: auto; margin: 20px 0 0; overflow: visible; clip-path: none; white-space: normal;
+  font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--c); }
+html .pl-st h3 { margin-top: 8px; }
+html .pl-dur { padding: 6px 8px 5px; border: 1.5px solid var(--ink); border-radius: 2px; background: #fff; color: var(--ink);
+  font: 500 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; transform: rotate(-2.5deg); transition: transform 300ms cubic-bezier(.34, 1.56, .64, 1); }
+html .pl-pr { border-top: 2px solid var(--ink); padding-top: 14px; }
+html .pl-pr small { color: var(--c); }
+@media (min-width: 721px) {
+  /* the phase: one card; its steps: columns ruled by dashed lines (the outer edges of the rules hide under the card's edge) */
+  html .pl-path .pl-st { gap: 0; overflow: hidden; background: #fff; border: var(--edge); border-radius: 0 2px 2px 2px; box-shadow: var(--print); }
+  html .pl-path .pl-st li, html .pl-path.in .pl-st li { margin: -1px 0 0 -1px; padding: 26px 26px 24px; border: 0; border-left: 1px dashed rgb(20 26 46 / .32); border-top: 1px dashed rgb(20 26 46 / .32);
+    border-radius: 0; background: #fff; box-shadow: none; transition: background-color 250ms ease, opacity 600ms ease, transform 700ms ease; }
+  html .pl-path.in .pl-st li:hover { transform: none; box-shadow: none; background: color-mix(in srgb, var(--c) 5%, #fff); }
+  html .pl-path .pl-st li:hover .pl-dur { transform: none; }
+}
+html .pl-path .pl-grp + .pl-grp .pl-ph { -webkit-mask-image: none; mask-image: none; }
+html .pl-path .pl-pr { align-self: stretch; }
+/* running, wide: the price stands beside the text behind a dashed rule; narrower it sits under it like the others */
+@media (min-width: 1101px) { html .pl-grp + .pl-grp .pl-st li > .pl-pr { border-left: 1px dashed rgb(20 26 46 / .32); border-top: 0; } }

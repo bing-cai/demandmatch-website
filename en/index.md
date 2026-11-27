@@ -40,15 +40,15 @@ Reading, matching, writing the offer: it runs by itself, on the systems you alre
 
 ## Example: stock finds its customers
 
-HDPE food grade (Not sold yet). Inbound week 49 and Hamburg stock.
+Your product (Not sold yet). Inbound week 49 and Hamburg stock.
 
-- Hanse Closures GmbH: Fits, 24 t. Buys HDPE for closures every 3 weeks. Next call-off in about 9 days. (SAP history)
-- Weser Getränketechnik GmbH: Fits, 12 t. Ran HMA 016 in spring. The same grade. (SAP history)
-- Sauerland Haushaltswaren GmbH: Maybe, 4 t. Said on the phone that HDPE is worth a trial. (Call)
-- Emsland Rohrsysteme GmbH: Left out. Needs PE100 pipe grades. Not a substitute. (SAP)
-- Folienwerk Nordheide GmbH: Left out. Film in LLDPE. This grade does not fit. (SAP)
+- Customer 1: Fits. Buys this product regularly. The next order is due soon. ()
+- Customer 2: Fits. Ordered the same product before. ()
+- Customer 3: Maybe. Asked about it on the phone. ()
+- Customer 4: Left out. Needs a different specification. ()
+- Customer 5: Left out. This product does not fit. ()
 
-40 t to 3 customers, 2 left out on purpose. Three personal emails wait for approval.
+Your stock to 3 customers, 2 left out on purpose. Three personal emails wait for approval.
 
 All data in the example is sample data.
 
