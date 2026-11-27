@@ -3,66 +3,63 @@
    Version 5: #systems (systems.js), built like GeneralMind's three-system-types section. A centred heading, the
    "Activate Autopilot" switch, and a stage: grey while off, blue-grey while on. Icon groups left, wires into a laptop
    right. The screen inside is 1280 × 800, scaled by --s, in the product's look (white, grey, the product green). */
-#systems { --app: #2f4c6c; --ease: var(--ease-out); padding: clamp(40px, 6vw, 80px) 0 clamp(80px, 10vw, 140px); }
+#systems { --app: #2f4c6c; --ease: var(--ease-out); }
 .sy-head { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .sy-head .h2 { max-width: 20ch; }
 .sy-head .sub { max-width: 60ch; text-wrap: balance; }
 
 /* the switch, built like GeneralMind's: a white pill with a thin edge, the sparkle, the one word, a small switch */
-.sy-switch { display: inline-flex; align-items: center; gap: .7rem; margin-top: clamp(2.2rem, 4vw, 3rem); padding: .8rem 1rem .8rem .9rem; border-radius: 999px; border: 0; box-shadow: 0 0 0 1px var(--line-2), 0 10px 24px -14px rgb(20 20 20 / .35); background: #fff; color: #0a0a0a; font: inherit; font-size: clamp(1.1rem, 1.4vw, 1.3rem); letter-spacing: -.01em; cursor: pointer; transition: background-color 300ms ease, transform 140ms var(--ease-out); }
+.sy-switch { display: inline-flex; align-items: center; gap: .7rem; margin-top: clamp(2.2rem, 4vw, 3rem); padding: .8rem 1rem .8rem .9rem; color: #0a0a0a; font-size: clamp(1.1rem, 1.4vw, 1.3rem); letter-spacing: -.01em; cursor: pointer; }
 .sy-switch:active { transform: scale(.97); }
 @media (hover: hover) and (pointer: fine) { .sy-switch:hover { background: #f7f6f3; } }
-.sy-switch:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
-.sy-spark { display: grid; width: 26px; height: 26px; color: var(--sand); }
-.sy-spark svg { width: 100%; height: 100%; }
+.sy-switch:focus-visible { outline: 2px solid var(--navy); outline-offset: 4px; }
+.sy-spark { display: grid; height: 26px; color: var(--brick); }
+.sy-spark svg { height: 100%; }
 .sy-sw-t { margin-right: .35rem; }
-.sy-tg { position: relative; display: inline-block; flex: none; width: 34px; height: 20px; border-radius: 99px; background: #c3c3c3; transition: background-color 350ms; }
+.sy-tg { position: relative; flex: none; width: 34px; height: 20px; border-radius: 99px; background: #c3c3c3; transition: background-color 350ms; }
 .sy-tg > i { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fcfcfd; box-shadow: 0 1px 3px rgb(16 24 40 / .1), 0 1px 2px rgb(16 24 40 / .06); transition: transform 350ms cubic-bezier(.4, 0, .2, 1); }
-.sy-tg.big { width: 44px; height: 25px; } .sy-tg.big > i { width: 21px; height: 21px; top: 2px; left: 2px; }
+.sy-tg.big { width: 44px; height: 25px; } .sy-tg.big > i { width: 21px; height: 21px; }
 .is-on .sy-tg { background: #34c759; }
 .is-on .sy-tg > i { transform: translateX(14px); } .is-on .sy-tg.big > i { transform: translateX(19px); }
 
 /* the stage */
-.sy-stage { position: relative; display: grid; grid-template-columns: minmax(0, 30fr) minmax(0, 7fr) minmax(0, 60fr); align-items: center; margin-top: clamp(2.4rem, 5vw, 3.6rem); padding: clamp(1.5rem, 4vw, 4rem) clamp(1rem, 3vw, 3.2rem) clamp(1.5rem, 3.4vw, 3.4rem) clamp(1rem, 4.5vw, 5.4rem); border-radius: 22px; overflow: hidden; isolation: isolate; background: #8d969c; }
+.sy-stage { position: relative; display: grid; grid-template-columns: minmax(0, 30fr) minmax(0, 7fr) minmax(0, 60fr); align-items: center; margin-top: clamp(2.4rem, 5vw, 3.6rem); padding: clamp(1.5rem, 4vw, 4rem) clamp(1rem, 3vw, 3.2rem) clamp(1.5rem, 3.4vw, 3.4rem) clamp(1rem, 4.5vw, 5.4rem); overflow: hidden; isolation: isolate; }
 /* the painting: greyed and a touch darker while off, its own colour once the autopilot is on */
-.sy-art { position: absolute; inset: 0; z-index: -1; background: url("../art/river-port-1536.webp") 50% 55% / cover no-repeat; filter: saturate(.35) brightness(.9); transform: scale(1.03); transition: filter 1200ms var(--ease-out), transform 1600ms var(--ease-out); }
-.is-on .sy-art { filter: none; transform: none; }
-.sy-stage::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgb(20 30 40 / .06), rgb(20 30 40 / .14)); }
+.sy-stage::after { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgb(20 30 40 / .06), rgb(20 30 40 / .14)); }
 
 /* the wires, and what runs along them once the autopilot is on */
 .sy-wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 .sy-wires path { fill: none; stroke-linecap: round; }
-.sy-wires .w { stroke: rgb(255 255 255 / .55); stroke-width: 2; }
+
 /* pulses run along the wires once the autopilot is on: a soft wide stroke under a bright thin one, no filters */
 .sy-wires .f, .sy-wires .g { stroke-dasharray: 4 96; stroke-dashoffset: 100; opacity: 0; transition: opacity 500ms; animation: sy-run 2.4s linear infinite paused; animation-delay: calc(var(--i) * -.8s); }
-.sy-wires .f { stroke: #fff; stroke-width: 3; } .sy-wires .g { stroke: rgb(255 255 255 / .35); stroke-width: 9; }
+ .sy-wires .g { stroke: rgb(255 255 255 / .35); stroke-width: 9; }
 .is-on .sy-wires .f, .is-on .sy-wires .g { opacity: 1; }
 .is-on.sy-vis .sy-wires .f, .is-on.sy-vis .sy-wires .g { animation-play-state: running; }
 @keyframes sy-run { to { stroke-dashoffset: 0; } }
 
 /* the three groups */
 .sy-groups { position: relative; display: flex; flex-direction: column; gap: clamp(1.6rem, 3.6vw, 3.4rem); grid-column: 1; }
-.sy-group { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.4rem, 1vw, .95rem); padding: clamp(.8rem, 1.5vw, 1.4rem) clamp(.6rem, 1.1vw, 1rem) clamp(.6rem, 1.1vw, 1rem); border-radius: clamp(16px, 2vw, 26px); border: 2px solid rgb(255 255 255 / .5); background: rgb(255 255 255 / .06); }
-.sy-label { position: absolute; top: 0; left: 50%; transform: translate(-50%, -55%); white-space: nowrap; padding: .35em .8em; border-radius: 999px; background: #fff; color: #111; font-size: clamp(.72rem, 1.05vw, 1rem); letter-spacing: -.02em; box-shadow: 0 4px 12px -6px rgb(0 0 0 / .4); }
-.sy-ic { display: block; aspect-ratio: 1; border-radius: 22%; overflow: hidden; background: #fff; box-shadow: 0 8px 18px -10px rgb(0 0 0 / .55), 0 0 0 1px rgb(0 0 0 / .04); transition: transform 300ms var(--ease); }
+.sy-group { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.4rem, 1vw, .95rem); padding: clamp(.8rem, 1.5vw, 1.4rem) clamp(.6rem, 1.1vw, 1rem) clamp(.6rem, 1.1vw, 1rem); }
+.sy-label { position: absolute; white-space: nowrap; }
+.sy-ic { aspect-ratio: 1; overflow: hidden; background: #fff; }
 .sy-ic:hover { transform: translateY(-3px); }
-.sy-ic svg { display: block; width: 100%; height: 100%; }
+.sy-ic svg { display: block; }
 /* logo masks (were in film.css, which is no longer on the page) */
-.fm-mask { display: inline-block; width: 1.2em; height: 1.2em; background: var(--c); -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; vertical-align: middle; }
-.fm-ic-wrap { display: grid; place-items: center; width: 100%; height: 100%; }
+.fm-mask { background: var(--c); -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; vertical-align: middle; }
+.fm-ic-wrap { display: grid; place-items: center; height: 100%; }
 .sy-ic .fm-ic-wrap .fm-mask { width: 64%; height: 64%; }
-.sy-folder { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7%; padding: 10%; background: linear-gradient(180deg, rgb(255 255 255 / .7), rgb(255 255 255 / .5)); }
-.sy-folder > span { display: block; aspect-ratio: 1; border-radius: 24%; overflow: hidden; background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / .2); }
-.sy-folder svg { display: block; width: 100%; height: 100%; }
+.sy-folder { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7%; padding: 10%; }
+.sy-folder > span { aspect-ratio: 1; overflow: hidden; background: #fff; }
 
 /* the laptop, open, in space grey */
 .sy-lap { position: relative; grid-column: 3; margin: 0 5.5%; }
 .sy-lid { position: relative; border-radius: 18px 18px 4px 4px; background: linear-gradient(180deg, #3a3d42, #1d1f23); }
 .sy-screen { position: relative; aspect-ratio: 16 / 10; border: clamp(6px, .8vw, 11px) solid #0c0d0f; border-bottom-width: clamp(10px, 1.4vw, 20px); border-radius: clamp(10px, 1.3vw, 18px) clamp(10px, 1.3vw, 18px) 4px 4px; overflow: hidden; background: #000; box-shadow: inset 0 0 0 1px #2a2c30; }
 .sy-notch { position: absolute; top: -1px; left: 50%; z-index: 9; width: 9%; height: 3.2%; min-height: 8px; transform: translateX(-50%); border-radius: 0 0 8px 8px; background: #0c0d0f; }
-.sy-fit { position: absolute; top: 0; left: 0; width: 1280px; height: 800px; transform: scale(var(--s, .5)); transform-origin: 0 0; }
-.sy-deck { position: relative; height: 0; margin: 0 -7%; padding-bottom: 2.6%; border-radius: 2px 2px 22px 22px / 2px 2px 14px 14px; background: linear-gradient(180deg, #8a8d93 0%, #4a4d53 22%, #2a2c30 55%, #17181b 100%); box-shadow: 0 30px 50px -20px rgb(20 30 40 / .6); }
-.sy-deck > span { position: absolute; top: 0; left: 50%; width: 14%; height: 45%; transform: translateX(-50%); border-radius: 0 0 10px 10px; background: linear-gradient(#1b1c1f, #2c2e33); }
+.sy-fit { position: absolute; width: 1280px; height: 800px; transform: scale(var(--s, .5)); transform-origin: 0 0; }
+.sy-deck { position: relative; margin: 0 -7%; padding-bottom: 2.6%; border-radius: 2px 2px 22px 22px / 2px 2px 14px 14px; background: linear-gradient(180deg, #8a8d93 0%, #4a4d53 22%, #2a2c30 55%, #17181b 100%); box-shadow: 0 30px 50px -20px rgb(20 30 40 / .6); }
+.sy-deck > span { position: absolute; left: 50%; width: 14%; height: 45%; transform: translateX(-50%); border-radius: 0 0 10px 10px; background: linear-gradient(#1b1c1f, #2c2e33); }
 
 /* ---------------------------------------------------------------- inside the screen */
 .sy-canvas { position: absolute; inset: 0; overflow: hidden; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 14px; color: #2b2d31; letter-spacing: 0;
@@ -86,9 +83,9 @@
 .sy-tt b { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sy-tt.sap { background: #0a6ed1; color: #fff; border: 0; } .sy-tt.xl { background: #107c41; color: #fff; border: 0; } .sy-tt.tm { background: #464eb8; color: #fff; border: 0; }
 .sy-sic { display: inline-grid; flex: none; width: 22px; height: 22px; border-radius: 5px; overflow: hidden; background: #fff; }
-.sy-sic svg { width: 100%; height: 100%; display: block; } .sy-sic .fm-mask { width: 70%; height: 70%; }
+ .sy-sic .fm-mask { width: 70%; height: 70%; }
 .sy-dots { margin-left: auto; display: inline-flex; gap: 6px; } .sy-dots i { width: 9px; height: 9px; border-radius: 50%; background: rgb(0 0 0 / .18); }
-.sy-badge { position: absolute; top: 8px; right: 70px; padding: 1px 8px; border-radius: 99px; background: #e5322d; color: #fff; font-size: 12px; font-style: normal; }
+.sy-badge { position: absolute; top: 8px; right: 70px; padding: 1px 8px; background: #e5322d; color: #fff; }
 
 .sy-ol { left: 26px; top: 92px; width: 520px; height: 560px; }
 .sy-olb { display: grid; grid-template-columns: 130px 1fr; height: calc(100% - 36px); }
@@ -127,9 +124,9 @@
 @keyframes sy-ping { 0% { opacity: 0; transform: translateX(30px); } 8%, 80% { opacity: 1; transform: none; } 92%, 100% { opacity: 0; transform: translateX(30px); } }
 
 /* on: the DemandMatch screen */
-.sy-app { display: grid; grid-template-columns: 200px 1fr; inset: 56px 64px; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 30px 60px -24px rgb(20 35 50 / .6); }
+.sy-app { display: grid; grid-template-columns: 200px 1fr; inset: 56px 64px; background: #fff; overflow: hidden; box-shadow: 0 30px 60px -24px rgb(20 35 50 / .6); }
 .sy-app aside { display: flex; flex-direction: column; gap: 6px; padding: 18px 14px; border-right: 1px solid #eceef1; font-size: 12.5px; color: #555; }
-.sy-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 14px; } .sy-logo b { font-weight: 600; color: #222; } .sy-logo .fm-mask { width: 22px; height: 22px; }
+.sy-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 14px; } .sy-logo b { font-weight: 600; color: #222; } .sy-logo .fm-mask { height: 22px; }
 .sy-app aside p { display: flex; align-items: center; gap: 7px; margin: 10px 0 2px; font-weight: 500; color: #222; }
 .sy-app aside span { padding: 5px 8px 5px 26px; border-radius: 6px; }
 .sy-app aside span.on { background: #f3f4f6; color: #111; font-weight: 500; box-shadow: inset 2px 0 var(--app); }
@@ -158,29 +155,29 @@
 .sy-av.ok, .sy-st.ok { background: #e3f5e9; color: #1d7a3e; } .sy-av.part, .sy-st.ask { background: #fdf0d9; color: #9a6200; } .sy-av.no { background: #fde5e2; color: #b42318; }
 .sy-st.done { background: #eef0f3; color: #555; }
 .sy-btn { display: inline-block; padding: 4px 10px; border: 1px solid #dfe1e5; border-radius: 6px; font-weight: 500; }
-.sy-foot { display: flex; margin-top: auto; font-size: 12px; color: #666; } .sy-foot .r { margin-left: auto; } .sy-foot b { padding: 1px 7px; border: 1px solid #dfe1e5; border-radius: 5px; font-weight: 500; }
+.sy-foot { display: flex; font-size: 12px; color: #666; } .sy-foot .r { margin-left: auto; } .sy-foot b { padding: 1px 7px; border: 1px solid #dfe1e5; border-radius: 5px; font-weight: 500; }
 
 /* phones and tablets: the groups above in a row, the laptop under them, no wires */
 @media (max-width: 900px) {
   .sy-stage { grid-template-columns: 1fr; gap: 2.2rem; padding: 2.4rem 1rem 1.6rem; }
-  .sy-groups { flex-direction: row; gap: .6rem; }
-  .sy-group { flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 1.1rem .5rem .5rem; border-radius: 14px; }
-  .sy-label { font-size: 10.5px; padding: .3em .6em; }
+  .sy-groups { flex-direction: row; }
+  .sy-group { flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
   .sy-wires { display: none; }
   .sy-lap { grid-column: 1; margin: 0 6%; }
 }
-@media (max-width: 520px) { .sy-label { white-space: normal; text-align: center; line-height: 1.15; width: max-content; max-width: 92%; } .sy-group { padding-top: 1.6rem; } }
+@media (max-width: 520px) { .sy-label { text-align: center; width: max-content; }  }
 /* back to off unseen, so the flip plays again next time */
 #systems.sy-snap, #systems.sy-snap * { transition: none !important; }
-@media (prefers-reduced-motion: reduce) { .sy-art { transition: none; transform: none; } .sy-ping { animation: none; opacity: 1; } .is-on .sy-wires .f { animation: none; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .sy-ping { animation: none; opacity: 1; } .is-on .sy-wires .f { animation: none; opacity: 0; } }
 
 /* under the stage: one ink pill that opens the real product (stage.js) */
 .sy-try { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin-top: clamp(28px, 3.4vw, 44px); }
 /* the way to the sales page (heads of sales, AEs, key account managers), next to "Click to try it" */
-.sy-try .sy-sales { height: 48px; background: #fff; box-shadow: var(--hair); }
+.sy-try .sy-sales { height: 48px; box-shadow: var(--hair); }
 @media (hover: hover) and (pointer: fine) { .sy-try .sy-sales:hover { background: #fff; box-shadow: 0 0 0 .5px rgb(0 0 0 / .14), 0 10px 24px -14px rgb(20 30 60 / .35); } .sy-sales:hover .btn-ic { transform: translateX(3px); } }
-.sy-try-b { display: inline-flex; align-items: center; gap: 9px; height: 48px; padding: 0 22px 0 18px; border: 0; border-radius: 999px; background: var(--ink); color: #fff;
-  font: 500 15px/1 var(--font); cursor: pointer; box-shadow: 0 18px 36px -14px rgb(0 0 0 / .45); transition: transform 200ms var(--ease-out); }
+.sy-try-b { display: inline-flex; align-items: center; gap: 9px; height: 48px; padding: 0 22px 0 18px; background: var(--ink); color: #fff;
+  font: 500 15px/1 var(--font); cursor: pointer; }
 .sy-try-b .ph-light { font-size: 19px; }
 @media (hover: hover) and (pointer: fine) { .sy-try-b:hover { transform: translateY(-2px); } }
 .sy-try-b:active { transform: scale(.97); }

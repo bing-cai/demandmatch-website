@@ -9,8 +9,6 @@
       count at the top goes up. The two left out stay small and pale under them.
    surplus.js positions the frame on the painted container (data-box) and draws the lines. */
 
-.sail { --navy: #1d3461; --bordeaux: #8b1e2d; --racing: #2c5a3f; }
-
 /* ---------------------------------------------------------------- the painting */
 .sail > .gallery-wallpaper { grid-area: 2 / 1; align-self: center; width: min(63%, 1120px); height: auto; aspect-ratio: 1752 / 897;
   --sail-fade: linear-gradient(180deg, #000 78%, transparent);
@@ -62,6 +60,8 @@ html .sail .sp-lot::after { content: ''; position: absolute; inset: -22px; --m: 
 /* where the lines leave the container */
 .sail .sp-flow .src-ring { fill: none; stroke: var(--navy); stroke-width: 1.2; opacity: 0; transform-box: fill-box; transform-origin: center; }
 .sail .sp-board.play .src-ring { animation: ping 2600ms ease-out 1s infinite; }
+/* the ping rests while the hero is off screen (surplus.js sets .run only while the board is in view) */
+.sail .sp-board.play:not(.run) .src-ring { animation-play-state: paused; }
 @keyframes ping { 0% { opacity: .7; transform: scale(1); } 100% { opacity: 0; transform: scale(3.2); } }
 
 /* ---------------------------------------------------------------- 2. the lines and the travelling containers */
@@ -83,7 +83,7 @@ html .sail .sp-row + .sp-row { box-shadow: none; }
 html .sail .sp-pin { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: color-mix(in srgb, var(--c) 9%, #fff);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 28%, transparent); color: var(--c); font: 500 15px/1 var(--font);
   transition: background-color 400ms ease, color 400ms ease; transition-delay: calc(1150ms + var(--i) * 170ms); }
-html .sail .sp-pin::after { content: attr(data-n); }
+html .sail .sp-pin::after { content: attr(data-n); content: attr(data-n) / ""; }
 html .sail .sp-board.play .sp-row:not(.no) .sp-pin { background: var(--c); color: #fff; box-shadow: none; animation: land 900ms ease-out both; animation-delay: calc(1150ms + var(--i) * 170ms); }
 @keyframes land { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 45%, transparent); } 70% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--c) 0%, transparent); } 100% { box-shadow: none; } }
 .sail .sp-who b { font-size: 14.5px; }
@@ -92,9 +92,9 @@ html .sail .sp-row:not(.no) em { background: color-mix(in srgb, var(--c) 10%, #f
 .sail .sp-out em { opacity: 0; transform: scale(.7); transition: opacity 360ms ease, transform 520ms cubic-bezier(.34, 1.56, .64, 1); transition-delay: calc(1250ms + var(--i) * 170ms); }
 .sail .sp-board.play .sp-out em { opacity: 1; transform: none; }
 .sail .sp-row { transition-delay: calc(1100ms + var(--i) * 170ms); }
-/* the two left out: small and pale */
+/* the two left out: smaller and quieter, dimmed with ink 3 and size rather than opacity, so they still read at 4.5:1 */
 html .sail .sp-row.no { padding-block: 5px; }
-html .sail .sp-board.play .sp-row.no { opacity: .5; }
+html .sail .sp-row.no :is(.sp-who b, .sp-who p) { color: var(--ink-3); font-weight: 400; }
 html .sail .sp-row.no .sp-pin { width: 22px; height: 22px; justify-self: center; border-radius: 6px; font-size: 11px; }
 .sail .sp-row.no .sp-who b { font-size: 13px; }
 .sail .sp-row.no .sp-who p { font-size: 12px; margin-top: 1px; }
@@ -155,7 +155,7 @@ html .sail .sp-found b { font: 600 52px/.78 var(--font); letter-spacing: -.06em;
 html .sail .sp-found span { max-width: 24ch; font: 500 11px/1.45 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
 /* rows ruled like a manifest */
 html .sail .sp-row { border-radius: 0; padding: 12px 8px; }
-html .sail .sp-row + .sp-row { border-top: 1px dashed rgb(20 26 46 / .28); }
+html .sail .sp-row + .sp-row { border-top: 1px dashed color-mix(in srgb, var(--rule-ink) 28%, transparent); }
 /* square number tiles in mono */
 html .sail .sp-pin { border-radius: 2px; font: 500 14px/1 var(--mono); }
 html .sail .sp-row.no .sp-pin { border-radius: 2px; font-size: 11px; }
@@ -178,3 +178,12 @@ html .sail .sp-foot p { color: var(--ink-2); }
 }
 /* room between the manifest and the summary, so the crop marks stand free */
 html .sail .sp-board { row-gap: 34px; }
+
+/* desktop: the label larger, so "Your stock" reads from across the room */
+@media (min-width: 1001px) {
+  .sail .sp-label { gap: 9px; padding: 16px 24px 17px 20px; bottom: calc(100% + 26px); border-width: 2.5px; box-shadow: 6px 6px 0 var(--ink); }
+  .sail .sp-label::before { left: 30px; height: 24px; width: 2.5px; }
+  .sail .sp-label b { font-size: 32px; letter-spacing: -.03em; }
+  .sail .sp-label span { gap: 9px; font-size: 13.5px; letter-spacing: .1em; }
+  .sail .sp-label span::before { width: 10px; height: 10px; }
+}

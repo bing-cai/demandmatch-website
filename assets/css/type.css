@@ -37,7 +37,7 @@ html[data-type="signal"] {
   --font: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
   --mono: 'Space Mono', ui-monospace, monospace;
 }
-html[data-type="signal"] { font-optical-sizing: auto; }
+
 html[data-type="signal"] :is(.h1, .h2, .say) { font-weight: 600; }
 html[data-type="signal"] .h1 { letter-spacing: -.02em; line-height: .98; }
 html[data-type="signal"] :is(.h2, .say) { letter-spacing: -.018em; line-height: 1.04; }

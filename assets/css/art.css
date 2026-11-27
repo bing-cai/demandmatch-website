@@ -1,7 +1,0 @@
-/* The knife paintings are on a white canvas. Multiply lets that white take the colour of whatever the painting sits on,
-   so on a grey band or inside a card no pale rectangle shows around it: only the paint does. Each frame that holds a
-   painting gets the colour of the surface it sits on. */
-img[src*="art/"] { mix-blend-mode: multiply; }
-:is(.pl-art, .close-art) { mix-blend-mode: multiply; }
-.card-art { background: inherit; }
-html :is(.ge-stage, .s-board-stage, .s-stop-art, .s-auto, .s-offer-wrap, .s-role-stage, .stage, .sp-stage, .roi-out) { background-color: var(--surface); }

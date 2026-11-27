@@ -12,10 +12,10 @@
 .fm-mask { display: inline-block; width: 1.2em; height: 1.2em; background: var(--c); -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; vertical-align: middle; }
 
 /* ---------------------------------------------------------------- scene 1: the laptop */
-.fm-cam { position: absolute; inset: 0; transform-origin: 960px 862px; transform: translateY(-130px) scale(2.35); will-change: transform; }
+.fm-cam { position: absolute; inset: 0; transform-origin: 960px 862px; transform: translateY(-130px) scale(2.35); }
 .fm-laptop { position: absolute; left: 345px; bottom: 34px; width: 1230px; perspective: 2600px; perspective-origin: 50% 0%; }
 /* the lid has two faces: the screen and the aluminium back, so the shut lid reads as a lid */
-.fm-lid { position: relative; z-index: 2; width: 1230px; height: 788px; transform-origin: 50% 100%; transform: rotateX(-89.5deg); transform-style: preserve-3d; will-change: transform; }
+.fm-lid { position: relative; z-index: 2; width: 1230px; height: 788px; transform-origin: 50% 100%; transform: rotateX(-89.5deg); transform-style: preserve-3d; }
 .fm-screen, .fm-back { position: absolute; inset: 0; border-radius: 22px 22px 4px 4px; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
 .fm-screen { overflow: hidden; box-sizing: border-box; border: 11px solid #0c0d0f; border-bottom-width: 22px; background: #000; box-shadow: inset 0 0 0 1px #2a2c30; }
 .fm-back { display: grid; place-items: center; transform: rotateY(180deg); background: linear-gradient(180deg, #2b2d31 0%, #3a3c41 55%, #55585e 92%, #8a8d93 100%); box-shadow: inset 0 0 0 2px rgb(255 255 255 / .06), inset 0 -3px 0 rgb(255 255 255 / .28); }
@@ -112,14 +112,14 @@
 .fm-tg.big > i { top: 9px; left: 9px; width: 84px; height: 84px; box-shadow: 0 4px 12px rgb(0 0 0 / .18); transform: translateX(calc(var(--p) * 84px)); }
 
 /* ---------------------------------------------------------------- scene 2: one glass switch */
-.fm-swcam { position: absolute; inset: 0; display: grid; place-items: center; will-change: transform; }
+.fm-swcam { position: absolute; inset: 0; display: grid; place-items: center; }
 .fm-pill { display: flex; align-items: center; gap: 30px; padding: 40px 46px 40px 52px; border-radius: 80px; color: #fff; font-family: "Geist", "Helvetica Neue", Arial, sans-serif;
   background: linear-gradient(180deg, rgb(255 255 255 / .3), rgb(255 255 255 / .12)); border: 2px solid rgb(255 255 255 / .42); box-shadow: 0 44px 90px -44px rgb(30 45 60 / .6), inset 0 1px 0 rgb(255 255 255 / .4); }
 .fm-pill .fm-mask { width: 92px; height: 92px; }
 .fm-pill b { margin-right: 40px; font-size: 84px; font-weight: 400; letter-spacing: -.02em; text-shadow: 0 1px 2px rgb(0 0 0 / .1); }
 
 /* ---------------------------------------------------------------- scene 3: the app */
-.fm-acam { position: absolute; top: 0; left: 0; width: 1920px; height: 900px; transform-origin: 0 0; will-change: transform; }
+.fm-acam { position: absolute; top: 0; left: 0; width: 1920px; height: 900px; transform-origin: 0 0; }
 .fm-panel { position: absolute; left: 250px; top: 96px; width: 1420px; height: 708px; display: grid; grid-template-columns: 96px 1fr; border-radius: 14px; background: #fff; overflow: hidden; box-shadow: 0 40px 80px -30px rgb(20 35 50 / .55), 0 0 0 1px rgb(0 0 0 / .04);
   font-family: "Helvetica Neue", Arial, sans-serif; color: #2b2d31; }
 .fm-panel aside { display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 20px 0; border-right: 1px solid #eef0f2; background: #fafbfc; }
@@ -149,7 +149,7 @@
 .fm-cb { display: inline-block; width: 16px; height: 16px; border: 1.5px solid #c9ccd1; border-radius: 4px; vertical-align: middle; }
 /* the status flips from the old pill to the new one: --f fades, --b pops */
 .fm-st { display: inline-grid; --f: 0; --b: 0; } .fm-st > span { grid-area: 1 / 1; justify-self: start; padding: 3px 10px; border-radius: 99px; font-size: 12.5px; font-weight: 500; }
-.fm-st > span::before { content: "•"; margin-right: 6px; }
+.fm-st > span::before { content: "•"; content: "•" / ""; margin-right: 6px; }
 .fm-st .s0 { opacity: calc(1 - var(--f) * 1.6); }
 .fm-st .s1 { opacity: var(--f); transform: scale(calc(.75 + .25 * var(--b))); }
 .fm-st .g { background: #dff5e6; color: #1d7a3e; } .fm-st .y { background: #fbeedc; color: #8a5a10; } .fm-st .r { background: var(--app-soft); color: #a3271c; } .fm-st .o { background: #eef0f3; color: #555; } .fm-st .b { background: #e3eefc; color: #2a4fa0; }
@@ -165,5 +165,8 @@
 .t-done { left: 50%; top: 742px; transform: translate(-50%, 46px); }
 
 /* the cursor, large like in the original, and the ring where it clicks */
-.fm-cursor { position: absolute; z-index: 8; left: 0; top: 0; width: 64px; height: 64px; opacity: 0; transform-origin: 11px 5px; will-change: transform, opacity; }
+.fm-cursor { position: absolute; z-index: 8; left: 0; top: 0; width: 64px; height: 64px; opacity: 0; transform-origin: 11px 5px; }
 .fm-ripple { position: absolute; z-index: 7; left: 0; top: 0; width: 90px; height: 90px; border-radius: 50%; border: 3px solid rgb(255 255 255 / .9); box-shadow: 0 0 0 1px rgb(0 0 0 / .05); opacity: 0; pointer-events: none; }
+/* layers promoted only while the film plays (film.js sets .is-playing on start and clears it on stop) */
+.is-playing :is(.fm-cam, .fm-lid, .fm-swcam, .fm-acam) { will-change: transform; }
+.is-playing .fm-cursor { will-change: transform, opacity; }

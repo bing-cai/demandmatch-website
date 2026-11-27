@@ -138,12 +138,13 @@
         <h2 class="h2 rv">${window.UI.t('sy_h')}</h2>
         <button class="sy-switch rv" type="button" role="switch" aria-checked="false"><span class="sy-spark">${sparkle()}</span><span class="sy-sw-t">Autopilot</span><i class="sy-tg big"><i></i></i></button>
       </div>
-      <div class="sy-stage rv"><div class="sy-art" aria-hidden="true"></div>
+      <div class="sy-scene"><div class="sy-bg" aria-hidden="true"></div>
+      <div class="sy-stage rv">
         <svg class="sy-wires" aria-hidden="true"></svg>
         <div class="sy-groups">${GROUPS().map(([label, big, small], g) => `<div class="sy-group" style="--g:${g}"><span class="sy-label">${label}</span>
           ${big.map(k => `<span class="sy-ic">${art(k)}</span>`).join('')}<span class="sy-ic sy-folder">${small.map(s => `<span>${s}</span>`).join('')}</span></div>`).join('')}</div>
         <div class="sy-lap"><div class="sy-lid"><div class="sy-screen"><span class="sy-notch"></span><div class="sy-fit"><div class="sy-canvas">${desktop()}${app()}</div></div></div></div><div class="sy-deck"><span></span></div></div>
-      </div>
+      </div></div>
       <div class="sy-try rv"><button class="sy-try-b" type="button" data-open-app><i class="ph-light ph-cursor-click" aria-hidden="true"></i><span>${window.UI.t('try')}</span></button>
         <a class="btn btn-soft sy-sales" href="${window.UI.t('s_link')}"><span>${window.UI.t('s_try_sales')}</span><span class="btn-ic" aria-hidden="true"><i class="ph-light ph-arrow-right"></i></span></a></div>
     </div>`;
@@ -171,8 +172,9 @@
       if (Math.abs(dy) < 2 * r) return `M${x} ${y}H${lx}`;
       return `M${x} ${y}H${sx - r}Q${sx} ${y} ${sx} ${y + sg * r}V${my - sg * r}Q${sx} ${my} ${sx + r} ${my}H${lx}`;
     });
+    const PAINT = ['var(--navy)', 'var(--racing)', 'var(--bordeaux)']; // the paint tokens in freight.css
     svg.setAttribute('viewBox', `0 0 ${S.width} ${S.height}`);
-    svg.innerHTML = paths.map(d => `<path class="w" d="${d}"/>`).join('') + paths.map((d, i) => `<path class="g" pathLength="100" style="--i:${i}" d="${d}"/><path class="f" pathLength="100" style="--i:${i}; --c:${['#1d3461', '#2c5a3f', '#8b1e2d'][i % 3]}" d="${d}"/><path class="f f2" pathLength="100" style="--i:${i + 1.5}; --c:${['#1d3461', '#2c5a3f', '#8b1e2d'][i % 3]}" d="${d}"/>`).join('');
+    svg.innerHTML = paths.map(d => `<path class="w" d="${d}"/>`).join('') + paths.map((d, i) => `<path class="g" pathLength="100" style="--i:${i}" d="${d}"/><path class="f" pathLength="100" style="--i:${i}; --c:${PAINT[i % 3]}" d="${d}"/><path class="f f2" pathLength="100" style="--i:${i + 1.5}; --c:${PAINT[i % 3]}" d="${d}"/>`).join('');
   }
   // the stage well in view: turn on once, after a beat; out of view entirely: back to off, unseen
   function watch(e) {

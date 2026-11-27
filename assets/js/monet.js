@@ -5,7 +5,7 @@
   const ge = document.querySelector('[data-ge]'); if (!ge) return;
   const tabs = [...ge.querySelectorAll('.ge-tab')], panels = [...ge.querySelectorAll('.ge-p')], art = ge.querySelector('.ge-art');
   // where the painting looks for each point (the zoom origin and the zoom): a slow walk across the river works
-  const PAN = [['10% 30%', 1.25], ['45% 25%', 1.35], ['75% 30%', 1.3], ['95% 45%', 1.28], ['70% 60%', 1.3], ['35% 50%', 1.15]];
+  const PAN = [['15% 40%', 1.04], ['40% 35%', 1.1], ['65% 40%', 1.08], ['90% 45%', 1.1], ['70% 55%', 1.06], ['35% 50%', 1.02]];
   let cur = 0, hoverT;
   function show(i, focus) {
     if (i === cur && !focus) return;

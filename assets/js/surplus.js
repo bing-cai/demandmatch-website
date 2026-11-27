@@ -11,12 +11,12 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   // the hero with the ship: each customer that fits gets a colour of the painting; a header counts them as they are found
-  const COL = ['#1d3461', '#2c5a3f', '#8b1e2d'];
+  const COL = ['var(--navy)', 'var(--racing)', 'var(--bordeaux)']; // the tokens in freight.css; the lines read them back resolved
   function rows() {
     let c = 0;
     const head = sail ? `<li class="sp-found" aria-hidden="true"><b data-count>${board.classList.contains('play') ? t('sp_rows').filter(r => r[1] !== 'no').length : 0}</b><span>${esc(t('sp_list_label'))}</span></li>` : '';
     list.innerHTML = head + t('sp_rows').map(([name, k, why, src, qty], i) => `
-      <li class="sp-row ${k}" style="--i:${i}; --c:${k === 'no' ? '#a3a39d' : COL[c++ % 3]}">
+      <li class="sp-row ${k}" style="--i:${i}; --c:${k === 'no' ? 'var(--ink-3)' : COL[c++ % 3]}">
         <span class="sp-pin" aria-hidden="true" data-n="${i + 1}"></span>
         <div class="sp-who"><b>${esc(name)}</b><p>${esc(why)}</p>${src ? `<small>${esc(src)}</small>` : ''}</div>
         <div class="sp-out">${qty ? `<b>${esc(qty)}</b>` : ''}<em>${esc(t('sp_' + k))}</em></div>

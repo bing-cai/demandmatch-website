@@ -293,8 +293,9 @@
     frame((t + dt) % D);
     raf = requestAnimationFrame(tick);
   }
-  function start() { if (raf || held || (reduced && !host.played)) return; last = performance.now(); raf = requestAnimationFrame(tick); }
-  function stop() { cancelAnimationFrame(raf); raf = 0; }
+  // .is-playing carries will-change (film.css), so the moving layers are promoted only while the clock runs
+  function start() { if (raf || held || (reduced && !host.played)) return; host.classList.add('is-playing'); last = performance.now(); raf = requestAnimationFrame(tick); }
+  function stop() { cancelAnimationFrame(raf); raf = 0; host.classList.remove('is-playing'); }
   let phone = false;
   function fit() {
     if (!el.stage) return;
