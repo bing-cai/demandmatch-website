@@ -46,9 +46,9 @@
   // the conservative effect (the first preset), which the license is priced on
   const CONS = Object.fromEntries(IN.filter(i => Array.isArray(i.v)).map(i => [i.k, i.v[0]]));
 
-  // opens on the conservative case: the first figure a CFO sees should be the one we would sign
-  const S = { preset: 0, cap: false }; // preset 0 conservative, 1 expected, 2 your numbers
-  IN.forEach(i => { S[i.k] = Array.isArray(i.v) ? i.v[0] : i.v; });
+  // opens on the expected case; the license is still priced on the conservative one, so only the value is higher
+  const S = { preset: 1, cap: false }; // preset 0 conservative, 1 expected, 2 your numbers
+  IN.forEach(i => { S[i.k] = Array.isArray(i.v) ? i.v[1] : i.v; });
 
   // ------------------------------------------------------------------ the model
   function model(s) {
