@@ -427,3 +427,35 @@ html.fc-open { overflow: hidden; }
   .fc-send { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .fc-dlg[open] { animation: none; } }
+
+/* ---------------------------------------------------------------- #intro: thirty seconds from the founders
+   A 16:9 stage (white, ink edge, printed shadow) with a knife painting as the poster, a navy duration tab, a square
+   racing-green play button and, until the film exists, a "coming soon" stamp. Beside it the heading, one line, the two
+   faces and the fit check. Stacks on phones. */
+html .intro { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: center; gap: clamp(32px, 5vw, 72px);
+  padding-top: clamp(56px, 7vw, 104px); padding-bottom: clamp(56px, 7vw, 104px); }
+html .in-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: var(--edge); border-radius: 2px; box-shadow: var(--print); background: #fff; }
+html .in-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 0% 50%; mix-blend-mode: multiply; }
+html .in-len { position: absolute; left: -2px; top: -2px; padding: 8px 12px 7px; background: var(--navy); color: #fff; font: 400 12px/1 var(--mono); letter-spacing: .08em; }
+html .in-play { position: absolute; left: 62%; top: 50%; display: grid; place-items: center; width: clamp(64px, 7vw, 88px); aspect-ratio: 1; margin: 0; padding: 0;
+  transform: translate(-50%, -50%); border: var(--edge); border-radius: 2px; background: var(--racing); color: #fff; font-size: clamp(26px, 2.8vw, 34px);
+  box-shadow: 5px 5px 0 var(--ink); cursor: pointer; transition: transform 160ms ease, box-shadow 160ms ease; }
+html .in-play svg { width: 42%; height: 42%; margin-left: 6%; }
+@media (hover: hover) and (pointer: fine) { html .in-play:not(:disabled):hover { transform: translate(calc(-50% + 2px), calc(-50% + 2px)); box-shadow: 3px 3px 0 var(--ink); } }
+html .in-play:not(:disabled):active { transform: translate(calc(-50% + 5px), calc(-50% + 5px)); box-shadow: 0 0 0 var(--ink); }
+html .in-play:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+html .in-play:disabled { cursor: default; }
+html .in-soon { position: absolute; right: 18px; bottom: 18px; padding: 8px 12px 7px; border: 2px solid var(--bordeaux); border-radius: 2px; background: #fff;
+  color: var(--bordeaux); font: 400 12px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; transform: rotate(-2.5deg); }
+html .in-frame.has-video .in-soon { display: none; }
+html .in-video { position: absolute; inset: 0; width: 100%; height: 100%; background: #000; }
+html .in-frame.playing :is(.in-poster, .in-play, .in-len) { visibility: hidden; }
+html .in-tag { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 16px; font: 400 12px/1 var(--mono); letter-spacing: .08em; color: var(--racing); }
+html .in-tag i { width: 9px; height: 9px; background: currentColor; }
+html .in-copy .h2 { margin: 0; }
+html .in-p { margin: 18px 0 0; max-width: 42ch; font-size: 16px; line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
+html .in-who { display: flex; align-items: center; gap: 0; margin: 24px 0 26px; font-size: 14px; color: var(--ink-2); }
+html .in-who img { width: 44px; height: 44px; object-fit: cover; border: 1.5px solid var(--ink); border-radius: 2px; background: #fff; }
+html .in-who img + img { margin-left: -8px; }
+html .in-who span { margin-left: 14px; }
+@media (max-width: 900px) { html .intro { grid-template-columns: 1fr; } html .in-play { left: 66%; } }

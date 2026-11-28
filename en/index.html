@@ -443,7 +443,7 @@
 <link rel="stylesheet" href="../assets/css/mobile.css?v=3ee79860">
 <link rel="stylesheet" href="../assets/css/rail.css?v=15b54042">
 <link rel="stylesheet" href="../assets/css/hero.css?v=23153c5e">
-<link rel="stylesheet" href="../assets/css/freight.css?v=9148a6d7">
+<link rel="stylesheet" href="../assets/css/freight.css?v=f58d5e55">
 </head>
 <body>
 <a class="skip" href="#main" data-t="skip">Skip to content</a>
@@ -520,6 +520,25 @@
     </div>
   </section>
   </div>
+
+  <!-- INTRO: thirty seconds from the founders, the problem and the solution in their own words (intro.js), filmed in German
+       and in English. Until the films exist the frame shows a poster with a "coming soon" stamp; set data-src (and data-vtt)
+       to put them in. {lang} becomes de or en, so each page plays its own language -->
+  <section class="intro wrap" id="intro">
+    <div class="in-frame rv" data-src="" data-vtt="">
+      <img class="in-poster" src="../assets/art/hero-crane-1536.webp" srcset="../assets/art/hero-crane-640.webp 640w, ../assets/art/hero-crane-1024.webp 1024w, ../assets/art/hero-crane-1536.webp 1536w" sizes="(max-width: 900px) 100vw, 60vw" alt="" loading="lazy" decoding="async">
+      <span class="in-len">0:30</span>
+      <button class="in-play" type="button" data-ta="in_play" aria-label="Play the video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg></button>
+      <span class="in-soon" data-t="in_soon">Video coming soon</span>
+    </div>
+    <div class="in-copy rv">
+      <p class="in-tag"><i aria-hidden="true"></i><span data-t="in_tag">VIDEO · 30 SECONDS</span></p>
+      <h2 class="h2" data-th="in_h">Thirty seconds<br><span class="mute">from the people behind it.</span></h2>
+      <p class="in-p" data-t="in_p">Bing and Richard on the problem we solve, how DemandMatch solves it, and how a fit check works.</p>
+      <div class="in-who"><img src="../assets/team/bing.webp" width="44" height="44" alt="" loading="lazy"><img src="../assets/team/richard.webp" width="44" height="44" alt="" loading="lazy"><span>Bing Cai &amp; Richard von Waldow</span></div>
+      <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20fit%20check" class="btn btn-ink" data-mail><span data-t="cta">Book a fit check</span></a>
+    </div>
+  </section>
 
   <!-- WHY: what unmatched stock and unanswered demand cost, read line by line as you scroll -->
   <section class="why wrap" id="why">
@@ -755,8 +774,9 @@
 </div>
 
 <script>window.SHARED_BASE = '../assets/';</script>
-<script src="../assets/js/site.js?v=ecac3a01"></script>
-<script src="../assets/js/fitcheck.js?v=690865e3"></script><!-- the fit check request form behind every "Book a fit check" -->
+<script src="../assets/js/site.js?v=24e3f46b"></script>
+<script src="../assets/js/fitcheck.js?v=690865e3"></script>
+<script src="../assets/js/intro.js?v=020dd6d5"></script><!-- the fit check request form behind every "Book a fit check" -->
 <script src="../assets/app/engine.js?v=8505b732"></script>
 <script src="../assets/app/sample.js?v=45050d6c"></script>
 <script src="../assets/app/gantt.js?v=104f4347"></script>
