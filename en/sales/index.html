@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="color-scheme" content="light">
 <title>DemandMatch for sales teams: beat your quota sooner</title>
-<meta name="description" content="For heads of sales, account executives and key account managers in B2B distribution: DemandMatch reads every request, finds the material, warehouse and price and prepares the offer. You approve and sell.">
+<meta name="description" content="For heads of sales and account executives in B2B distribution: DemandMatch reads every request, finds the material, warehouse and price and prepares the offer. You approve and sell.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://demandmatch.io/en/sales/">
 <link rel="alternate" hreflang="de" href="https://demandmatch.io/vertrieb/">
@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:title" content="DemandMatch for sales teams: beat your quota sooner">
-<meta property="og:description" content="For heads of sales, account executives and key account managers in B2B distribution: DemandMatch reads every request, finds the material, warehouse and price and prepares the offer. You approve and sell.">
+<meta property="og:description" content="For heads of sales and account executives in B2B distribution: DemandMatch reads every request, finds the material, warehouse and price and prepares the offer. You approve and sell.">
 <meta property="og:image" content="https://demandmatch.io/assets/art/unloading.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../../assets/logo/favicon.svg" type="image/svg+xml">
@@ -40,7 +40,7 @@
    "@id": "https://demandmatch.io/en/sales/#webpage",
    "url": "https://demandmatch.io/en/sales/",
    "name": "DemandMatch for sales teams: beat your quota sooner",
-   "description": "For heads of sales, account executives and key account managers in B2B distribution: DemandMatch reads every request, finds the material, warehouse and price and prepares the offer. You approve and sell.",
+   "description": "For heads of sales and account executives in B2B distribution: DemandMatch reads every request, finds the material, warehouse and price and prepares the offer. You approve and sell.",
    "inLanguage": "en",
    "isPartOf": {
     "@id": "https://demandmatch.io/#website"
@@ -53,7 +53,7 @@
    },
    "audience": {
     "@type": "BusinessAudience",
-    "audienceType": "For heads of sales, account executives and key account managers"
+    "audienceType": "For heads of sales and account executives"
    },
    "primaryImageOfPage": "https://demandmatch.io/assets/art/river-port-1536.webp",
    "dateModified": "2026-11-28"
@@ -131,7 +131,7 @@
 <link rel="stylesheet" href="../../assets/css/rail.css?v=15b54042">
 <link rel="stylesheet" href="../../assets/css/film.css?v=f0aeef49">
 <link rel="stylesheet" href="../../assets/css/sales.css?v=b277d488">
-<link rel="stylesheet" href="../../assets/css/freight.css?v=5594a2a9">
+<link rel="stylesheet" href="../../assets/css/freight.css?v=f3dde45d">
 </head>
 <body class="sales-page">
 <a class="skip" href="#main" data-t="skip">Skip to content</a>
@@ -143,6 +143,7 @@
       <span class="brand-word">DemandMatch</span>
     </a>
     <nav class="nav" aria-label="Seiten">
+      <a href="#requests" data-t="s_nav_req">Requests</a>
       <a href="#day" data-t="s_nav_day">Your day</a>
       <a href="#roles" data-t="s_nav_roles">Your role</a>
       <a href="#faq" data-t="s_nav_faq">Questions</a>
@@ -157,6 +158,7 @@
   <!-- the phone menu (mobile.css, site.js): the page's sections, the language and the two actions -->
   <div class="menu" id="menu" data-menu hidden>
     <nav class="menu-l" data-ta="menu_label" aria-label="Menu">
+      <a href="#requests"><span data-t="s_nav_req">Requests</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
       <a href="#day"><span data-t="s_nav_day">Your day</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
       <a href="#roles"><span data-t="s_nav_roles">Your role</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
       <a href="#faq"><span data-t="s_nav_faq">Questions</span><i class="ph-light ph-arrow-right" aria-hidden="true"></i></a>
@@ -185,7 +187,7 @@
         <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20fit%20check%20for%20sales" class="btn btn-ink" data-mail><span data-t="cta">Book a fit check</span></a>
         <button class="btn btn-soft" type="button" data-open-app><span data-t="cta_try">Try the product</span><span class="btn-ic" aria-hidden="true"><i class="ph-light ph-cursor-click"></i></span></button>
       </div>
-      <p class="s-for in-hero" style="--d:8" data-t="s_for">For heads of sales, account executives and key account managers.</p>
+      <p class="s-for in-hero" style="--d:8" data-t="s_for">For heads of sales and account executives.</p>
     </section>
     <section class="s-film-sec wrap">
       <figure class="s-film in-hero" style="--d:9">
@@ -222,6 +224,26 @@
         <button class="s-more" type="button" data-more>Show all 5<i class="ph-light ph-caret-down" aria-hidden="true"></i></button>
         <p class="s-board-f">Sorted by deadline, then value. Once approved, the draft sits in Outlook and you send it yourself. Sample data.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- REQUESTS: not only quotes. The twenty kinds of mail that land in a sales inbox, in four groups, each with what
+       DemandMatch prepares (texts s_req in site.js, cards built by tools/build.mjs, freight.css) -->
+  <section class="s-req-sec wrap" id="requests">
+    <div class="sec-h">
+      <p class="in-tag rv"><i aria-hidden="true"></i><span data-t="s_req_tag">ONE INBOX, 20 KINDS OF REQUESTS</span></p>
+      <h2 class="h2 rv" data-th="s_req_h">Not only quotes.<br><span class="mute">Everything that lands in a sales inbox.</span></h2>
+      <p class="s-req-lead rv" data-t="s_req_lead">Most mail to sales is not a quote request. It is a certificate, a data sheet, a delivery date, a price for one more truck. DemandMatch recognises what the customer needs, finds the answer in your ERP, CRM and documents, and prepares the reply.</p>
+    </div>
+    <div class="s-req" data-rail>
+      <div class="s-req-g rv" style="--i:0; --c:var(--navy)"><p class="s-req-t"><span>01</span>Prices and offers<em>5</em></p><ul><li><b>Price request</b><span>The offer with your price rules, freight and margin, ready to send.</span></li><li><b>Freight and Incoterms</b><span>A price DAP Warsaw or FCA Hamburg, from your freight table.</span></li><li><b>Repeat order</b><span>“Same as last time”: the items and quantities of the last order at today’s price.</span></li><li><b>Call-off from a contract</b><span>Checks the quantity left on the contract and confirms at the contract price.</span></li><li><b>Sample request</b><span>A sample order with lot, quantity and delivery address, ready to release.</span></li></ul></div>
+      <div class="s-req-g rv" style="--i:1; --c:var(--racing)"><p class="s-req-t"><span>02</span>Documents<em>5</em></p><ul><li><b>Certificate of analysis (CoA)</b><span>Finds the certificate for the exact lot that was delivered and attaches it.</span></li><li><b>Technical data sheet</b><span>The current version for the grade the customer means.</span></li><li><b>Safety data sheet</b><span>The current SDS in the customer’s language.</span></li><li><b>Compliance declarations</b><span>REACH, RoHS, food contact, halal or kosher: the right declaration for the product.</span></li><li><b>Origin and customs</b><span>Supplier’s declaration, certificate of origin and customs tariff number.</span></li></ul></div>
+      <div class="s-req-g rv" style="--i:2; --c:var(--bordeaux)"><p class="s-req-t"><span>03</span>Delivery<em>5</em></p><ul><li><b>Availability and lead time</b><span>Stock, inbound and lead time from the ERP, as one date the customer can plan with.</span></li><li><b>Where is my order?</b><span>Order status, carrier and arrival date from the order and the shipping documents.</span></li><li><b>Order confirmation</b><span>The confirmation with prices, quantities and dates, checked against the order.</span></li><li><b>Change of date or quantity</b><span>Checks whether the new date works and prepares the changed confirmation.</span></li><li><b>Packaging and loading</b><span>Bags, octabins or bulk, pallet pattern, loading weight: from the master data.</span></li></ul></div>
+      <div class="s-req-g rv" style="--i:3; --c:var(--navy)"><p class="s-req-t"><span>04</span>After the sale<em>5</em></p><ul><li><b>Follow-up</b><span>An offer with no answer for nine days gets a short follow-up draft.</span></li><li><b>Complaint</b><span>Logs it with order and lot, attaches the CoA and drafts a first reply. Quality takes it from there.</span></li><li><b>Substitute grade</b><span>Out of stock or discontinued: suggests an equivalent grade that is available.</span></li><li><b>Invoice copy</b><span>Finds the invoice or delivery note in the ERP and attaches it.</span></li><li><b>New contact or address</b><span>Prepares the change in the CRM. You approve it.</span></li></ul></div>
+    </div>
+    <div class="s-req-f rv">
+      <p><b data-t="s_req_note">Every answer is a draft. You read it, change it if you like, and send it yourself.</b> <span data-t="s_req_more">Something else in your inbox? Tell us in the fit check.</span></p>
+      <a href="mailto:hello@demandmatch.io?subject=DemandMatch%3A%20fit%20check%20for%20sales" class="btn btn-ink" data-mail><span data-t="cta">Book a fit check</span></a>
     </div>
   </section>
 
@@ -270,7 +292,7 @@
     </div>
   </section>
 
-  <!-- ROLES: head of sales, account executive, key account manager, one viewer (sales.js) -->
+  <!-- ROLES: head of sales and account executive, one viewer (sales.js) -->
   <section class="s-roles-sec wrap" id="roles">
     <div class="sec-h">
       <h2 class="h2 rv" id="s-roles-h" data-th="s_roles_h">What’s in it for you.<br><span class="mute">Role by role.</span></h2>
@@ -279,12 +301,10 @@
       <div class="s-role-tabs" role="tablist" aria-labelledby="s-roles-h">
         <button class="s-role-tab" type="button" role="tab" id="s-rt0" aria-controls="s-rp0" aria-selected="true" tabindex="0"><i class="ph-light ph-chart-line-up" aria-hidden="true"></i><span>Head of sales</span></button>
         <button class="s-role-tab" type="button" role="tab" id="s-rt1" aria-controls="s-rp1" aria-selected="false" tabindex="-1"><i class="ph-light ph-lightning" aria-hidden="true"></i><span>Account executive</span></button>
-        <button class="s-role-tab" type="button" role="tab" id="s-rt2" aria-controls="s-rp2" aria-selected="false" tabindex="-1"><i class="ph-light ph-handshake" aria-hidden="true"></i><span>Key account manager</span></button>
       </div>
       <div class="s-role-stage"><img class="s-role-art" src="../../assets/art/rhine-works-1536.webp" srcset="../../assets/art/rhine-works-640.webp 640w, ../../assets/art/rhine-works-1024.webp 1024w, ../../assets/art/rhine-works-1536.webp 1536w" sizes="(max-width: 900px) 100vw, 60vw" alt="" loading="lazy" decoding="async"><div class="s-role-ps" data-rail>
         <div class="s-role-p on" role="tabpanel" id="s-rp0" aria-labelledby="s-rt0"><p class="s-role-n"><i class="ph-light ph-chart-line-up" aria-hidden="true"></i>Head of sales</p><h3>Your team makes the number without you chasing every request.</h3><ul><li>No request is left waiting: each one sits on a list with its deadline and value.</li><li>Your pricing rules hold for everyone: bands, scales, the floor, approval levels.</li><li>Scarce material is shared by call-offs, margin and arrival, as a proposal the product manager approves.</li><li>New people get up to speed faster: which grade is equivalent and who orders when is in the system.</li><li>Every step is logged. One switch stops everything.</li></ul><div class="s-role-ui" aria-hidden="true"><div><span>Margin within the band</span><b>Account executive</b></div><div><span>Below the band</span><b>Team lead</b></div><div><span>Below the floor</span><b>Product manager</b></div></div></div>
         <div class="s-role-p" role="tabpanel" id="s-rp1" aria-labelledby="s-rt1"><p class="s-role-n"><i class="ph-light ph-lightning" aria-hidden="true"></i>Account executive</p><h3>More offers out. Fewer evenings in Excel.</h3><ul><li>Every morning a finished list: prepared answers and follow-ups, by deadline and value.</li><li>Price-only requests come back with the scale ready.</li><li>If something is missing, DemandMatch says what, “No delivery date given”, instead of guessing.</li><li>You stay in Outlook: the draft lands there, you send it.</li></ul><div class="s-role-ui" aria-hidden="true"><div><span>Medplast only asks for a price</span><b>Scale</b></div><div><span>1 t</span><b>€1.49/kg</b></div><div><span>3 t</span><b>€1.44/kg</b></div><div><span>5 t</span><b>€1.42/kg</b></div></div></div>
-        <div class="s-role-p" role="tabpanel" id="s-rp2" aria-labelledby="s-rt2"><p class="s-role-n"><i class="ph-light ph-handshake" aria-hidden="true"></i>Key account manager</p><h3>Your key accounts, never forgotten.</h3><ul><li>You see when an account should order again, and when an order is overdue.</li><li>Call-offs come at the framework contract price, no looking it up.</li><li>When material runs short, your accounts’ call-offs count in the allocation proposal.</li><li>If an account is locked to its grade, DemandMatch will not offer it an equivalent.</li></ul><div class="s-role-ui" aria-hidden="true"><div><span>Hanse Closures</span><b>Next order expected in 6 days</b></div><div><span>Novaform GmbH</span><b>Order 4 days overdue</b></div><div><span>Weser Getränketechnik</span><b>Call-off at the framework contract price</b></div></div></div>
       </div></div>
     </div>
   </section>
@@ -347,7 +367,7 @@
 </div>
 
 <script>window.SHARED_BASE = '../../assets/';</script>
-<script src="../../assets/js/site.js?v=24e3f46b"></script>
+<script src="../../assets/js/site.js?v=53b3d36f"></script>
 <script src="../../assets/js/fitcheck.js?v=690865e3"></script><!-- the fit check request form behind every "Book a fit check" -->
 <script src="../../assets/app/engine.js?v=8505b732"></script>
 <script src="../../assets/app/sample.js?v=45050d6c"></script>
@@ -356,6 +376,6 @@
 <script src="../../assets/app/app.js?v=376f35ef"></script>
 <script src="../../assets/js/stage.js?v=b3b2c2bd"></script>
 <script src="../../assets/js/film.js?v=23b046f1"></script>
-<script src="../../assets/js/sales.js?v=47bc1f60"></script>
+<script src="../../assets/js/sales.js?v=7474ffb6"></script>
 </body>
 </html>

@@ -475,3 +475,35 @@ html .in-who span { margin-left: 14px; }
 html .brand-mark { flex: none; width: 24px; height: 24px; }
 html .brand-mark svg { display: block; width: 24px; height: 24px; }
 html .brand-word { flex: none; white-space: nowrap; }
+
+/* ---------------------------------------------------------------- sales #requests: not only quotes
+   Four label cards (prices and offers, documents, delivery, after the sale), each with a coloured mono tab, its count,
+   and the requests ruled like a manifest: the request in bold, what DemandMatch prepares under it. 4 columns on wide
+   screens, 2 on tablets, a swipe rail on phones (mobile.css [data-rail]). */
+html .s-req-sec .sec-h { max-width: 900px; }
+html .s-req-sec .in-tag { margin-bottom: 18px; }
+html .s-req-lead { margin: 22px 0 0; max-width: 62ch; font-size: 17px; line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
+html .s-req { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-top: clamp(36px, 4vw, 56px); }
+html .s-req-g { display: flex; flex-direction: column; background: #fff; border: var(--edge); border-radius: 2px; box-shadow: var(--print-s); }
+html .s-req-t { display: flex; align-items: center; gap: 10px; margin: 0; padding: 11px 14px 10px; background: var(--c); color: #fff;
+  font: 400 12px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+html .s-req-t span { opacity: .75; }
+html .s-req-t em { margin-left: auto; font-style: normal; padding: 3px 7px 2px; border: 1px solid rgb(255 255 255 / .6); border-radius: 2px; }
+html .s-req-g ul { margin: 0; padding: 4px 16px 10px; list-style: none; }
+html .s-req-g li { position: relative; padding: 13px 0 13px 18px; border-top: 1px dashed var(--rule); }
+html .s-req-g li:first-child { border-top: 0; }
+html .s-req-g li::before { content: ''; position: absolute; left: 0; top: 19px; width: 8px; height: 8px; background: var(--c); }
+html .s-req-g b { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.25; letter-spacing: -.01em; color: var(--ink); }
+html .s-req-g li span { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.45; color: var(--ink-2); text-wrap: pretty; }
+html .s-req-f { display: flex; align-items: center; justify-content: space-between; gap: 24px 40px; flex-wrap: wrap; margin-top: clamp(32px, 4vw, 48px);
+  padding: 20px 22px; border: var(--edge); border-radius: 2px; background: #fff; box-shadow: var(--print-s); }
+html .s-req-f p { margin: 0; max-width: 70ch; font-size: 15.5px; line-height: 1.5; color: var(--ink-2); }
+html .s-req-f b { color: var(--ink); font-weight: 600; }
+@media (max-width: 1100px) { html .s-req { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  html .s-req { gap: 12px; }
+  html .s-req > .s-req-g { box-shadow: 4px 4px 0 var(--ink); margin-bottom: 4px; }
+  html .s-req-lead { font-size: 16px; }
+  html .s-req-f { padding: 18px; }
+  html .s-req-f .btn { width: 100%; justify-content: center; }
+}
