@@ -59,10 +59,32 @@
     board.classList.add('anchored');
   }
 
+  // phones: the board sits under the ship, so the lines drop from the bottom of the container to the card's top left,
+  // run down the card's left edge side by side and turn into each customer's number tile; the containers ride them
+  function drawNarrow() {
+    svg.setAttribute('viewBox', `0 0 ${board.clientWidth} ${board.clientHeight}`);
+    const f = n => n.toFixed(1), [b1x, , b2x, b2y] = [...fromArt([BOX[0], BOX[1]]), ...fromArt([BOX[2], BOX[3]])];
+    const x0 = (b1x + b2x) / 2 + 10, y0 = b2y + 4, [lx, ly] = pos(list), top = ly + 2;
+    let html = `<circle class="src-ring" cx="${f(x0)}" cy="${f(y0)}" r="5"/>`, c = 0;
+    const fits = [...list.querySelectorAll('.sp-row:not(.no)')];
+    // the first customer's line runs innermost, so each line turns off without crossing the others
+    fits.forEach(li => {
+      const i = +getComputedStyle(li).getPropertyValue('--i'), pin = li.querySelector('.sp-pin'), [px, py0] = pos(pin);
+      const sx = lx + 9 + (fits.length - 1 - c) * 4, py = py0 + pin.offsetHeight / 2, r = 7, col = getComputedStyle(li).getPropertyValue('--c');
+      const k = li.classList.contains('maybe') ? 'maybe' : 'fit', n = k === 'fit' ? 3 : 2;
+      const d = `M${f(x0)} ${f(y0)} C${f(x0)} ${f(y0 + (top - y0) * .7)} ${f(sx)} ${f(top - (top - y0) * .35)} ${f(sx)} ${f(top + 6)} L${f(sx)} ${f(py - r)} Q${f(sx)} ${f(py)} ${f(sx + r)} ${f(py)} L${f(px - 1)} ${f(py)}`;
+      html += `<path class="ln ${k}" d="${d}" pathLength="1" style="--i:${i}; stroke: ${col}"/>`;
+      if (!reduced) for (let j = 0; j < n; j++) html += `<rect class="pel box" x="-5" y="-3" width="10" height="6" rx="1" style="offset-path: path('${d}'); fill: ${col}; --j:${j}; --n:${n}; --i:${i}"/>`;
+      c++;
+    });
+    svg.innerHTML = html;
+    board.classList.add('anchored');
+  }
+
   function draw() {
     lot.style.transform = '';
     if (sail) placeMark();
-    if (!wide.matches) { svg.innerHTML = ''; if (!sail) placeNarrow(); return; }
+    if (!wide.matches) { if (sail) drawNarrow(); else { svg.innerHTML = ''; if (!sail) placeNarrow(); } return; }
     lot.style.marginTop = lot.style.marginLeft = '';
     svg.setAttribute('viewBox', `0 0 ${board.clientWidth} ${board.clientHeight}`);
     const f = n => n.toFixed(1);
@@ -104,7 +126,7 @@
 
   rows();
   window.UI.onLang(rows);
-  let tm; addEventListener('resize', () => { clearTimeout(tm); tm = setTimeout(draw, 120); });
+  let tm, lastW = innerWidth; addEventListener('resize', () => { if (!wide.matches && innerWidth === lastW) return; lastW = innerWidth; clearTimeout(tm); tm = setTimeout(draw, 120); });
   wide.addEventListener('change', draw);
   document.fonts?.ready.then(draw);
   if (!img.complete) img.addEventListener('load', draw, { once: true });

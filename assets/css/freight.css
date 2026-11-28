@@ -469,3 +469,9 @@ html .in-who span { margin-left: 14px; }
   html .in-play { left: 70%; top: 30%; }
   html .in-who { order: 5; margin-top: 30px; } html .intro > .in-copy > .btn, html .in-copy .btn { order: 6; justify-self: start; }
 }
+
+/* the logo mark is a fixed square that never shrinks: with only a height, iPhone Safari sometimes laid it out at zero
+   width and the word slid over it */
+html .brand-mark { flex: none; width: 24px; height: 24px; }
+html .brand-mark svg { display: block; width: 24px; height: 24px; }
+html .brand-word { flex: none; white-space: nowrap; }

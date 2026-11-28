@@ -187,3 +187,11 @@ html .sail .sp-board { row-gap: 34px; }
   .sail .sp-label span { gap: 9px; font-size: 13.5px; letter-spacing: .1em; }
   .sail .sp-label span::before { width: 10px; height: 10px; }
 }
+
+/* phones: the goods flow too. The lines drop from the container into the card and run down its left edge to each
+   customer's tile (surplus.js drawNarrow); small containers ride them, a little slower than on desktop */
+@media (max-width: 1000px) {
+  html .sail .sp-flow { display: block; z-index: 2; }
+  html .sail .sp-flow .ln { stroke-width: 1.4; }
+  html .sail .sp-flow .pel.box { animation-duration: 3800ms; }
+}
