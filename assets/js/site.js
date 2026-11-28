@@ -180,6 +180,8 @@
       pr_cta: 'Fit-Check anfragen', pr_roi: 'Business Case rechnen',
       pr_est_rev: 'Ihr Jahresumsatz', pr_est_lic: 'Ihre Lizenz pro Jahr, geschätzt', pr_est_s: 'bei {v} Wert pro Jahr, vorsichtig gerechnet. Sie behalten {k}.',
       team: 'Gegründet in Berlin von', role_r: 'GTM, Enterprise Partnerships', role_b: 'CEO, Staff Forward Deployed Engineer',
+      bio_b: 'Über 20 Jahre zwischen Geschäft und Code. Führte acht Geschäftsbereiche mit 500 Millionen Dollar GuV im Konsumgüterbereich (Nike, Macy\'s, Quirky), danach Aufbau und Leitung von Engineering-Teams bei BCG Digital Ventures und Policygenius in New York. NYU Stern.',
+      bio_r: 'Baut KI-gestützte Vertriebsabläufe, die auf echten Vertriebssystemen laufen, mit einem Menschen, der jede kaufmännische Entscheidung freigibt. Erfahrung in digitaler Strategie (OMMAX), Financial Advisory (EY) und Data Science (Le Wagon). Bachelorarbeit über KI im deutschen Mittelstand. ESCP.',
       end_h: 'Der nächste Auftrag<br><span class="mute">liegt schon in Ihrem Postfach.</span>', end_try: 'Zurück zum Produkt',
       foot_tag: 'Bestand und Bedarf, automatisch abgeglichen. Für den B2B-Handel.', f_product: 'Produkt', f_company: 'Unternehmen', f_legal: 'Rechtliches',
       imprint: 'Impressum', privacy: 'Datenschutz', foot_note: 'Alle Daten in der Demo sind Beispieldaten.'
@@ -432,6 +434,8 @@
       pr_cta: 'Book a fit check', pr_roi: 'Run your business case',
       pr_est_rev: 'Your annual revenue', pr_est_lic: 'Your license per year, estimated', pr_est_s: 'at {v} of value a year, counted conservatively. You keep {k}.',
       team: 'Founded in Berlin by', role_r: 'GTM, Enterprise Partnerships', role_b: 'CEO, Staff Forward Deployed Engineer',
+      bio_b: '20+ years across business and code. Led eight business units and a 500 million dollar P&L in consumer products (Nike, Macy\'s, Quirky), then built and led engineering teams at BCG Digital Ventures and Policygenius in New York. NYU Stern.',
+      bio_r: 'Builds AI-supported sales workflows that run on live sales systems, with a person approving every commercial decision. Background in digital strategy (OMMAX), financial advisory (EY) and data science (Le Wagon). Bachelor thesis on putting AI to work in German SMEs. ESCP.',
       end_h: 'Your next order<br><span class="mute">is already in your inbox.</span>', end_try: 'Back to the product',
       foot_tag: 'Stock and demand, matched automatically. For B2B distribution.', f_product: 'Product', f_company: 'Company', f_legal: 'Legal',
       imprint: 'Imprint', privacy: 'Privacy', foot_note: 'All data in the demo is sample data.',
