@@ -7,7 +7,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const win = dlg.querySelector('.win'), el = win.querySelector('.win-app');
   const SCREENS = { today: { page: 'today' }, inbox: { page: 'inbox' }, offer: { case: 'C-113' }, opps: { page: 'opps' }, gpt: { page: 'gpt' } };
-  let app = null, toured = false;
+  let app = null, toured = false, deep = false; // deep: the last open came from a deep link (a screen), not from "Try the product"
 
   function open(screen) {
     if (!dlg.open) dlg.showModal();
@@ -15,13 +15,15 @@
     if (!app) app = window.BFApp.mount(el);
     const wait = reduced ? 0 : 320;
     if (screen) {
-      toured = true;
+      toured = true; deep = true;
       setTimeout(() => {
         app.open?.(screen);
         // the offer goes one step further, into the document view of that case's offer
         if (screen === SCREENS.offer) el.querySelector('[data-act="offer"]')?.click();
       }, wait);
     } else if (!toured) { toured = true; setTimeout(() => app.startTour(), wait); }
+    // "Try the product" after a deep link starts again on Today, not on the screen the link left open
+    else if (deep) { deep = false; setTimeout(() => app.open?.(SCREENS.today), wait); }
   }
 
   document.addEventListener('click', e => {
