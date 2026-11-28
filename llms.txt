@@ -33,7 +33,7 @@ All prices net (excl. VAT in Europe, excl. sales tax in the US). Every paid step
 - [DemandMatch (Deutsch)](https://demandmatch.io/): the full product page in German (main language)
 - [English page as Markdown](https://demandmatch.io/en/index.md): the same content as plain Markdown
 - [German page as Markdown](https://demandmatch.io/index.md): the same content as plain Markdown
-- [For sales teams (English)](https://demandmatch.io/en/sales/): what DemandMatch does for heads of sales, account executives and key account managers
+- [For sales teams (English)](https://demandmatch.io/en/sales/): what DemandMatch does for heads of sales and account executives
 - [Für den Vertrieb (Deutsch)](https://demandmatch.io/vertrieb/): the same page in German
 
 ## Optional

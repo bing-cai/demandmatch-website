@@ -1,9 +1,9 @@
 # DemandMatch: Das Monatsziel früher knacken. Die Routine läuft auf Autopilot.
 
-> Für Vertriebsleitung, Account Executives und Key Account Manager im B2B-Handel: DemandMatch liest jede Anfrage, findet Material, Lager und Preis und bereitet das Angebot vor. Sie geben frei und verkaufen.
+> Für Vertriebsleitung und Account Executives im B2B-Handel: DemandMatch liest jede Anfrage, findet Material, Lager und Preis und bereitet das Angebot vor. Sie geben frei und verkaufen.
 
 DemandMatch liest jede Anfrage, findet Material, Lager und Preis und bereitet das Angebot vor. Sie lesen, geben frei und verbringen Ihre Zeit mit Kunden statt mit SAP, Excel und Preislisten.
-Für Vertriebsleitung, Account Executives und Key Account Manager.
+Für Vertriebsleitung und Account Executives.
 
 Seite: https://demandmatch.io/vertrieb/ · Hauptseite: https://demandmatch.io/ · Kontakt: hello@demandmatch.io
 
@@ -88,13 +88,6 @@ Der Nachmittag gehört den Gesprächen, die Aufträge bringen: Besuche, Verhandl
 - Reine Preisanfragen kommen mit fertiger Staffel zurück.
 - Fehlt etwas, sagt DemandMatch, was: „Kein Liefertermin genannt“, statt zu raten.
 - Sie bleiben in Outlook: Der Entwurf liegt dort, Sie senden.
-
-### Key Account Manager: Ihre Schlüsselkunden, nie vergessen.
-
-- Sie sehen, wann ein Kunde wieder bestellen müsste und wann eine Bestellung überfällig ist.
-- Abrufe aus dem Rahmenvertrag kommen zum Vertragspreis, ohne Nachschlagen.
-- Wird Ware knapp, zählen die Abrufe Ihrer Kunden im Verteilvorschlag mit.
-- Ist ein Kunde auf seine Type festgelegt, bietet DemandMatch ihm keine gleichwertige an.
 
 ## Fragen aus dem Vertrieb.
 

@@ -3,7 +3,7 @@
    1. The list for today: Approve turns a row into "Draft in Outlook" and the open count goes down.
    2. The offer screen (#trust): "Change a number in the draft" swaps the price in our reply for one the offer does not
       contain; the check fails and approval locks, as in the product. Pressed again, it is undone.
-   3. The three roles (#roles): a tab viewer like the Germany one; hover (fine pointer, short intent delay) or click,
+   3. The two roles (#roles): a tab viewer like the Germany one; hover (fine pointer, short intent delay) or click,
       arrow keys / Home / End move between them; the painting pans to a new place for each role.
    All text comes from site.js (s_*), so the page stays in one language per file. */
 (() => {
@@ -71,7 +71,7 @@
   if (roles) {
     const tabs = [...roles.querySelectorAll('.s-role-tab')], panels = [...roles.querySelectorAll('.s-role-p')], art = roles.querySelector('.s-role-art');
     // where the painting looks for each role: across the river works, left to right
-    const PAN = [['15% 35%', 1.22], ['55% 30%', 1.3], ['90% 45%', 1.26]];
+    const PAN = [['15% 35%', 1.22], ['55% 30%', 1.3]];
     let cur = 0, hoverT;
     const pan = i => { art.style.setProperty('--pan', PAN[i][0]); art.style.setProperty('--zoom', PAN[i][1]); };
     function show(i, focus) {

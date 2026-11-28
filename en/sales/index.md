@@ -1,9 +1,9 @@
 # DemandMatch: Beat your quota sooner. The busywork runs on autopilot.
 
-> For heads of sales, account executives and key account managers in B2B distribution: DemandMatch reads every request, finds the material, warehouse and price and prepares the offer. You approve and sell.
+> For heads of sales and account executives in B2B distribution: DemandMatch reads every request, finds the material, warehouse and price and prepares the offer. You approve and sell.
 
 DemandMatch reads every request, finds the material, warehouse and price, and prepares the offer. You read it, approve it, and spend your time with customers instead of SAP, Excel and price lists.
-For heads of sales, account executives and key account managers.
+For heads of sales and account executives.
 
 Page: https://demandmatch.io/en/sales/ · Main page: https://demandmatch.io/en/ · Contact: hello@demandmatch.io
 
@@ -88,13 +88,6 @@ The afternoon belongs to the conversations that win orders: visits, negotiations
 - Price-only requests come back with the scale ready.
 - If something is missing, DemandMatch says what, “No delivery date given”, instead of guessing.
 - You stay in Outlook: the draft lands there, you send it.
-
-### Key account manager: Your key accounts, never forgotten.
-
-- You see when an account should order again, and when an order is overdue.
-- Call-offs come at the framework contract price, no looking it up.
-- When material runs short, your accounts’ call-offs count in the allocation proposal.
-- If an account is locked to its grade, DemandMatch will not offer it an equivalent.
 
 ## Questions from sales.
 
